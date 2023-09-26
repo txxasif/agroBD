@@ -5,34 +5,52 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const initialValue = {
-    quantity: 0,
-    address: ''
+
+const SuccessToaster = () => {
+    return (
+        <div className="toast toast-end">
+            <div className="alert alert-success">
+                <span>Order Placed Successfully.</span>
+            </div>
+        </div>
+    )
 }
 
+const initialState = {
+    address: "",
+    quantity: 0,
+}
 export default function Page({ params }) {
     const [data, setProduct] = useState(null);
-    const [cartData, setCartData] = useState(initialValue);
-    const [isDone, setDone] = useState(true)
+    const [cartData, setCartData] = useState(initialState);
+    const [isDone, setDone] = useState(false);
     const fetcher = async (url) => await axios.get(url).then((response) => {
         console.log(response.data.data);
-        setProduct(response.data.data)
+        setProduct(response.data.data);
     });
     const userId = useSelector(currentUserIdSelector);
     const productId = params.productId;
     const url = `/api/product/${productId}`;
+    const handleRender = () => {
+        setTimeout(() => {
+            setDone(false)
+        }, 2000);
+    }
     const addToCart = async () => {
         const body = {
-            uid: userId,
+            seller: data.seller,
+            buyer: userId,
             quantity: cartData.quantity,
-            address: cartData.address,
+            deliveryAddress: cartData.address,
             productId: productId,
         }
         console.log(body);
         try {
-            const response = await axios.post('/api/cart/add', body);
+            // const response = await axios.post('/api/order/placeorder', body);
             setDone(true);
-            console.log(response, 'hi form server');
+            handleRender();
+
+            // console.log(response, 'hi form server');
 
         } catch (err) {
             setDone(false);
@@ -60,11 +78,14 @@ export default function Page({ params }) {
                     Available quantity: {data.quantity}
                 </h1>
                 <label>Enter Delivery Address:</label>
-                <input type="text" name="address" value={data.address} onChange={handleChange} />
+                <input type="text" name="address" value={cartData.address} onChange={handleChange} />
                 <label>Enter quantity:</label>
-                <input type="number" name="quantity" value={data.quantity} onChange={handleChange} />
+                <input type="number" name="quantity" value={cartData.quantity} onChange={handleChange} />
                 <button onClick={addToCart}>Place Order</button>
-                {isDone !== null ? isDone ? <h1>Done!</h1> : <h1>something went wrong</h1> : null}
+                {
+                    isDone ? <SuccessToaster /> : null
+                }
+
             </div>
         </div>
     )
