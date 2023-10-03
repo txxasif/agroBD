@@ -18,6 +18,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { SelectGroup } from "@radix-ui/react-select";
 import { useSession } from "next-auth/react";
 const initialValue = {
     title: "",
@@ -50,6 +51,7 @@ export default function CardWithForm() {
     const unit = ["কেজি", "লিটার", "পিস", "বস্তা"];
     const handleChange = (event) => {
         const { name, value, type, files } = event.target;
+        console.log(name, value, type, files);
         setForm((prevValues) => ({
             ...prevValues,
             [name]: type === "file" ? files[0] : value,
@@ -98,6 +100,7 @@ export default function CardWithForm() {
                                     name="description"
                                     value={form.description}
                                     onChange={handleChange}
+                                    type="text"
                                     required
                                 />
                             </div>
@@ -119,15 +122,16 @@ export default function CardWithForm() {
                                         value={form.category}
                                         onChange={handleChange}
                                         required
+
                                     >
-                                        <SelectTrigger id="framework">
+                                        <SelectTrigger >
                                             <SelectValue placeholder="Select" />
                                         </SelectTrigger>
-                                        <SelectContent position="popper">
-                                            {category.map((cat) => (
-                                                <SelectItem value={cat}>{cat}</SelectItem>
-                                            ))}
-                                        </SelectContent>
+                                        <SelectGroup>
+                                            <SelectContent >
+                                                {category.map((cat) => <SelectItem value={cat}>{cat}</SelectItem>)}
+                                            </SelectContent>
+                                        </SelectGroup>
                                     </Select>
                                 </div>
                                 <div className="flex flex-col space-y-2">

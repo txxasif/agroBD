@@ -17,7 +17,6 @@ const defaultValue = {
     password: ''
 }
 export default function LogIn() {
-    const isErrorMessage = useSelector(currentUserErrorTextSelector);
     const [form, setForm] = useState(defaultValue);
     const { session, status, data } = useSession();
     const [error, setError] = useState(false);
@@ -25,8 +24,6 @@ export default function LogIn() {
     const handleChange = e => {
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
-
-
     }
     const handleSubmit = async e => {
 

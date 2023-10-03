@@ -1,7 +1,6 @@
 import Header from "@/components/header/header";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import ReduxProvider from "@/store/provider";
 import ThemeProviders from "@/components/themeprovide/provider";
 import ReactQueryProvider from "@/providers/reactQuery";
 import { NextAuthProvider } from "@/providers/nextAuth";
@@ -19,10 +18,8 @@ export default function RootLayout({ children }) {
         <NextAuthProvider>
           <ReactQueryProvider>
             <ThemeProviders>
-              <ReduxProvider>
-                <Header />
-                {children}
-              </ReduxProvider>
+              <Header />
+              {children}
             </ThemeProviders>
           </ReactQueryProvider>
         </NextAuthProvider>

@@ -16,11 +16,14 @@ export default function Profile() {
     <>
       {
         userData ? (
-          <div className="grid md:grid-cols-8 gap-3">
-            <AboutSection className="w-fit col-start-2 col-end-4  mx-auto" />
-            <CreatePost className="col-span-3" />
-            <Posts className="row-start-2" />
-          </div>
+          <>
+            <div className="grid md:grid-cols-8 gap-3">
+              <AboutSection className="w-fit col-start-2 col-end-4  mx-auto" />
+              <CreatePost className="col-span-3" />
+            </div>
+            <div className="w-full border my-2"></div>
+            <Posts className="w-full mx-auto" />
+          </>
         ) : 'Please Login'
       }
     </>

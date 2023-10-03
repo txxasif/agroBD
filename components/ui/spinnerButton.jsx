@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "@/components/ui/button"
 import { ReloadIcon } from "@radix-ui/react-icons"
-export const SpinnerButton = ({ isLoading, name, ...props }) => {
+export const SpinnerButton = ({ onClick, isLoading, name, ...props }) => {
     return (
         <>
             {
@@ -9,7 +9,7 @@ export const SpinnerButton = ({ isLoading, name, ...props }) => {
                     Please wait
                 </Button>) :
                     (
-                        <Button className=" w-full" type="submit">{name}</Button>
+                        <Button className=" w-full" onClick={onClick} type="submit">{name}</Button>
                     )
             }
         </>

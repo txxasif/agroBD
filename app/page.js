@@ -4,22 +4,25 @@ import axios from "axios";
 export default async function Page({ searchParams }) {
   const page = searchParams.page || 1;
   const data = await axios
-    .get(`http://localhost:3000/api/home?page=${page}`)
+    .get(`/api/home?page=${page}`)
     .then((res) => res.data.data);
-  if (!data) {
-    return <h1>loading</h1>;
-  }
+
+  // const { data, isLoading } = useQuery({
+  //   queryFn: fetchData,
+  //   queryKey: ["home"],
+  // });
+
   console.log(data);
   return (
     <div className="h-screen">
       <div>
-        {data.postPopulate.map((user) => {
+        {data?.postPopulate.map((user) => {
           return (
             <PostCard key={user._id} seller={user.sellerData} post={user} />
           );
         })}
       </div>
-      <Pagination totalPages={data.totalPages} currentPage={page} />
+      <Pagination totalPages={data?.totalPages} currentPage={page} />
     </div>
   );
 }
