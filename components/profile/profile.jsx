@@ -8,26 +8,21 @@ import { useSelector } from "react-redux";
 import AboutSection from "../aboutSection/aboutSection";
 import CreatePost from "../createPost/createPost";
 import Posts from "../userPosts/userPosts";
+import { useSession } from "next-auth/react";
 export default function Profile() {
-  const userData = useSelector(currentUserDataSelector);
+  const { data } = useSession()
+  const userData = data?.user;
   return (
-    <div>
+    <>
       {
         userData ? (
-          <div>
-            <div className="flex">
-              <AboutSection user={userData} />
-              <CreatePost />
-            </div>
-            <div className={styles.container}>
-              <div className={styles.container2}>
-                <Posts user={userData} />
-              </div>
-
-            </div>
+          <div className="grid md:grid-cols-8 gap-3">
+            <AboutSection className="w-fit col-start-2 col-end-4  mx-auto" />
+            <CreatePost className="col-span-3" />
+            <Posts className="row-start-2" />
           </div>
         ) : 'Please Login'
       }
-    </div>
+    </>
   );
 }

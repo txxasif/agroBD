@@ -11,7 +11,7 @@ export default async function Page({ searchParams }) {
   }
   console.log(data);
   return (
-    <div>
+    <div className="h-screen">
       <div>
         {data.postPopulate.map((user) => {
           return (

@@ -23,9 +23,7 @@ export async function checkLogin(user) {
   let status = null;
   let data = null;
   try {
-    const response = await User.findOne({ ...user }).select(
-      "-password -posts -cart"
-    );
+    const response = await User.findOne({ ...user }).select("-password");
 
     if (response) {
       console.log(response);

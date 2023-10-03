@@ -7,7 +7,7 @@ export async function POST(req) {
   const body = await req.json();
   console.log(body);
   const response = await checkLogin(body);
-  console.log(response);
+  // console.log(response);
   if (response.status) {
     return NextResponse.json(
       { message: "Login Success", data: response.data },

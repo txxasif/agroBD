@@ -1,5 +1,10 @@
+import { loginUserHelper } from "@/helper/registration/registration.helper";
+import connectDB from "@/models/mongoose";
+import User from "@/models/user.schema";
+import axios from "axios";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { use } from "react";
 
 export const authOptions = {
   providers: [
@@ -8,29 +13,37 @@ export const authOptions = {
       credentials: {},
 
       async authorize(credentials) {
+        await connectDB();
         const { email, password } = credentials;
-
-        try {
-          await connectMongoDB();
-          const user = await User.findOne({ email });
-
-          if (!user) {
-            return null;
-          }
-
-          const passwordsMatch = await bcrypt.compare(password, user.password);
-
-          if (!passwordsMatch) {
-            return null;
-          }
-
+        const user = await User.findOne({ email, password }).select(
+          "-password -posts -cart"
+        );
+        console.log(user, "auth");
+        if (user) {
           return user;
-        } catch (error) {
-          console.log("Error: ", error);
+        } else {
+          return null;
         }
       },
     }),
   ],
+  callbacks: {
+    async session({ session }) {
+      console.log("session", session);
+      const user = await User.findOne({ email: session.user.email }).select(
+        "-password -posts -cart"
+      );
+
+      return {
+        user: {
+          _id: user._id,
+          email: user.email,
+          name: user.name,
+          photo: user.photo,
+        },
+      };
+    },
+  },
   session: {
     strategy: "jwt",
   },

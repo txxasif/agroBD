@@ -1,12 +1,14 @@
 'use client'
 import { useEffect, useState } from "react";
 import PostCard from "../postCard/postCard"
-export default function Posts({ user }) {
+import { useSession } from "next-auth/react";
+export default function Posts(props) {
   const [data, setData] = useState(null);
-  console.log(user, 'userpos');
+  const { data: session } = useSession();
+  const user = session.user;
   const seller = {
-    name: user.name,
-    photo: user.photo
+    name: user?.name,
+    photo: user?.photo
   }
   useEffect(() => {
     let getData = async () => {
@@ -26,8 +28,8 @@ export default function Posts({ user }) {
 
   return (
 
-    <div>
-      <h1>{`posts of ${user.name}`}</h1>
+    <div className="mt-1" {...props}>
+
       {
         data && data.posts.map((post) => (<PostCard key={post._id} post={post} seller={seller} />))
       }

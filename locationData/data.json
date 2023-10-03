@@ -1,0 +1,2352 @@
+{
+    "data": [
+      {
+        "district": "Barguna",
+        "districtNameBangla": "বরগুনা",
+        "upazilla": [
+          {
+            "upazillaName": "Barguna Sadar",
+            "upazillaNameBangla": "বরগুনা সদর"
+          },
+          {
+            "upazillaName": "Taltali",
+            "upazillaNameBangla": "তালতলী"
+          },
+          {
+            "upazillaName": "Bamna",
+            "upazillaNameBangla": "বামনা"
+          },
+          {
+            "upazillaName": "Amtali",
+            "upazillaNameBangla": "আমতলী"
+          },
+          {
+            "upazillaName": "Betagi",
+            "upazillaNameBangla": "বেতাগী"
+          },
+          {
+            "upazillaName": "Patharghata",
+            "upazillaNameBangla": "পাথরঘাটা"
+          }
+        ]
+      },
+      {
+        "district": "Barishal",
+        "districtNameBangla": "বরিশাল",
+        "upazilla": [
+          {
+            "upazillaName": "Hizla",
+            "upazillaNameBangla": "হিজলা"
+          },
+          {
+            "upazillaName": "Mehendiganj",
+            "upazillaNameBangla": "মেহেন্দিগঞ্জ"
+          },
+          {
+            "upazillaName": "Bakerganj",
+            "upazillaNameBangla": "বাকেরগঞ্জ"
+          },
+          {
+            "upazillaName": "Gaurnadi",
+            "upazillaNameBangla": "গৌরনদী"
+          },
+          {
+            "upazillaName": "Muladi",
+            "upazillaNameBangla": "মুলাদি"
+          },
+          {
+            "upazillaName": "Wazirpur",
+            "upazillaNameBangla": "উজিরপুর"
+          },
+          {
+            "upazillaName": "Banaripara",
+            "upazillaNameBangla": "বানারীপাড়া"
+          },
+          {
+            "upazillaName": "Agailjhara",
+            "upazillaNameBangla": "আগাইলঝাড়া"
+          },
+          {
+            "upazillaName": "Babuganj",
+            "upazillaNameBangla": "বাবুগঞ্জ"
+          },
+          {
+            "upazillaName": "Barisal Sadar",
+            "upazillaNameBangla": "বরিশাল সদর"
+          }
+        ]
+      },
+      {
+        "district": "Bhola",
+        "districtNameBangla": "ভোলা",
+        "upazilla": [
+          {
+            "upazillaName": "Bhola Sadar",
+            "upazillaNameBangla": "ভোলা সদর"
+          },
+          {
+            "upazillaName": "Manpura",
+            "upazillaNameBangla": "মনপুরা"
+          },
+          {
+            "upazillaName": "Lalmohan",
+            "upazillaNameBangla": "লালমোহন"
+          },
+          {
+            "upazillaName": "Char Fasson",
+            "upazillaNameBangla": "চর ফাসন"
+          },
+          {
+            "upazillaName": "Burhanuddin",
+            "upazillaNameBangla": "বুরহানউদ্দিন"
+          },
+          {
+            "upazillaName": "Tazumuddin",
+            "upazillaNameBangla": "তজুমদ্দিন"
+          },
+          {
+            "upazillaName": "Daulatkhan",
+            "upazillaNameBangla": "দৌলতখান"
+          }
+        ]
+      },
+      {
+        "district": "Jhalokati",
+        "districtNameBangla": "ঝালকাঠি",
+        "upazilla": [
+          {
+            "upazillaName": "Kathalia",
+            "upazillaNameBangla": "কাঁঠালিয়া"
+          },
+          {
+            "upazillaName": "Rajapur",
+            "upazillaNameBangla": "রাজাপুর"
+          },
+          {
+            "upazillaName": "Jhalokati Sadar",
+            "upazillaNameBangla": "ঝালকাঠি সদর"
+          },
+          {
+            "upazillaName": "Nalchhiti",
+            "upazillaNameBangla": "নলছিটি"
+          }
+        ]
+      },
+      {
+        "district": "Patuakhali",
+        "districtNameBangla": "পটুয়াখালী",
+        "upazilla": [
+          {
+            "upazillaName": "Kalapara",
+            "upazillaNameBangla": "কলাপাড়া"
+          },
+          {
+            "upazillaName": "Patuakhali Sadar",
+            "upazillaNameBangla": "পটুয়াখালী সদর"
+          },
+          {
+            "upazillaName": "Dumki",
+            "upazillaNameBangla": "দুমকি"
+          },
+          {
+            "upazillaName": "Dashmina",
+            "upazillaNameBangla": "দশমিনা"
+          },
+          {
+            "upazillaName": "Galachipa",
+            "upazillaNameBangla": "গলাচিপা"
+          },
+          {
+            "upazillaName": "Rangabali",
+            "upazillaNameBangla": "রাঙ্গাবালি"
+          },
+          {
+            "upazillaName": "Bauphal",
+            "upazillaNameBangla": "বাউফল"
+          },
+          {
+            "upazillaName": "Mirzaganj",
+            "upazillaNameBangla": "মির্জাগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Pirojpur",
+        "districtNameBangla": "পিরোজপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Bhandaria",
+            "upazillaNameBangla": "ভান্ডারিয়া"
+          },
+          {
+            "upazillaName": "Nazirpur",
+            "upazillaNameBangla": "নাজিরপুর"
+          },
+          {
+            "upazillaName": "Mathbaria",
+            "upazillaNameBangla": "মঠবাড়িয়া"
+          },
+          {
+            "upazillaName": "Indurkani",
+            "upazillaNameBangla": "ইন্দুরকানি"
+          },
+          {
+            "upazillaName": "Pirojpur Sadar",
+            "upazillaNameBangla": "পিরোজপুর সদর"
+          },
+          {
+            "upazillaName": "Kawkhali",
+            "upazillaNameBangla": "কাউখালী"
+          },
+          {
+            "upazillaName": "Nesarabad (Swarupkati)",
+            "upazillaNameBangla": "নেছারাবাদ (স্বরূপকাটি)"
+          }
+        ]
+      },
+      {
+        "district": "Bandarban",
+        "districtNameBangla": "বান্দরবান",
+        "upazilla": [
+          {
+            "upazillaName": "Ali Kadam",
+            "upazillaNameBangla": "আলী কদম"
+          },
+          {
+            "upazillaName": "Thanchi",
+            "upazillaNameBangla": "থানচি"
+          },
+          {
+            "upazillaName": "Lama",
+            "upazillaNameBangla": "লামা"
+          },
+          {
+            "upazillaName": "Bandarban Sadar",
+            "upazillaNameBangla": "বান্দরবান সদর"
+          },
+          {
+            "upazillaName": "Rowangchhari",
+            "upazillaNameBangla": "রোয়াংছড়ি"
+          },
+          {
+            "upazillaName": "Naikhongchhari",
+            "upazillaNameBangla": "নাইক্ষংছড়ি"
+          },
+          {
+            "upazillaName": "Ruma",
+            "upazillaNameBangla": "রুমা"
+          }
+        ]
+      },
+      {
+        "district": "Brahmanbaria",
+        "districtNameBangla": "ব্রাহ্মণবাড়িয়া",
+        "upazilla": [
+          {
+            "upazillaName": "Akhaura",
+            "upazillaNameBangla": "আখাউড়া"
+          },
+          {
+            "upazillaName": "Nasirnagar",
+            "upazillaNameBangla": "নাসিরনগর"
+          },
+          {
+            "upazillaName": "Bancharampur",
+            "upazillaNameBangla": "বাঞ্ছারামপুর"
+          },
+          {
+            "upazillaName": "Sarail",
+            "upazillaNameBangla": "সরাইল"
+          },
+          {
+            "upazillaName": "Ashuganj",
+            "upazillaNameBangla": "আশুগঞ্জ"
+          },
+          {
+            "upazillaName": "Bijoynagar",
+            "upazillaNameBangla": "বিজয়নগর"
+          },
+          {
+            "upazillaName": "Nabinagar",
+            "upazillaNameBangla": "নবীনগর"
+          },
+          {
+            "upazillaName": "Kasba",
+            "upazillaNameBangla": "কসবা"
+          },
+          {
+            "upazillaName": "Brahmanbaria Sadar",
+            "upazillaNameBangla": "ব্রাহ্মণবাড়িয়া সদর"
+          }
+        ]
+      },
+      {
+        "district": "Chandpur",
+        "districtNameBangla": "চাঁদপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Haziganj",
+            "upazillaNameBangla": "হাজীগঞ্জ"
+          },
+          {
+            "upazillaName": "Faridganj",
+            "upazillaNameBangla": "ফরিদগঞ্জ"
+          },
+          {
+            "upazillaName": "Matlab Dakshin",
+            "upazillaNameBangla": "মতলব দক্ষিণ"
+          },
+          {
+            "upazillaName": "Chandpur Sadar",
+            "upazillaNameBangla": "চাঁদপুর সদর"
+          },
+          {
+            "upazillaName": "Kachua",
+            "upazillaNameBangla": "কচুয়া"
+          },
+          {
+            "upazillaName": "Haimchar",
+            "upazillaNameBangla": "হাইমচর"
+          },
+          {
+            "upazillaName": "Shahrasti",
+            "upazillaNameBangla": "শাহরাস্তি"
+          },
+          {
+            "upazillaName": "Matlab Uttar",
+            "upazillaNameBangla": "মতলব উত্তর"
+          }
+        ]
+      },
+      {
+        "district": "Chattogram",
+        "districtNameBangla": "চট্টগ্রাম",
+        "upazilla": [
+          {
+            "upazillaName": "Rangunia",
+            "upazillaNameBangla": "রাঙ্গুনিয়া"
+          },
+          {
+            "upazillaName": "Sitakunda",
+            "upazillaNameBangla": "সীতাকুণ্ড"
+          },
+          {
+            "upazillaName": "Boalkhali",
+            "upazillaNameBangla": "বোয়ালখালী"
+          },
+          {
+            "upazillaName": "Patiya",
+            "upazillaNameBangla": "পটিয়া"
+          },
+          {
+            "upazillaName": "Banshkhali",
+            "upazillaNameBangla": "বাঁশখালী"
+          },
+          {
+            "upazillaName": "Karnaphuli",
+            "upazillaNameBangla": "কর্ণফুলী"
+          },
+          {
+            "upazillaName": "Lohagara",
+            "upazillaNameBangla": "লোহাগাড়া"
+          },
+          {
+            "upazillaName": "Hathazari",
+            "upazillaNameBangla": "হাটহাজারী"
+          },
+          {
+            "upazillaName": "Mirsharai",
+            "upazillaNameBangla": "মিরসরাই"
+          },
+          {
+            "upazillaName": "Sandwip",
+            "upazillaNameBangla": "সন্দ্বীপ"
+          },
+          {
+            "upazillaName": "Raozan",
+            "upazillaNameBangla": "রাউজান"
+          },
+          {
+            "upazillaName": "Chandanaish",
+            "upazillaNameBangla": "চন্দনাইশ"
+          },
+          {
+            "upazillaName": "Fatikchhari",
+            "upazillaNameBangla": "ফটিকছড়ি"
+          },
+          {
+            "upazillaName": "Anwara",
+            "upazillaNameBangla": "আনোয়ারা"
+          },
+          {
+            "upazillaName": "Satkania",
+            "upazillaNameBangla": "সাতকানিয়া"
+          }
+        ]
+      },
+      {
+        "district": "Cox's Bazar",
+        "districtNameBangla": "কক্সবাজার",
+        "upazilla": [
+          {
+            "upazillaName": "Maheshkhali",
+            "upazillaNameBangla": "মহেশখালী"
+          },
+          {
+            "upazillaName": "Chakaria",
+            "upazillaNameBangla": "চকরিয়া"
+          },
+          {
+            "upazillaName": "Cox's Bazar Sadar",
+            "upazillaNameBangla": "কক্সবাজার সদর"
+          },
+          {
+            "upazillaName": "Ukhia",
+            "upazillaNameBangla": "উখিয়া"
+          },
+          {
+            "upazillaName": "Pekua",
+            "upazillaNameBangla": "পেকুয়া"
+          },
+          {
+            "upazillaName": "Ramu",
+            "upazillaNameBangla": "রামু"
+          },
+          {
+            "upazillaName": "Teknaf",
+            "upazillaNameBangla": "টেকনাফ"
+          },
+          {
+            "upazillaName": "Kutubdia",
+            "upazillaNameBangla": "কুতুবদিয়া"
+          }
+        ]
+      },
+      {
+        "district": "Cumilla",
+        "districtNameBangla": "কুমিল্লা",
+        "upazilla": [
+          {
+            "upazillaName": "Titas",
+            "upazillaNameBangla": "তিতাস"
+          },
+          {
+            "upazillaName": "Monohargonj",
+            "upazillaNameBangla": "মনোহরগঞ্জ"
+          },
+          {
+            "upazillaName": "Chandina",
+            "upazillaNameBangla": "চান্দিনা"
+          },
+          {
+            "upazillaName": "Cumilla Adarsha Sadar",
+            "upazillaNameBangla": "কুমিল্লা আদর্শ সদর"
+          },
+          {
+            "upazillaName": "Meghna",
+            "upazillaNameBangla": "মেঘনা"
+          },
+          {
+            "upazillaName": "Nangalkot",
+            "upazillaNameBangla": "নাঙ্গলকোট"
+          },
+          {
+            "upazillaName": "Chauddagram",
+            "upazillaNameBangla": "চৌদ্দগ্রাম"
+          },
+          {
+            "upazillaName": "Barura",
+            "upazillaNameBangla": "বরুড়া"
+          },
+          {
+            "upazillaName": "Cumilla Sadar Dakshin",
+            "upazillaNameBangla": "কুমিল্লা সদর দক্ষিণ"
+          },
+          {
+            "upazillaName": "Laksam",
+            "upazillaNameBangla": "লাকসাম"
+          },
+          {
+            "upazillaName": "Daudkandi",
+            "upazillaNameBangla": "দাউদকান্দি"
+          },
+          {
+            "upazillaName": "Homna",
+            "upazillaNameBangla": "হোমনা"
+          },
+          {
+            "upazillaName": "Burichang",
+            "upazillaNameBangla": "বুড়িচং"
+          },
+          {
+            "upazillaName": "Debidwar",
+            "upazillaNameBangla": "দেবিদ্বার"
+          },
+          {
+            "upazillaName": "Muradnagar",
+            "upazillaNameBangla": "মুরাদনগর"
+          },
+          {
+            "upazillaName": "Brahmanpara",
+            "upazillaNameBangla": "ব্রাহ্মণপাড়া"
+          },
+          {
+            "upazillaName": "Lalmai",
+            "upazillaNameBangla": "লালমাই"
+          }
+        ]
+      },
+      {
+        "district": "Feni",
+        "districtNameBangla": "ফেনী",
+        "upazilla": [
+          {
+            "upazillaName": "Fulgazi",
+            "upazillaNameBangla": "ফুলগাজী"
+          },
+          {
+            "upazillaName": "Parshuram",
+            "upazillaNameBangla": "পরশুরাম"
+          },
+          {
+            "upazillaName": "Feni Sadar",
+            "upazillaNameBangla": "ফেনী সদর"
+          },
+          {
+            "upazillaName": "Sonagazi",
+            "upazillaNameBangla": "সোনাগাজী"
+          },
+          {
+            "upazillaName": "Daganbhuiyan",
+            "upazillaNameBangla": "দাগনভূঁইয়া"
+          },
+          {
+            "upazillaName": "Chhagalnaiya",
+            "upazillaNameBangla": "ছাগলনাইয়া"
+          }
+        ]
+      },
+      {
+        "district": "Khagrachari",
+        "districtNameBangla": "খাগড়াছড়ি",
+        "upazilla": [
+          {
+            "upazillaName": "Lakshmichhari",
+            "upazillaNameBangla": "লক্ষ্মীছড়ি"
+          },
+          {
+            "upazillaName": "Panchhari",
+            "upazillaNameBangla": "পানছড়ি"
+          },
+          {
+            "upazillaName": "Mahalchhari",
+            "upazillaNameBangla": "মহালছড়ি"
+          },
+          {
+            "upazillaName": "Dighinala",
+            "upazillaNameBangla": "দীঘিনালা"
+          },
+          {
+            "upazillaName": "Manikchhari",
+            "upazillaNameBangla": "মানিকছড়ি"
+          },
+          {
+            "upazillaName": "Matiranga",
+            "upazillaNameBangla": "মাটিরাঙ্গা"
+          },
+          {
+            "upazillaName": "Ramgarh",
+            "upazillaNameBangla": "রামগড়"
+          },
+          {
+            "upazillaName": "Khagrachhari Sadar",
+            "upazillaNameBangla": "খাগড়াছড়ি সদর"
+          }
+        ]
+      },
+      {
+        "district": "Lakshmipur",
+        "districtNameBangla": "লক্ষ্মীপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Raipur",
+            "upazillaNameBangla": "রায়পুর"
+          },
+          {
+            "upazillaName": "Ramganj",
+            "upazillaNameBangla": "রামগঞ্জ"
+          },
+          {
+            "upazillaName": "Lakshmipur Sadar",
+            "upazillaNameBangla": "লক্ষ্মীপুর সদর"
+          },
+          {
+            "upazillaName": "Ramgati",
+            "upazillaNameBangla": "রামগতি"
+          },
+          {
+            "upazillaName": "Kamalnagar",
+            "upazillaNameBangla": "কমলনগর"
+          }
+        ]
+      },
+      {
+        "district": "Noakhali",
+        "districtNameBangla": "নোয়াখালী",
+        "upazilla": [
+          {
+            "upazillaName": "Subarnachar",
+            "upazillaNameBangla": "সুবর্ণচর"
+          },
+          {
+            "upazillaName": "Hatiya",
+            "upazillaNameBangla": "হাতিয়া"
+          },
+          {
+            "upazillaName": "Kabirhat",
+            "upazillaNameBangla": "কবিরহাট"
+          },
+          {
+            "upazillaName": "Noakhali Sadar",
+            "upazillaNameBangla": "নোয়াখালী সদর"
+          },
+          {
+            "upazillaName": "Begumganj",
+            "upazillaNameBangla": "বেগমগঞ্জ"
+          },
+          {
+            "upazillaName": "Senbagh",
+            "upazillaNameBangla": "সেনবাগ"
+          },
+          {
+            "upazillaName": "Sonaimuri",
+            "upazillaNameBangla": "সোনাইমুড়ি"
+          },
+          {
+            "upazillaName": "Chatkhil",
+            "upazillaNameBangla": "চাটখিল"
+          },
+          {
+            "upazillaName": "Companiganj",
+            "upazillaNameBangla": "কোম্পানীগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Rangamati",
+        "districtNameBangla": "রাঙামাটি",
+        "upazilla": [
+          {
+            "upazillaName": "Rajasthali",
+            "upazillaNameBangla": "রাজস্থলী"
+          },
+          {
+            "upazillaName": "Kawkhali",
+            "upazillaNameBangla": "কাউখালী"
+          },
+          {
+            "upazillaName": "Belaichhari",
+            "upazillaNameBangla": "বেলাইছড়ি"
+          },
+          {
+            "upazillaName": "Kaptai",
+            "upazillaNameBangla": "কাপ্তাই"
+          },
+          {
+            "upazillaName": "Barkal",
+            "upazillaNameBangla": "বরকল"
+          },
+          {
+            "upazillaName": "Juraichhari",
+            "upazillaNameBangla": "জুরাইছড়ি"
+          },
+          {
+            "upazillaName": "Naniyachar",
+            "upazillaNameBangla": "নানিয়াচর"
+          },
+          {
+            "upazillaName": "Rangamati Sadar",
+            "upazillaNameBangla": "রাঙ্গামাটি সদর"
+          },
+          {
+            "upazillaName": "Bagaichhari",
+            "upazillaNameBangla": "বাঘাইছড়ি"
+          },
+          {
+            "upazillaName": "Langadu",
+            "upazillaNameBangla": "লংগাডু"
+          }
+        ]
+      },
+      {
+        "district": "Dhaka",
+        "districtNameBangla": "ঢাকা",
+        "upazilla": [
+          {
+            "upazillaName": "Dhamrai",
+            "upazillaNameBangla": "ধামরাই"
+          },
+          {
+            "upazillaName": "Dohar",
+            "upazillaNameBangla": "দোহার"
+          },
+          {
+            "upazillaName": "Savar",
+            "upazillaNameBangla": "সাভার"
+          },
+          {
+            "upazillaName": "Keraniganj",
+            "upazillaNameBangla": "কেরানীগঞ্জ"
+          },
+          {
+            "upazillaName": "Nawabganj",
+            "upazillaNameBangla": "নবাবগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Faridpur",
+        "districtNameBangla": "ফরিদপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Bhanga",
+            "upazillaNameBangla": "ভাঙ্গা"
+          },
+          {
+            "upazillaName": "Madhukhali",
+            "upazillaNameBangla": "মধুখালী"
+          },
+          {
+            "upazillaName": "Boalmari",
+            "upazillaNameBangla": "বোয়ালমারী"
+          },
+          {
+            "upazillaName": "Charbhadrasan",
+            "upazillaNameBangla": "চারভদ্রাসন"
+          },
+          {
+            "upazillaName": "Faridpur Sadar",
+            "upazillaNameBangla": "ফরিদপুর সদর"
+          },
+          {
+            "upazillaName": "Saltha",
+            "upazillaNameBangla": "সালথা"
+          },
+          {
+            "upazillaName": "Sadarpur",
+            "upazillaNameBangla": "সদরপুর"
+          },
+          {
+            "upazillaName": "Alfadanga",
+            "upazillaNameBangla": "আলফাডাঙ্গা"
+          },
+          {
+            "upazillaName": "Nagarkanda",
+            "upazillaNameBangla": "নগরকান্দা"
+          }
+        ]
+      },
+      {
+        "district": "Gazipur",
+        "districtNameBangla": "গাজীপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Sreepur",
+            "upazillaNameBangla": "শ্রীপুর"
+          },
+          {
+            "upazillaName": "Kapasia",
+            "upazillaNameBangla": "কাপাসিয়া"
+          },
+          {
+            "upazillaName": "Gazipur Sadar",
+            "upazillaNameBangla": "গাজীপুর সদর"
+          },
+          {
+            "upazillaName": "Kaliakair",
+            "upazillaNameBangla": "কালিয়াকৈর"
+          },
+          {
+            "upazillaName": "Kaliganj",
+            "upazillaNameBangla": "কালীগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Gopalganj",
+        "districtNameBangla": "গোপালগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Gopalganj Sadar",
+            "upazillaNameBangla": "গোপালগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Muksudpur",
+            "upazillaNameBangla": "মুকসুদপুর"
+          },
+          {
+            "upazillaName": "Kotalipara",
+            "upazillaNameBangla": "কোটালীপাড়া"
+          },
+          {
+            "upazillaName": "Tungipara",
+            "upazillaNameBangla": "টুঙ্গিপাড়া"
+          },
+          {
+            "upazillaName": "Kashiani",
+            "upazillaNameBangla": "কাশিয়ানী"
+          }
+        ]
+      },
+      {
+        "district": "Kishoreganj",
+        "districtNameBangla": "কিশোরগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Austagram",
+            "upazillaNameBangla": "অষ্টগ্রাম"
+          },
+          {
+            "upazillaName": "Mithamain",
+            "upazillaNameBangla": "মিঠামইন"
+          },
+          {
+            "upazillaName": "Kuliarchar",
+            "upazillaNameBangla": "কুলিয়ারচর"
+          },
+          {
+            "upazillaName": "Pakundia",
+            "upazillaNameBangla": "পাকুন্দিয়া"
+          },
+          {
+            "upazillaName": "Karimganj",
+            "upazillaNameBangla": "করিমগঞ্জ"
+          },
+          {
+            "upazillaName": "Bajitpur",
+            "upazillaNameBangla": "বাজিতপুর"
+          },
+          {
+            "upazillaName": "Kishoreganj Sadar",
+            "upazillaNameBangla": "কিশোরগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Itna",
+            "upazillaNameBangla": "ইতনা"
+          },
+          {
+            "upazillaName": "Bhairab",
+            "upazillaNameBangla": "ভৈরব"
+          },
+          {
+            "upazillaName": "Hossainpur",
+            "upazillaNameBangla": "হোসেনপুর"
+          },
+          {
+            "upazillaName": "Katiadi",
+            "upazillaNameBangla": "কটিয়াদি"
+          },
+          {
+            "upazillaName": "Nikli",
+            "upazillaNameBangla": "নিকলি"
+          },
+          {
+            "upazillaName": "Tarail",
+            "upazillaNameBangla": "তাড়াইল"
+          }
+        ]
+      },
+      {
+        "district": "Madaripur",
+        "districtNameBangla": "মাদারীপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Shibchar",
+            "upazillaNameBangla": "শিবচর"
+          },
+          {
+            "upazillaName": "Madaripur Sadar",
+            "upazillaNameBangla": "মাদারীপুর সদর"
+          },
+          {
+            "upazillaName": "Rajoir",
+            "upazillaNameBangla": "রাজোইর"
+          },
+          {
+            "upazillaName": "Kalkini",
+            "upazillaNameBangla": "কালকিনি"
+          }
+        ]
+      },
+      {
+        "district": "Manikganj",
+        "districtNameBangla": "মানিকগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Manikgonj Sadar",
+            "upazillaNameBangla": "মানিকগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Ghior",
+            "upazillaNameBangla": "ঘিওর"
+          },
+          {
+            "upazillaName": "Daulatpur",
+            "upazillaNameBangla": "দৌলতপুর"
+          },
+          {
+            "upazillaName": "Harirampur",
+            "upazillaNameBangla": "হরিরামপুর"
+          },
+          {
+            "upazillaName": "Saturia",
+            "upazillaNameBangla": "সাটুরিয়া"
+          },
+          {
+            "upazillaName": "Shivalaya",
+            "upazillaNameBangla": "শিবালয়"
+          },
+          {
+            "upazillaName": "Singair",
+            "upazillaNameBangla": "সিঙ্গাইর"
+          }
+        ]
+      },
+      {
+        "district": "Munshiganj",
+        "districtNameBangla": "মুন্সীগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Sirajdikhan",
+            "upazillaNameBangla": "সিরাজদিখান"
+          },
+          {
+            "upazillaName": "Sreenagar",
+            "upazillaNameBangla": "শ্রীনগর"
+          },
+          {
+            "upazillaName": "Lohajang",
+            "upazillaNameBangla": "লৌহজং"
+          },
+          {
+            "upazillaName": "Tongibari",
+            "upazillaNameBangla": "টঙ্গীবাড়ি"
+          },
+          {
+            "upazillaName": "Gazaria",
+            "upazillaNameBangla": "গজারিয়া"
+          },
+          {
+            "upazillaName": "Munshiganj Sadar",
+            "upazillaNameBangla": "মুন্সীগঞ্জ সদর"
+          }
+        ]
+      },
+      {
+        "district": "Narayanganj",
+        "districtNameBangla": "নারায়ণগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Araihazar",
+            "upazillaNameBangla": "আড়াইহাজার"
+          },
+          {
+            "upazillaName": "Bandar",
+            "upazillaNameBangla": "বান্দর"
+          },
+          {
+            "upazillaName": "Narayanganj Sadar",
+            "upazillaNameBangla": "নারায়ণগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Rupganj",
+            "upazillaNameBangla": "রূপগঞ্জ"
+          },
+          {
+            "upazillaName": "Sonargaon",
+            "upazillaNameBangla": "সোনারগাঁও"
+          }
+        ]
+      },
+      {
+        "district": "Narsingdi",
+        "districtNameBangla": "নরসিংদী",
+        "upazilla": [
+          {
+            "upazillaName": "Palash",
+            "upazillaNameBangla": "পলাশ"
+          },
+          {
+            "upazillaName": "Raipura",
+            "upazillaNameBangla": "রায়পুরা"
+          },
+          {
+            "upazillaName": "Belabo",
+            "upazillaNameBangla": "বেলাবো"
+          },
+          {
+            "upazillaName": "Narsingdi Sadar",
+            "upazillaNameBangla": "নরসিংদী সদর"
+          },
+          {
+            "upazillaName": "Monohardi",
+            "upazillaNameBangla": "মনোহরদী"
+          },
+          {
+            "upazillaName": "Shibpur",
+            "upazillaNameBangla": "শিবপুর"
+          }
+        ]
+      },
+      {
+        "district": "Rajbari",
+        "districtNameBangla": "রাজবাড়ী",
+        "upazilla": [
+          {
+            "upazillaName": "Baliakandi",
+            "upazillaNameBangla": "বালিয়াকান্দি"
+          },
+          {
+            "upazillaName": "Goalandaghat",
+            "upazillaNameBangla": "গোয়ালন্দঘাট"
+          },
+          {
+            "upazillaName": "Kalukhali",
+            "upazillaNameBangla": "কালুখালী"
+          },
+          {
+            "upazillaName": "Pangsha",
+            "upazillaNameBangla": "পাংশা"
+          },
+          {
+            "upazillaName": "Rajbari Sadar",
+            "upazillaNameBangla": "রাজবাড়ী সদর"
+          }
+        ]
+      },
+      {
+        "district": "Shariatpur",
+        "districtNameBangla": "শরীয়তপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Naria",
+            "upazillaNameBangla": "নড়িয়া"
+          },
+          {
+            "upazillaName": "Zajira",
+            "upazillaNameBangla": "জাজিরা"
+          },
+          {
+            "upazillaName": "Damudya",
+            "upazillaNameBangla": "ডামুড্যা"
+          },
+          {
+            "upazillaName": "Bhedarganj",
+            "upazillaNameBangla": "ভেদরগঞ্জ"
+          },
+          {
+            "upazillaName": "Gosairhat",
+            "upazillaNameBangla": "গোসাইরহাট"
+          },
+          {
+            "upazillaName": "Shariatpur Sadar",
+            "upazillaNameBangla": "শরীয়তপুর সদর"
+          }
+        ]
+      },
+      {
+        "district": "Tangail",
+        "districtNameBangla": "টাঙ্গাইল",
+        "upazilla": [
+          {
+            "upazillaName": "Delduar",
+            "upazillaNameBangla": "দেলদুয়ার"
+          },
+          {
+            "upazillaName": "Dhanbari",
+            "upazillaNameBangla": "ধনবাড়ী"
+          },
+          {
+            "upazillaName": "Sakhipur",
+            "upazillaNameBangla": "সখীপুর"
+          },
+          {
+            "upazillaName": "Madhupur",
+            "upazillaNameBangla": "মধুপুর"
+          },
+          {
+            "upazillaName": "Ghatail",
+            "upazillaNameBangla": "ঘাটাইল"
+          },
+          {
+            "upazillaName": "Bhuapur",
+            "upazillaNameBangla": "ভূয়াপুর"
+          },
+          {
+            "upazillaName": "Kalihati",
+            "upazillaNameBangla": "কালিহাতী"
+          },
+          {
+            "upazillaName": "Tangail Sadar",
+            "upazillaNameBangla": "টাঙ্গাইল সদর"
+          },
+          {
+            "upazillaName": "Gopalpur",
+            "upazillaNameBangla": "গোপালপুর"
+          },
+          {
+            "upazillaName": "Nagarpur",
+            "upazillaNameBangla": "নাগরপুর"
+          },
+          {
+            "upazillaName": "Basail",
+            "upazillaNameBangla": "বাসাইল"
+          },
+          {
+            "upazillaName": "Mirzapur",
+            "upazillaNameBangla": "মির্জাপুর"
+          }
+        ]
+      },
+      {
+        "district": "Bagerhat",
+        "districtNameBangla": "বাগেরহাট",
+        "upazilla": [
+          {
+            "upazillaName": "Kachua",
+            "upazillaNameBangla": "কচুয়া"
+          },
+          {
+            "upazillaName": "Chitalmari",
+            "upazillaNameBangla": "চিতলমারী"
+          },
+          {
+            "upazillaName": "Rampal",
+            "upazillaNameBangla": "রামপাল"
+          },
+          {
+            "upazillaName": "Fakirhat",
+            "upazillaNameBangla": "ফকিরহাট"
+          },
+          {
+            "upazillaName": "Morrelganj",
+            "upazillaNameBangla": "মোরেলগঞ্জ"
+          },
+          {
+            "upazillaName": "Sarankhola",
+            "upazillaNameBangla": "শরণখোলা"
+          },
+          {
+            "upazillaName": "Mollahat",
+            "upazillaNameBangla": "মোল্লাহাট"
+          },
+          {
+            "upazillaName": "Bagerhat Sadar",
+            "upazillaNameBangla": "বাগেরহাট সদর"
+          },
+          {
+            "upazillaName": "Mongla",
+            "upazillaNameBangla": "মংলা"
+          }
+        ]
+      },
+      {
+        "district": "Chuadanga",
+        "districtNameBangla": "চুয়াডাঙ্গা",
+        "upazilla": [
+          {
+            "upazillaName": "Damurhuda",
+            "upazillaNameBangla": "দামুড়হুদা"
+          },
+          {
+            "upazillaName": "Chuadanga Sadar",
+            "upazillaNameBangla": "চুয়াডাঙ্গা সদর"
+          },
+          {
+            "upazillaName": "Jibannagar",
+            "upazillaNameBangla": "জীবননগর"
+          },
+          {
+            "upazillaName": "Alamdanga",
+            "upazillaNameBangla": "আলমডাঙ্গা"
+          }
+        ]
+      },
+      {
+        "district": "Jashore",
+        "districtNameBangla": "যশোর",
+        "upazilla": [
+          {
+            "upazillaName": "Sharsha",
+            "upazillaNameBangla": "শার্শা"
+          },
+          {
+            "upazillaName": "Chaugachha",
+            "upazillaNameBangla": "চৌগাছা"
+          },
+          {
+            "upazillaName": "Bagherpara",
+            "upazillaNameBangla": "বাঘেরপাড়া"
+          },
+          {
+            "upazillaName": "Jhikargachha",
+            "upazillaNameBangla": "ঝিকরগাছা"
+          },
+          {
+            "upazillaName": "Manirampur",
+            "upazillaNameBangla": "মণিরামপুর"
+          },
+          {
+            "upazillaName": "Abhaynagar",
+            "upazillaNameBangla": "অভয়নগর"
+          },
+          {
+            "upazillaName": "Keshabpur",
+            "upazillaNameBangla": "কেশবপুর"
+          },
+          {
+            "upazillaName": "Jashore Sadar",
+            "upazillaNameBangla": "যশোর সদর"
+          }
+        ]
+      },
+      {
+        "district": "Jhenaidah",
+        "districtNameBangla": "ঝিনাইদহ",
+        "upazilla": [
+          {
+            "upazillaName": "Jhenaidah Sadar",
+            "upazillaNameBangla": "ঝিনাইদহ সদর"
+          },
+          {
+            "upazillaName": "Shailkupa",
+            "upazillaNameBangla": "শৈলকুপা"
+          },
+          {
+            "upazillaName": "Harinakunda",
+            "upazillaNameBangla": "হরিণাকুণ্ড"
+          },
+          {
+            "upazillaName": "Kaliganj",
+            "upazillaNameBangla": "কালীগঞ্জ"
+          },
+          {
+            "upazillaName": "Kotchandpur",
+            "upazillaNameBangla": "কোটচাঁদপুর"
+          },
+          {
+            "upazillaName": "Maheshpur",
+            "upazillaNameBangla": "মহেশপুর"
+          }
+        ]
+      },
+      {
+        "district": "Khulna",
+        "districtNameBangla": "খুলনা",
+        "upazilla": [
+          {
+            "upazillaName": "Rupsha",
+            "upazillaNameBangla": "রূপশা"
+          },
+          {
+            "upazillaName": "Batiaghata",
+            "upazillaNameBangla": "বটিয়াঘাটা"
+          },
+          {
+            "upazillaName": "Dumuria",
+            "upazillaNameBangla": "ডুমুরিয়া"
+          },
+          {
+            "upazillaName": "Phultala",
+            "upazillaNameBangla": "ফুলতলা"
+          },
+          {
+            "upazillaName": "Koyra",
+            "upazillaNameBangla": "কয়রা"
+          },
+          {
+            "upazillaName": "Terokhada",
+            "upazillaNameBangla": "তেরোখাদা"
+          },
+          {
+            "upazillaName": "Dacope",
+            "upazillaNameBangla": "দাকোপ"
+          },
+          {
+            "upazillaName": "Dighalia",
+            "upazillaNameBangla": "দীঘলিয়া"
+          },
+          {
+            "upazillaName": "Paikgachha",
+            "upazillaNameBangla": "পাইকগাছা"
+          }
+        ]
+      },
+      {
+        "district": "Kushtia",
+        "districtNameBangla": "কুষ্টিয়া",
+        "upazilla": [
+          {
+            "upazillaName": "Bheramara",
+            "upazillaNameBangla": "ভেড়ামারা"
+          },
+          {
+            "upazillaName": "Daulatpur",
+            "upazillaNameBangla": "দৌলতপুর"
+          },
+          {
+            "upazillaName": "Mirpur",
+            "upazillaNameBangla": "মিরপুর"
+          },
+          {
+            "upazillaName": "Kushtia Sadar",
+            "upazillaNameBangla": "কুষ্টিয়া সদর"
+          },
+          {
+            "upazillaName": "Khoksa",
+            "upazillaNameBangla": "খোকসা"
+          },
+          {
+            "upazillaName": "Kumarkhali",
+            "upazillaNameBangla": "কুমারখালী"
+          }
+        ]
+      },
+      {
+        "district": "Magura",
+        "districtNameBangla": "মাগুরা",
+        "upazilla": [
+          {
+            "upazillaName": "Magura Sadar",
+            "upazillaNameBangla": "মাগুরা সদর"
+          },
+          {
+            "upazillaName": "Shalikha",
+            "upazillaNameBangla": "শালিখা"
+          },
+          {
+            "upazillaName": "Sreepur",
+            "upazillaNameBangla": "শ্রীপুর"
+          },
+          {
+            "upazillaName": "Mohammadpur",
+            "upazillaNameBangla": "মোহাম্মদপুর"
+          }
+        ]
+      },
+      {
+        "district": "Meherpur",
+        "districtNameBangla": "মেহেরপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Meherpur Sadar",
+            "upazillaNameBangla": "মেহেরপুর সদর"
+          },
+          {
+            "upazillaName": "Gangni",
+            "upazillaNameBangla": "গাংনী"
+          },
+          {
+            "upazillaName": "Mujibnagar",
+            "upazillaNameBangla": "মুজিবনগর"
+          }
+        ]
+      },
+      {
+        "district": "Narail",
+        "districtNameBangla": "নড়াইল",
+        "upazilla": [
+          {
+            "upazillaName": "Lohagara",
+            "upazillaNameBangla": "লোহাগাড়া"
+          },
+          {
+            "upazillaName": "Kalia",
+            "upazillaNameBangla": "কালিয়া"
+          },
+          {
+            "upazillaName": "Narail Sadar",
+            "upazillaNameBangla": "নড়াইল সদর"
+          }
+        ]
+      },
+      {
+        "district": "Satkhira",
+        "districtNameBangla": "সাতক্ষীরা",
+        "upazilla": [
+          {
+            "upazillaName": "Shyamnagar",
+            "upazillaNameBangla": "শ্যামনগর"
+          },
+          {
+            "upazillaName": "Satkhira Sadar",
+            "upazillaNameBangla": "সাতক্ষীরা সদর"
+          },
+          {
+            "upazillaName": "Kalaroa",
+            "upazillaNameBangla": "কলারোয়া"
+          },
+          {
+            "upazillaName": "Assasuni",
+            "upazillaNameBangla": "আসাসুনি"
+          },
+          {
+            "upazillaName": "Kaliganj",
+            "upazillaNameBangla": "কালীগঞ্জ"
+          },
+          {
+            "upazillaName": "Tala",
+            "upazillaNameBangla": "টালা"
+          },
+          {
+            "upazillaName": "Debhata",
+            "upazillaNameBangla": "দেবহাটা"
+          }
+        ]
+      },
+      {
+        "district": "Jamalpur",
+        "districtNameBangla": "জামালপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Baksiganj",
+            "upazillaNameBangla": "বকসীগঞ্জ"
+          },
+          {
+            "upazillaName": "Madarganj",
+            "upazillaNameBangla": "মাদারগঞ্জ"
+          },
+          {
+            "upazillaName": "Dewanganj",
+            "upazillaNameBangla": "দেওয়ানগঞ্জ"
+          },
+          {
+            "upazillaName": "Melandaha",
+            "upazillaNameBangla": "মেলান্দহ"
+          },
+          {
+            "upazillaName": "Jamalpur Sadar",
+            "upazillaNameBangla": "জামালপুর সদর"
+          },
+          {
+            "upazillaName": "Sarishabari",
+            "upazillaNameBangla": "সরিষাবাড়ী"
+          },
+          {
+            "upazillaName": "Islampur",
+            "upazillaNameBangla": "ইসলামপুর"
+          }
+        ]
+      },
+      {
+        "district": "Mymensingh",
+        "districtNameBangla": "ময়মনসিংহ",
+        "upazilla": [
+          {
+            "upazillaName": "Gafargaon",
+            "upazillaNameBangla": "গফরগাঁও"
+          },
+          {
+            "upazillaName": "Tara Khanda",
+            "upazillaNameBangla": "তারা খন্ড"
+          },
+          {
+            "upazillaName": "Dhobaura",
+            "upazillaNameBangla": "ধোবাউড়া"
+          },
+          {
+            "upazillaName": "Muktagachha",
+            "upazillaNameBangla": "মুক্তাগাছা"
+          },
+          {
+            "upazillaName": "Gauripur",
+            "upazillaNameBangla": "গৌরীপুর"
+          },
+          {
+            "upazillaName": "Bhaluka",
+            "upazillaNameBangla": "ভালুকা"
+          },
+          {
+            "upazillaName": "Fulbaria",
+            "upazillaNameBangla": "ফুলবাড়িয়া"
+          },
+          {
+            "upazillaName": "Haluaghat",
+            "upazillaNameBangla": "হালুয়াঘাট"
+          },
+          {
+            "upazillaName": "Nandail",
+            "upazillaNameBangla": "নান্দাইল"
+          },
+          {
+            "upazillaName": "Trishal",
+            "upazillaNameBangla": "ত্রিশাল"
+          },
+          {
+            "upazillaName": "Phulpur",
+            "upazillaNameBangla": "ফুলপুর"
+          },
+          {
+            "upazillaName": "Ishwarganj",
+            "upazillaNameBangla": "ঈশ্বরগঞ্জ"
+          },
+          {
+            "upazillaName": "Mymensingh Sadar",
+            "upazillaNameBangla": "ময়মনসিংহ সদর"
+          }
+        ]
+      },
+      {
+        "district": "Netrokona",
+        "districtNameBangla": "নেত্রকোনা",
+        "upazilla": [
+          {
+            "upazillaName": "Purbadhala",
+            "upazillaNameBangla": "পূর্বধলা"
+          },
+          {
+            "upazillaName": "Mohanganj",
+            "upazillaNameBangla": "মোহনগঞ্জ"
+          },
+          {
+            "upazillaName": "Barhatta",
+            "upazillaNameBangla": "বারহাট্টা"
+          },
+          {
+            "upazillaName": "Khaliajuri",
+            "upazillaNameBangla": "খালিয়াজুরী"
+          },
+          {
+            "upazillaName": "Kalmakanda",
+            "upazillaNameBangla": "কলমাকান্দা"
+          },
+          {
+            "upazillaName": "Madan",
+            "upazillaNameBangla": "মদন"
+          },
+          {
+            "upazillaName": "Netrokona Sadar",
+            "upazillaNameBangla": "নেত্রকোনা সদর"
+          },
+          {
+            "upazillaName": "Kendua",
+            "upazillaNameBangla": "কেন্দুয়া"
+          },
+          {
+            "upazillaName": "Durgapur",
+            "upazillaNameBangla": "দুর্গাপুর"
+          },
+          {
+            "upazillaName": "Atpara",
+            "upazillaNameBangla": "আটপাড়া"
+          }
+        ]
+      },
+      {
+        "district": "Sherpur",
+        "districtNameBangla": "শেরপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Nakla",
+            "upazillaNameBangla": "নকলা"
+          },
+          {
+            "upazillaName": "Sreebardi",
+            "upazillaNameBangla": "শ্রীবর্দী"
+          },
+          {
+            "upazillaName": "Nalitabari",
+            "upazillaNameBangla": "নালিতাবাড়ী"
+          },
+          {
+            "upazillaName": "Jhenaigati",
+            "upazillaNameBangla": "ঝিনাইগাতী"
+          },
+          {
+            "upazillaName": "Sherpur Sadar",
+            "upazillaNameBangla": "শেরপুর সদর"
+          }
+        ]
+      },
+      {
+        "district": "Bogura",
+        "districtNameBangla": "বগুড়া",
+        "upazilla": [
+          {
+            "upazillaName": "Dhunat",
+            "upazillaNameBangla": "ধুনট"
+          },
+          {
+            "upazillaName": "Gabtali",
+            "upazillaNameBangla": "গাবতলী"
+          },
+          {
+            "upazillaName": "Sonatola",
+            "upazillaNameBangla": "সোনাটোলা"
+          },
+          {
+            "upazillaName": "Sariakandi",
+            "upazillaNameBangla": "সারিয়াকান্দি"
+          },
+          {
+            "upazillaName": "Adamdighi",
+            "upazillaNameBangla": "আদমদীঘি"
+          },
+          {
+            "upazillaName": "Dhupchanchia",
+            "upazillaNameBangla": "ধুপচাঁচিয়া"
+          },
+          {
+            "upazillaName": "Nandigram",
+            "upazillaNameBangla": "নন্দীগ্রাম"
+          },
+          {
+            "upazillaName": "Bogura Sadar",
+            "upazillaNameBangla": "বগুড়া সদর"
+          },
+          {
+            "upazillaName": "Shajahanpur",
+            "upazillaNameBangla": "শাজাহানপুর"
+          },
+          {
+            "upazillaName": "Sherpur",
+            "upazillaNameBangla": "শেরপুর"
+          },
+          {
+            "upazillaName": "Shibganj",
+            "upazillaNameBangla": "শিবগঞ্জ"
+          },
+          {
+            "upazillaName": "Kahaloo",
+            "upazillaNameBangla": "কাহালু"
+          }
+        ]
+      },
+      {
+        "district": "Chapai Nawabganj",
+        "districtNameBangla": "চাঁপাই নবাবগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Chapai Nawabganj Sadar",
+            "upazillaNameBangla": "চাঁপাই নবাবগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Shibganj",
+            "upazillaNameBangla": "শিবগঞ্জ"
+          },
+          {
+            "upazillaName": "Nachole",
+            "upazillaNameBangla": "নাচোলে"
+          },
+          {
+            "upazillaName": "Gomastapur",
+            "upazillaNameBangla": "গোমস্তাপুর"
+          },
+          {
+            "upazillaName": "Bholahat",
+            "upazillaNameBangla": "ভোলাহাট"
+          }
+        ]
+      },
+      {
+        "district": "Joypurhat",
+        "districtNameBangla": "জয়পুরহাট",
+        "upazilla": [
+          {
+            "upazillaName": "Panchbibi",
+            "upazillaNameBangla": "পাঁচবিবি"
+          },
+          {
+            "upazillaName": "Kalai",
+            "upazillaNameBangla": "কালাই"
+          },
+          {
+            "upazillaName": "Khetlal",
+            "upazillaNameBangla": "ক্ষেতলাল"
+          },
+          {
+            "upazillaName": "Akkelpur",
+            "upazillaNameBangla": "আক্কেলপুর"
+          },
+          {
+            "upazillaName": "Joypurhat Sadar",
+            "upazillaNameBangla": "জয়পুরহাট সদর"
+          }
+        ]
+      },
+      {
+        "district": "Naogaon",
+        "districtNameBangla": "নওগাঁ",
+        "upazilla": [
+          {
+            "upazillaName": "Patnitala",
+            "upazillaNameBangla": "পত্নীতলা"
+          },
+          {
+            "upazillaName": "Manda",
+            "upazillaNameBangla": "মান্দা"
+          },
+          {
+            "upazillaName": "Naogaon Sadar",
+            "upazillaNameBangla": "নওগাঁ সদর"
+          },
+          {
+            "upazillaName": "Badalgachhi",
+            "upazillaNameBangla": "বদলগাছী"
+          },
+          {
+            "upazillaName": "Niamatpur",
+            "upazillaNameBangla": "নিয়ামতপুর"
+          },
+          {
+            "upazillaName": "Mohadevpur",
+            "upazillaNameBangla": "মহাদেবপুর"
+          },
+          {
+            "upazillaName": "Atrai",
+            "upazillaNameBangla": "আত্রাই"
+          },
+          {
+            "upazillaName": "Sapahar",
+            "upazillaNameBangla": "সাপাহার"
+          },
+          {
+            "upazillaName": "Porsha",
+            "upazillaNameBangla": "পোরশা"
+          },
+          {
+            "upazillaName": "Dhamoirhat",
+            "upazillaNameBangla": "ধামইরহাট"
+          },
+          {
+            "upazillaName": "Raninagar",
+            "upazillaNameBangla": "রাণীনগর"
+          }
+        ]
+      },
+      {
+        "district": "Natore",
+        "districtNameBangla": "নাটোর",
+        "upazilla": [
+          {
+            "upazillaName": "Naldanga",
+            "upazillaNameBangla": "নলডাঙ্গা"
+          },
+          {
+            "upazillaName": "Singra",
+            "upazillaNameBangla": "সিংড়া"
+          },
+          {
+            "upazillaName": "Natore Sadar",
+            "upazillaNameBangla": "নাটোর সদর"
+          },
+          {
+            "upazillaName": "Bagatipara",
+            "upazillaNameBangla": "বাগাতিপাড়া"
+          },
+          {
+            "upazillaName": "Lalpur",
+            "upazillaNameBangla": "লালপুর"
+          },
+          {
+            "upazillaName": "Gurudaspur",
+            "upazillaNameBangla": "গুরুদাসপুর"
+          },
+          {
+            "upazillaName": "Baraigram",
+            "upazillaNameBangla": "বড়াইগ্রাম"
+          }
+        ]
+      },
+      {
+        "district": "Pabna",
+        "districtNameBangla": "পাবনা",
+        "upazilla": [
+          {
+            "upazillaName": "Sujanagar",
+            "upazillaNameBangla": "সুজানগর"
+          },
+          {
+            "upazillaName": "Ishwardi",
+            "upazillaNameBangla": "ঈশ্বরদী"
+          },
+          {
+            "upazillaName": "Santhia",
+            "upazillaNameBangla": "সাঁথিয়া"
+          },
+          {
+            "upazillaName": "Bhangura",
+            "upazillaNameBangla": "ভাঙ্গুড়া"
+          },
+          {
+            "upazillaName": "Chatmohar",
+            "upazillaNameBangla": "চাটমোহর"
+          },
+          {
+            "upazillaName": "Bera",
+            "upazillaNameBangla": "বেরা"
+          },
+          {
+            "upazillaName": "Atgharia",
+            "upazillaNameBangla": "আটঘরিয়া"
+          },
+          {
+            "upazillaName": "Pabna Sadar",
+            "upazillaNameBangla": "পাবনা সদর"
+          },
+          {
+            "upazillaName": "Faridpur",
+            "upazillaNameBangla": "ফরিদপুর"
+          }
+        ]
+      },
+      {
+        "district": "Rajshahi",
+        "districtNameBangla": "রাজশাহী",
+        "upazilla": [
+          {
+            "upazillaName": "Durgapur",
+            "upazillaNameBangla": "দুর্গাপুর"
+          },
+          {
+            "upazillaName": "Godagari",
+            "upazillaNameBangla": "গোদাগাড়ী"
+          },
+          {
+            "upazillaName": "Puthia",
+            "upazillaNameBangla": "পুঠিয়া"
+          },
+          {
+            "upazillaName": "Charghat",
+            "upazillaNameBangla": "চারঘাট"
+          },
+          {
+            "upazillaName": "Mohanpur",
+            "upazillaNameBangla": "মোহনপুর"
+          },
+          {
+            "upazillaName": "Paba",
+            "upazillaNameBangla": "পবা"
+          },
+          {
+            "upazillaName": "Bagmara",
+            "upazillaNameBangla": "বাগমারা"
+          },
+          {
+            "upazillaName": "Bagha",
+            "upazillaNameBangla": "বাঘা"
+          },
+          {
+            "upazillaName": "Tanore",
+            "upazillaNameBangla": "তানোর"
+          }
+        ]
+      },
+      {
+        "district": "Sirajganj",
+        "districtNameBangla": "সিরাজগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Sirajganj Sadar",
+            "upazillaNameBangla": "সিরাজগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Kazipur",
+            "upazillaNameBangla": "কাজিপুর"
+          },
+          {
+            "upazillaName": "Chauhali",
+            "upazillaNameBangla": "চৌহালী"
+          },
+          {
+            "upazillaName": "Tarash",
+            "upazillaNameBangla": "তাড়াশ"
+          },
+          {
+            "upazillaName": "Belkuchi",
+            "upazillaNameBangla": "বেলকুচি"
+          },
+          {
+            "upazillaName": "Kamarkhanda",
+            "upazillaNameBangla": "কামারখন্দা"
+          },
+          {
+            "upazillaName": "Ullahpara",
+            "upazillaNameBangla": "উল্লাহপাড়া"
+          },
+          {
+            "upazillaName": "Raiganj",
+            "upazillaNameBangla": "রায়গঞ্জ"
+          },
+          {
+            "upazillaName": "Shahjadpur",
+            "upazillaNameBangla": "শাহজাদপুর"
+          }
+        ]
+      },
+      {
+        "district": "Dinajpur",
+        "districtNameBangla": "দিনাজপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Phulbari",
+            "upazillaNameBangla": "ফুলবাড়ী"
+          },
+          {
+            "upazillaName": "Hakimpur",
+            "upazillaNameBangla": "হাকিমপুর"
+          },
+          {
+            "upazillaName": "Birampur",
+            "upazillaNameBangla": "বিরামপুর"
+          },
+          {
+            "upazillaName": "Khansama",
+            "upazillaNameBangla": "খানসামা"
+          },
+          {
+            "upazillaName": "Biral",
+            "upazillaNameBangla": "বিরল"
+          },
+          {
+            "upazillaName": "Nawabganj",
+            "upazillaNameBangla": "নবাবগঞ্জ"
+          },
+          {
+            "upazillaName": "Parbatipur",
+            "upazillaNameBangla": "পার্বতীপুর"
+          },
+          {
+            "upazillaName": "Bochaganj",
+            "upazillaNameBangla": "বোচাগঞ্জ"
+          },
+          {
+            "upazillaName": "Kaharole",
+            "upazillaNameBangla": "কাহারোল"
+          },
+          {
+            "upazillaName": "Ghoraghat",
+            "upazillaNameBangla": "ঘোড়াঘাট"
+          },
+          {
+            "upazillaName": "Dinajpur Sadar",
+            "upazillaNameBangla": "দিনাজপুর সদর"
+          },
+          {
+            "upazillaName": "Birganj",
+            "upazillaNameBangla": "বীরগঞ্জ"
+          },
+          {
+            "upazillaName": "Chirirbandar",
+            "upazillaNameBangla": "চিরিরবন্দর"
+          }
+        ]
+      },
+      {
+        "district": "Gaibandha",
+        "districtNameBangla": "গাইবান্ধা",
+        "upazilla": [
+          {
+            "upazillaName": "Palashbari",
+            "upazillaNameBangla": "পলাশবাড়ী"
+          },
+          {
+            "upazillaName": "Sughatta",
+            "upazillaNameBangla": "সুগত"
+          },
+          {
+            "upazillaName": "Sundarganj",
+            "upazillaNameBangla": "সুন্দরগঞ্জ"
+          },
+          {
+            "upazillaName": "Phulchhari",
+            "upazillaNameBangla": "ফুলছড়ি"
+          },
+          {
+            "upazillaName": "Gaibandha Sadar",
+            "upazillaNameBangla": "গাইবান্ধা সদর"
+          },
+          {
+            "upazillaName": "Gobindaganj",
+            "upazillaNameBangla": "গোবিন্দগঞ্জ"
+          },
+          {
+            "upazillaName": "Sadullapur",
+            "upazillaNameBangla": "সাদুল্লাপুর"
+          }
+        ]
+      },
+      {
+        "district": "Kurigram",
+        "districtNameBangla": "কুড়িগ্রাম",
+        "upazilla": [
+          {
+            "upazillaName": "Chilmari",
+            "upazillaNameBangla": "চিলমারী"
+          },
+          {
+            "upazillaName": "Bhurungamari",
+            "upazillaNameBangla": "ভূরুঙ্গামারী"
+          },
+          {
+            "upazillaName": "Phulbari",
+            "upazillaNameBangla": "ফুলবাড়ী"
+          },
+          {
+            "upazillaName": "Ulipur",
+            "upazillaNameBangla": "উলিপুর"
+          },
+          {
+            "upazillaName": "Nageshwari",
+            "upazillaNameBangla": "নাগেশ্বরী"
+          },
+          {
+            "upazillaName": "Rajarhat",
+            "upazillaNameBangla": "রাজারহাট"
+          },
+          {
+            "upazillaName": "Raomari",
+            "upazillaNameBangla": "রওমারী"
+          },
+          {
+            "upazillaName": "Char Rajibpur",
+            "upazillaNameBangla": "চর রাজীবপুর"
+          },
+          {
+            "upazillaName": "Kurigram Sadar",
+            "upazillaNameBangla": "কুড়িগ্রাম সদর"
+          }
+        ]
+      },
+      {
+        "district": "Lalmonirhat",
+        "districtNameBangla": "লালমনিরহাট",
+        "upazilla": [
+          {
+            "upazillaName": "Patgram",
+            "upazillaNameBangla": "পাটগ্রাম"
+          },
+          {
+            "upazillaName": "Kaliganj",
+            "upazillaNameBangla": "কালীগঞ্জ"
+          },
+          {
+            "upazillaName": "Aditmari",
+            "upazillaNameBangla": "আদিতমারী"
+          },
+          {
+            "upazillaName": "Hatibandha",
+            "upazillaNameBangla": "হাতীবান্ধা"
+          },
+          {
+            "upazillaName": "Lalmonirhat Sadar",
+            "upazillaNameBangla": "লালমনিরহাট সদর"
+          }
+        ]
+      },
+      {
+        "district": "Nilphamari",
+        "districtNameBangla": "নীলফামারী",
+        "upazilla": [
+          {
+            "upazillaName": "Jaldhaka",
+            "upazillaNameBangla": "জলঢাকা"
+          },
+          {
+            "upazillaName": "Nilphamari Sadar",
+            "upazillaNameBangla": "নীলফামারী সদর"
+          },
+          {
+            "upazillaName": "Saidpur",
+            "upazillaNameBangla": "সৈয়দপুর"
+          },
+          {
+            "upazillaName": "Kishoreganj",
+            "upazillaNameBangla": "কিশোরগঞ্জ"
+          },
+          {
+            "upazillaName": "Dimla",
+            "upazillaNameBangla": "ডিমলা"
+          },
+          {
+            "upazillaName": "Domar",
+            "upazillaNameBangla": "ডোমার"
+          }
+        ]
+      },
+      {
+        "district": "Panchagarh",
+        "districtNameBangla": "পঞ্চগড়",
+        "upazilla": [
+          {
+            "upazillaName": "Panchagarh Sadar",
+            "upazillaNameBangla": "পঞ্চগড় সদর"
+          },
+          {
+            "upazillaName": "Boda",
+            "upazillaNameBangla": "বোদা"
+          },
+          {
+            "upazillaName": "Tetulia",
+            "upazillaNameBangla": "তেতুলিয়া"
+          },
+          {
+            "upazillaName": "Atwari",
+            "upazillaNameBangla": "আটোয়ারী"
+          },
+          {
+            "upazillaName": "Debiganj",
+            "upazillaNameBangla": "দেবীগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Rangpur",
+        "districtNameBangla": "রংপুর",
+        "upazilla": [
+          {
+            "upazillaName": "Badarganj",
+            "upazillaNameBangla": "বদরগঞ্জ"
+          },
+          {
+            "upazillaName": "Gangachhara",
+            "upazillaNameBangla": "গঙ্গাছড়া"
+          },
+          {
+            "upazillaName": "Kaunia",
+            "upazillaNameBangla": "কাউনিয়া"
+          },
+          {
+            "upazillaName": "Rangpur Sadar",
+            "upazillaNameBangla": "রংপুর সদর"
+          },
+          {
+            "upazillaName": "Taraganj",
+            "upazillaNameBangla": "তারাগঞ্জ"
+          },
+          {
+            "upazillaName": "Pirgachha",
+            "upazillaNameBangla": "পীরগাছা"
+          },
+          {
+            "upazillaName": "Mithapukur",
+            "upazillaNameBangla": "মিঠাপুকুর"
+          },
+          {
+            "upazillaName": "Pirganj",
+            "upazillaNameBangla": "পীরগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Thakurgaon",
+        "districtNameBangla": "ঠাকুরগাঁও",
+        "upazilla": [
+          {
+            "upazillaName": "Baliadangi",
+            "upazillaNameBangla": "বালিয়াডাঙ্গী"
+          },
+          {
+            "upazillaName": "Ranisankail",
+            "upazillaNameBangla": "রানীশংকৈল"
+          },
+          {
+            "upazillaName": "Pirganj",
+            "upazillaNameBangla": "পীরগঞ্জ"
+          },
+          {
+            "upazillaName": "Thakurgaon Sadar",
+            "upazillaNameBangla": "ঠাকুরগাঁও সদর"
+          },
+          {
+            "upazillaName": "Haripur",
+            "upazillaNameBangla": "হরিপুর"
+          }
+        ]
+      },
+      {
+        "district": "Habiganj",
+        "districtNameBangla": "হবিগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Bahubal",
+            "upazillaNameBangla": "বাহুবল"
+          },
+          {
+            "upazillaName": "Sayestaganj",
+            "upazillaNameBangla": "সায়েস্তাগঞ্জ"
+          },
+          {
+            "upazillaName": "Ajmiriganj",
+            "upazillaNameBangla": "আজমিরীগঞ্জ"
+          },
+          {
+            "upazillaName": "Chunarughat",
+            "upazillaNameBangla": "চুনারুঘাট"
+          },
+          {
+            "upazillaName": "Nabiganj",
+            "upazillaNameBangla": "নবীগঞ্জ"
+          },
+          {
+            "upazillaName": "Baniyachong",
+            "upazillaNameBangla": "বানিয়াচং"
+          },
+          {
+            "upazillaName": "Lakhai",
+            "upazillaNameBangla": "লাখাই"
+          },
+          {
+            "upazillaName": "Habiganj Sadar",
+            "upazillaNameBangla": "হবিগঞ্জ সদর"
+          },
+          {
+            "upazillaName": "Madhabpur",
+            "upazillaNameBangla": "মাধবপুর"
+          }
+        ]
+      },
+      {
+        "district": "Moulvibazar",
+        "districtNameBangla": "মৌলভীবাজার",
+        "upazilla": [
+          {
+            "upazillaName": "Juri",
+            "upazillaNameBangla": "জুরি"
+          },
+          {
+            "upazillaName": "Sreemangal",
+            "upazillaNameBangla": "শ্রীমঙ্গল"
+          },
+          {
+            "upazillaName": "Barlekha",
+            "upazillaNameBangla": "বড়লেখা"
+          },
+          {
+            "upazillaName": "Kulaura",
+            "upazillaNameBangla": "কুলাউড়া"
+          },
+          {
+            "upazillaName": "Moulvibazar Sadar",
+            "upazillaNameBangla": "মৌলভীবাজার সদর"
+          },
+          {
+            "upazillaName": "Rajnagar",
+            "upazillaNameBangla": "রাজনগর"
+          },
+          {
+            "upazillaName": "Kamalganj",
+            "upazillaNameBangla": "কমলগঞ্জ"
+          }
+        ]
+      },
+      {
+        "district": "Sunamganj",
+        "districtNameBangla": "সুনামগঞ্জ",
+        "upazilla": [
+          {
+            "upazillaName": "Dakshin Sunamganj",
+            "upazillaNameBangla": "দক্ষিণ সুনামগঞ্জ"
+          },
+          {
+            "upazillaName": "Jamalganj",
+            "upazillaNameBangla": "জামালগঞ্জ"
+          },
+          {
+            "upazillaName": "Chhatak",
+            "upazillaNameBangla": "ছাতক"
+          },
+          {
+            "upazillaName": "Sullah",
+            "upazillaNameBangla": "সুল্লা"
+          },
+          {
+            "upazillaName": "Dharamapasha",
+            "upazillaNameBangla": "ধরমপাশা"
+          },
+          {
+            "upazillaName": "Tahirpur",
+            "upazillaNameBangla": "তাহিরপুর"
+          },
+          {
+            "upazillaName": "Jagannathpur",
+            "upazillaNameBangla": "জগন্নাথপুর"
+          },
+          {
+            "upazillaName": "Derai",
+            "upazillaNameBangla": "ডেরাই"
+          },
+          {
+            "upazillaName": "Bishwamvarpur",
+            "upazillaNameBangla": "বিশ্বম্ভরপুর"
+          },
+          {
+            "upazillaName": "Dowarabazar",
+            "upazillaNameBangla": "দোয়ারাবাজার"
+          },
+          {
+            "upazillaName": "Sunamganj Sadar",
+            "upazillaNameBangla": "সুনামগঞ্জ সদর"
+          }
+        ]
+      },
+      {
+        "district": "Sylhet",
+        "districtNameBangla": "সিলেট",
+        "upazilla": [
+          {
+            "upazillaName": "Osmani Nagar",
+            "upazillaNameBangla": "ওসমানী নগর"
+          },
+          {
+            "upazillaName": "Companigonj",
+            "upazillaNameBangla": "কোম্পানীগঞ্জ"
+          },
+          {
+            "upazillaName": "Golapganj",
+            "upazillaNameBangla": "গোলাপগঞ্জ"
+          },
+          {
+            "upazillaName": "Kanaighat",
+            "upazillaNameBangla": "কানাইঘাট"
+          },
+          {
+            "upazillaName": "Fenchuganj",
+            "upazillaNameBangla": "ফেঞ্চুগঞ্জ"
+          },
+          {
+            "upazillaName": "Zakiganj",
+            "upazillaNameBangla": "জকিগঞ্জ"
+          },
+          {
+            "upazillaName": "Bishwanath",
+            "upazillaNameBangla": "বিশ্বনাথ"
+          },
+          {
+            "upazillaName": "Sylhet Sadar",
+            "upazillaNameBangla": "সিলেট সদর"
+          },
+          {
+            "upazillaName": "Beanibazar",
+            "upazillaNameBangla": "বিয়ানীবাজার"
+          },
+          {
+            "upazillaName": "Gowainghat",
+            "upazillaNameBangla": "গোয়াইনঘাট"
+          },
+          {
+            "upazillaName": "Balaganj",
+            "upazillaNameBangla": "বালাগঞ্জ"
+          },
+          {
+            "upazillaName": "Dakshin Surma",
+            "upazillaNameBangla": "দক্ষিণ সুরমা"
+          },
+          {
+            "upazillaName": "Jaintiapur",
+            "upazillaNameBangla": "জৈন্তাপুর"
+          }
+        ]
+      }
+    ]
+  }

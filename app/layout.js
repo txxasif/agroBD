@@ -2,7 +2,9 @@ import Header from "@/components/header/header";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import ReduxProvider from "@/store/provider";
-
+import ThemeProviders from "@/components/themeprovide/provider";
+import ReactQueryProvider from "@/providers/reactQuery";
+import { NextAuthProvider } from "@/providers/nextAuth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,10 +16,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider>
-          <Header />
-          {children}
-        </ReduxProvider>
+        <NextAuthProvider>
+          <ReactQueryProvider>
+            <ThemeProviders>
+              <ReduxProvider>
+                <Header />
+                {children}
+              </ReduxProvider>
+            </ThemeProviders>
+          </ReactQueryProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

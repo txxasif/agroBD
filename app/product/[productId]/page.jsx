@@ -1,6 +1,7 @@
 "use client"
 import { currentUserIdSelector } from "@/store/reducers/user.selector";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -21,6 +22,7 @@ const initialState = {
     quantity: 0,
 }
 export default function Page({ params }) {
+    const { data: session } = useSession();
     const [data, setProduct] = useState(null);
     const [cartData, setCartData] = useState(initialState);
     const [isDone, setDone] = useState(false);
@@ -28,7 +30,7 @@ export default function Page({ params }) {
         console.log(response.data.data);
         setProduct(response.data.data);
     });
-    const userId = useSelector(currentUserIdSelector);
+    const userId = session.user._id;
     const productId = params.productId;
     const url = `/api/product/${productId}`;
     const handleRender = () => {

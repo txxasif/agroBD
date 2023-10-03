@@ -15,12 +15,6 @@ const userSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
-  posts: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Post",
-    },
-  ],
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

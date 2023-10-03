@@ -9,19 +9,17 @@ const PostCard = ({ seller, post }) => {
     router.push(`/product/${post._id}`)
   }
 
-  const { title, description, category, price, quantity, unit, photo, createdAt } = post;
+  const { description, category, price, quantity, unit, photo, createdAt } = post;
   const date = new Date(createdAt).toLocaleString();
   const loader = () => photo;
-  const loader2 = () => seller.photo;
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl ">
+    <div className="card w-96  shadow-xl ">
       <figure>
-        <Image src={photo} width='500' height='500' loader={loader} alt="" />
+        <Image src={photo} width='500' height='500' alt="" />
       </figure>
       <div className="card-body ">
         <div className="px-3">
-          <h2 className='card-title'>{title}</h2>
           <p>{description}</p>
         </div>
         <div className={styles.productDetailsContainer}>

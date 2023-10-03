@@ -1,12 +1,22 @@
 "use client"
+import { Input } from '@/components/ui/input';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
-
 export default function TranslateComponent() {
     const [translation, setTranslation] = useState('');
     const [text, setText] = useState('');
+    const [status, setStatus] = useState();
 
     useEffect(() => {
         const fetchTranslation = async () => {
+            try {
+                const { data, status } = await axios.get('/api/z');
+                console.log(status);
+            } catch (err) {
+                console.log(err.response);
+                setStatus(err.response.status)
+            }
+
             try {
                 const response = await fetch(
                     `https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&q=${text}&sl=en&tl=bn`
@@ -34,8 +44,12 @@ export default function TranslateComponent() {
 
     return (
         <div>
-            <input type='text' value={text} onChange={(e) => setText(e.target.value)} placeholder='type' />
+            <Input type='email' value={text} onChange={(e) => setText(e.target.value)} placeholder='type' />
             <p>Translated Text: {translation}</p>
+            <button className='btn'>click</button>
+            {
+                status
+            }
         </div>
     );
 }
