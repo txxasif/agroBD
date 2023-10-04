@@ -34,7 +34,7 @@ export default function Posts(props) {
 
   return (
 
-    <div className="mt-1 grid grid-cols-3 w-full gap-3">
+    <div className="flex flex-wrap gap-2 py-3">
 
       {
         data && data.map((post) => (<PostCard key={post._id} post={post} seller={seller} />))

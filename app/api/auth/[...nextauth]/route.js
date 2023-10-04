@@ -30,6 +30,7 @@ export const authOptions = {
   callbacks: {
     async session({ session }) {
       console.log("session", session);
+      await connectDB();
       const user = await User.findOne({ email: session.user.email }).select(
         "-password -posts -cart"
       );
