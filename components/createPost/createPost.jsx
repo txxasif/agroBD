@@ -23,10 +23,10 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 const initialValue = {
   description: "",
-  category: "",
+  category: "ধান",
   price: "",
   quantity: "",
-  unit: "",
+  unit: "কেজি",
   photo: null,
   seller: null,
 };
@@ -68,6 +68,7 @@ export default function CreatePost(props) {
     mutate: handleSubmit,
     isLoading,
     isError,
+    error
   } = useMutation({
     mutationFn: async () => {
       console.log("clicked");
@@ -83,6 +84,7 @@ export default function CreatePost(props) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["products"]);
+      setForm(initialValue)
     },
     onError: () => {
       alert("went wrong");
@@ -100,6 +102,7 @@ export default function CreatePost(props) {
   // };
 
   //w[600]
+  console.log(error);
   const handleSubmit1 = () => {
     console.log(form);
   }
@@ -160,7 +163,6 @@ export default function CreatePost(props) {
                 <div className="flex flex-col space-y-2">
                   <Label htmlFor="framework">Unit</Label>
                   <Select
-
                     defaultValue={unit[0]}
                     onValueChange={(e) => setForm(prev => ({ ...prev, ['unit']: e }))}
                     required
@@ -197,6 +199,7 @@ export default function CreatePost(props) {
                     name="quantity"
                     value={form.quantity}
                     onChange={handleChange}
+                    placeholder="Enter Your Quantity"
                     required
                   />
                 </div>
@@ -205,9 +208,9 @@ export default function CreatePost(props) {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-center items-center w-full">
+      <CardFooter className="flex justify-center items-center">
         <SpinnerButton
-          className="w-1/2"
+          className="px-10 py-5 "
           isLoading={isLoading}
           onClick={handleSubmit}
           name="Upload Your Product"

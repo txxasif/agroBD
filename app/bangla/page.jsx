@@ -9,13 +9,6 @@ export default function TranslateComponent() {
 
     useEffect(() => {
         const fetchTranslation = async () => {
-            try {
-                const { data, status } = await axios.get('/api/z');
-                console.log(status);
-            } catch (err) {
-                console.log(err.response);
-                setStatus(err.response.status)
-            }
 
             try {
                 const response = await fetch(

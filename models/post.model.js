@@ -1,6 +1,6 @@
 import Product from "./post.schema";
 import User from "./user.schema";
-const itemsPerPage = 3;
+const itemsPerPage = 6;
 export async function createPostModel(postData) {
   const newPost = new Product({ ...postData });
   const result = await newPost.save();
@@ -79,8 +79,6 @@ export async function getAllPostsModel(page) {
   const postPopulate = result.map((post) => {
     const sellerId = post.seller.toString();
     const seller = sellerDataMap[sellerId];
-    console.log(seller);
-    console.log(seller, "from");
     return { ...post.toObject(), sellerData: seller };
   });
 

@@ -1,13 +1,13 @@
 import Pagination from "@/components/pagiNation/pagiNation";
 import PostCard from "@/components/postCard/postCard";
 import axios from "axios";
-//import { useQuery } from "react-query";
 export default async function Page({ searchParams }) {
   const page = searchParams.page || 1;
-  // const data = await axios
-  //   .get(`/api/home?page=${page}`)
-  //   .then((res) => res.data.data);
-  const data = await fetch(`http://localhost:3000/api/home?page=${page}`)
+  // const fetchData = async () =>
+  //   await axios.get(`/api/home?page=${page}`).then((res) => res.data.data);
+  const data = await fetch(`http://localhost:3000/api/home?page=${page}`, {
+    cache: "default",
+  })
     .then((res) => res.json())
     .then((res) => res.data);
 
@@ -18,8 +18,8 @@ export default async function Page({ searchParams }) {
 
   console.log(data);
   return (
-    <div className="h-screen flex flex-col">
-      <div className="">
+    <div className="h-screen py-10 px-4">
+      <div className="flex flex-wrap gap-5 ">
         {data?.postPopulate.map((user) => {
           return (
             <PostCard key={user._id} seller={user.sellerData} post={user} />

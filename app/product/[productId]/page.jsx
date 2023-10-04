@@ -1,27 +1,73 @@
 "use client"
-import { currentUserIdSelector } from "@/store/reducers/user.selector";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { useQuery } from "react-query";
+import Image from "next/image";
+export default function Page({ params }) {
+    const productId = params.productId;
+    const productUrl = `/api/product/${productId}`;
+    const getUserDetails = async () => {
+        const productData = await axios.get(productUrl).then(res => res.data.data);
+        console.log(productData, "pr");
+        const userData = await axios.get(`/api/product/getuserdetails/${productData.seller}`).then(res => res.data.user);
+        const date = new Date(productData.updatedAt);
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+        const finalDate = `${day}-${month}-${year}`;
 
+        productData["updatedAt"] = finalDate;
 
-const SuccessToaster = () => {
+        return { productData, userData };
+
+    }
+    const { data, isLoading } = useQuery({
+        queryFn: getUserDetails
+    });
+    console.log(data, "");
+    if (isLoading) {
+        return <div>Loading</div>
+    }
     return (
-        <div className="toast toast-end">
-            <div className="alert alert-success">
-                <span>Order Placed Successfully.</span>
-            </div>
-        </div>
+        <Card className="w-[650px] border-[0px] bg-none">
+            <CardHeader>
+                <Image src={data.userData?.photo} width={150} height={150} className="object-cover" />
+                <Label>{data.userData.name}</Label>
+                <Label>{data.productData.updatedAt}</Label>
+            </CardHeader>
+            <CardContent>
+                <Image src={data.productData.photo} width={500} height={500} />
+            </CardContent>
+
+        </Card>
     )
 }
+
 
 const initialState = {
     address: "",
     quantity: 0,
 }
-export default function Page({ params }) {
+export function Page1({ params }) {
     const { data: session } = useSession();
     const [data, setProduct] = useState(null);
     const [cartData, setCartData] = useState(initialState);
@@ -92,3 +138,4 @@ export default function Page({ params }) {
         </div>
     )
 }
+

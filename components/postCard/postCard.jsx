@@ -5,34 +5,51 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-
-import { TakaSvg, QuantitySvg, EmailSvg } from "@/icons/icons"
+import { TakaSvg, QuantitySvg, LocationSvg, CategorySvg } from "@/icons/icons"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { Button } from "../ui/button"
 export default function PostCard({ seller, post }) {
   const { description, category, price, quantity, unit, photo, createdAt } = post;
-  const date = new Date(createdAt).toLocaleString();
+  const router = useRouter();
+  const buy = () => {
+    router.push(`/product/${post._id}`);
+  }
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[350px] border-0 shadow-lg">
       <CardHeader>
-        <Image src={photo} width='300' height='300' alt="" />
+        <Image src={photo} width='300' height='300' alt="" className="h-56 w-fit object-cover" />
       </CardHeader>
       <CardContent>
+        <div className="border w-full my-2"></div>
         <CardDescription>{description}</CardDescription>
-        <div className="flex items-center opacity-70 mt-2 gap-2">
-          <TakaSvg className="w-4 h-4" />
-          <Label>{price} / {unit}</Label>
-        </div>
+        <div className="border w-full my-2"></div>
+        <div>
+          <div className="flex items-center opacity-70 mt-2 gap-2">
+            <TakaSvg className="w-4 h-4" />
+            <Label>{price} টাকা / {unit}</Label>
+          </div>
 
-        <div className="flex items-center opacity-70 mt-2 gap-2">
-          <QuantitySvg className="w-4 h-4" />
-          <Label>{quantity}</Label>
+          <div className="flex items-center opacity-70 mt-2 gap-2">
+            <QuantitySvg className="w-4 h-4" />
+            <Label>{quantity} {unit}</Label>
+          </div>
+          <div className="flex items-center opacity-70 mt-2 gap-2">
+            <LocationSvg className="w-4 h-4" />
+            <Label>সোনাগাজী,ফেনী,চট্টগ্রাম</Label>
+          </div>
+          <div className="flex items-center opacity-70 mt-2 gap-2">
+            <CategorySvg className="w-4 h-4" />
+            <Label>{category}</Label>
+          </div>
         </div>
-
       </CardContent>
+      <CardFooter className="flex justify-center items-center">
+        <Button onClick={buy} className="px-11 py-4">Buy</Button>
+      </CardFooter>
 
     </Card>
   )
@@ -41,7 +58,7 @@ export default function PostCard({ seller, post }) {
 const PostCard1 = ({ seller, post }) => {
   const router = useRouter();
   const buy = () => {
-    router.push(`/product/${post._id}`)
+    router.push(`/product/${post._id}`);
   }
 
   const { description, category, price, quantity, unit, photo, createdAt } = post;

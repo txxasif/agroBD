@@ -12,7 +12,7 @@ const Pagination = ({ totalPages, currentPage }) => {
   }
 
   return (
-    <div className={styles.pagination}>
+    <div className="my-5">
       <ul className={styles['pagination-list']}>
         {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
           <li key={page}>

@@ -4,12 +4,12 @@ export const SpinnerButton = ({ onClick, isLoading, name, ...props }) => {
     return (
         <>
             {
-                isLoading ? (<Button disabled className="w-full">
+                isLoading ? (<Button disabled {...props}>
                     <ReloadIcon className=" mr-2 h-4 w-4 animate-spin" />
                     Please wait
                 </Button>) :
                     (
-                        <Button className=" w-full" onClick={onClick} type="submit">{name}</Button>
+                        <Button {...props} onClick={onClick} type="submit">{name}</Button>
                     )
             }
         </>

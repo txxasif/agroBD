@@ -1,10 +1,4 @@
 'use client'
-import {
-  currentUserSelector,
-  currentUserDataSelector,
-} from "@/store/reducers/user.selector";
-import styles from './profile.module.css';
-import { useSelector } from "react-redux";
 import AboutSection from "../aboutSection/aboutSection";
 import CreatePost from "../createPost/createPost";
 import Posts from "../userPosts/userPosts";
@@ -21,7 +15,7 @@ export default function Profile() {
               <AboutSection className="w-fit col-start-2 col-end-4  mx-auto" />
               <CreatePost className="col-span-3" />
             </div>
-            <div className="w-full border my-2"></div>
+
             <Posts className="w-full mx-auto" />
           </>
         ) : 'Please Login'

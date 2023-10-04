@@ -13,7 +13,7 @@ export default function AboutSection(props) {
   const { data } = useSession();
   const user = data?.user;
   return (
-    <Card className="w-[350px] shadow-2xl " {...props}>
+    <Card className="w-[350px] shadow-lg " {...props}>
       <CardHeader>
         <CardTitle>{user.name}</CardTitle>
       </CardHeader>

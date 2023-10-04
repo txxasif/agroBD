@@ -19,6 +19,10 @@ export async function createUser(user) {
   }
   return { status: status, data: data };
 }
+export async function getUserNameAndPhoto(id) {
+  const data = await User.findOne({ _id: id }).select("name photo");
+  return data;
+}
 export async function checkLogin(user) {
   let status = null;
   let data = null;
