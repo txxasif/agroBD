@@ -15,6 +15,23 @@ const userSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
+  phone: {
+    type: Number,
+  },
+  address: {
+    division: {
+      type: String,
+    },
+    district: {
+      type: String,
+    },
+    upazilla: {
+      type: String,
+    },
+    localAddress: {
+      type: String,
+    },
+  },
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);

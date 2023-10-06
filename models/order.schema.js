@@ -19,7 +19,32 @@ const orderSchema = new mongoose.Schema(
       type: Number,
     },
     deliveryAddress: {
-      type: String,
+      division: {
+        type: String,
+      },
+      district: {
+        type: String,
+      },
+      upazilla: {
+        type: String,
+      },
+      localAddress: {
+        type: String,
+      },
+    },
+    sellerAddress: {
+      division: {
+        type: String,
+      },
+      district: {
+        type: String,
+      },
+      upazilla: {
+        type: String,
+      },
+      localAddress: {
+        type: String,
+      },
     },
 
     status: {

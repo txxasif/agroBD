@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Product from "./post.schema";
 import User from "./user.schema";
 const itemsPerPage = 6;
@@ -9,6 +10,43 @@ export async function createPostModel(postData) {
   } else {
     return false;
   }
+}
+export async function getProductDataModel1(id) {
+  console.log(id);
+  const nId = new mongoose.Types.ObjectId(id);
+  const result1 = await Product.aggregate([
+    {
+      $match: { _id: nId },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "seller",
+        foreignField: "_id",
+        as: "sellerDetails",
+      },
+    },
+    {
+      $unwind: "$sellerDetails",
+    },
+    {
+      $project: {
+        _id: 0,
+        userDetails: {
+          name: "$sellerDetails.name",
+          photo: "$sellerDetails.photo",
+        },
+        productDetails: {
+          $mergeObjects: ["$$ROOT"],
+        },
+      },
+    },
+    {
+      $unset: "productDetails.sellerDetails",
+    },
+  ]);
+  console.log(result1);
+  return result1;
 }
 export async function getProductDataModel(id) {
   let status = false;

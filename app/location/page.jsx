@@ -1,90 +1,138 @@
 "use client"
-
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
+import { Select, SelectValue, SelectTrigger, SelectContent, SelectGroup, SelectItem } from "@/components/ui/select";
+const initialState = {
+    divisions: [],
+    division: "",
+    districts: [],
+    district: "",
+    upazillas: [],
+    upazilla: "",
+    districtsUrl: `/api/location/division/`,
+    upazillaUrl: `/api/location/district?district=`
+}
+function stateReducer(state, action) {
+    switch (action.type) {
+        case "divisions":
+            return { ...state, divisions: action.payload }
+        case "districts":
+            return { ...state, districts: action.payload }
+        case "upazillas":
+            return { ...state, upazillas: action.payload }
+        case "division":
+            return { ...state, division: action.payload }
+        case "district":
+            return { ...state, district: action.payload }
+        case "upazillas":
+            return { ...state, upazillas: action.payload }
+        case "upazilla":
+            return { ...state, upazilla: action.payload }
+        default:
+            return state;
+    }
+}
+export default function Page() {
+    const [state, dispatch] = useReducer(stateReducer, initialState);
+    {/* Url */ }
 
-export default function Location() {
-    const [divisions, setDivisions] = useState([]);
-    const [division, setDivision] = useState("");
-    const [districts, setDistricts] = useState([]);
-    const [district, setDistrict] = useState("");
-    const [upazillas, setUpazillas] = useState([]);
-    const [upazilla, setUpzilla] = useState("")
-    const districtsUrl = `/api/location/division/`;
-    const upazillaUrl = `/api/location/district?district=`;
-
-    const fetchDivision = async () => {
+    {/* Fetching Div,Dis and Up */ }
+    const fetchDivisions = async () => {
         const data = await axios.get('/api/location/division').then(res => res.data.data);
-        console.log(data);
-        setDivisions(data);
+        dispatch({
+            type: "divisions",
+            payload: data
+        })
     }
     const fetchDistricts = async (div) => {
-        console.log(`${districtsUrl}${div}`);
-        const data = await axios.get(districtsUrl + div).then(res => res.data.data).then((data) => setDistricts(data))
-        //setDistricts(prev => data);
-        console.log(data, 'districts');
+        await axios.get(state.districtsUrl + div).then(res => res.data.data).then((data) => dispatch({
+            type: "districts",
+            payload: data
+        }))
 
     }
     const fetchUpazilla = async (dis) => {
-        const data = await axios.get(upazillaUrl + dis).then(res => res.data.data[0])
-        console.log(data.upazilla, 'upa');
-        setUpazillas(data.upazilla);
+        const data = await axios.get(state.upazillaUrl + dis).then(res => res.data.data[0].upazilla)
+        console.log(data, "upazilla");
+        dispatch({
+            type: "upazillas",
+            payload: data
+        })
 
 
     }
     const handleChangeDivisions = async (e) => {
-        setDivision(e.target.value);
-        await fetchDistricts(e.target.value);
+        dispatch({
+            type: "division",
+            payload: e
+        })
+        await fetchDistricts(e);
 
 
     }
-    const handleChangeDistricts = (e) => {
-        setDistrict(e.target.value);
-        fetchUpazilla(e.target.value)
-
-        console.log(e.target.value);
+    const handleChangeDistricts = async (e) => {
+        dispatch({
+            type: "district",
+            payload: e
+        })
+        await fetchUpazilla(e)
     }
     const handleChangeUpazilla = (e) => {
-        setUpzilla(e.target.value)
+        dispatch({
+            type: "upazilla",
+            payload: e
+        })
     }
 
     useEffect(() => {
-        fetchDivision();
-        console.log(upazillas, '[a');
+        fetchDivisions();
+        console.log(state.upazillas, '[a');
     }, [])
+
     return (
-        <div className="form-control w-full max-w-xs">
-            <label className="label">
-                <span className="label-text">Select Your Division</span>
-            </label>
-            <select className="select select-bordered" onChange={handleChangeDivisions}>
+        <div>
+            <Select onValueChange={handleChangeDivisions} required  >
+                <SelectTrigger id="framework">
+                    <SelectValue placeholder="Division" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                    <SelectGroup>
+                        {state.divisions.map((div) => (
+                            <SelectItem key={div._id} value={div._id}>{div.divisionNameBangla}</SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
 
-                {
-                    divisions?.map((data, idx) => <option key={idx} value={data._id} >{data.divisionNameBangla}</option>)
-                }
-            </select>
-            <label className="label">
-                <span className="label-text">Select Your District</span>
-            </label>
-            <select className="select select-bordered" onChange={handleChangeDistricts}>
+            </Select>
 
-                {
-                    districts?.map((data, idx) => <option key={idx} value={data._id} >{data.districtNameBangla}</option>)
-                }
-            </select>
-            <label className="label">
-                <span className="label-text">Select Your Upazilla</span>
-            </label>
-            <select className="select select-bordered" onChange={handleChangeUpazilla}>
-
-                {
-                    upazillas?.map((data, idx) => <option key={idx} value={data.upazillaName} >{data.upazillaNameBangla}</option>)
-                }
-            </select>
-            <div>
-                You Selected {`${upazilla} , ${district} , ${division}`}
-            </div>
-
+            <Select onValueChange={handleChangeDistricts} required  >
+                <SelectTrigger id="framework">
+                    <SelectValue placeholder="District" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                    <SelectGroup>
+                        {state.districts.map((div) => (
+                            <SelectItem key={div._id} value={div._id}>{div.districtNameBangla}</SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+            <Select onValueChange={handleChangeUpazilla} required  >
+                <SelectTrigger id="framework">
+                    <SelectValue placeholder="Upazilla" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                    <SelectGroup>
+                        {state.upazillas.map((div) => (
+                            <SelectItem key={div._id} value={div.upazillaName}>{div.upazillaNameBangla}</SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+            <div>{`${state.division} ${state.district} ${state.upazilla}`}</div>
+            <button onClick={() => console.log(state)}>Buut</button>
         </div>
     )
 }
+
+

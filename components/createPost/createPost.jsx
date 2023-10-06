@@ -90,18 +90,6 @@ export default function CreatePost(props) {
       alert("went wrong");
     },
   });
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = {
-  //     ...form,
-  //     seller: id,
-  //   };
-  //   // dispatch(createPostAsync(data));
-  //   console.log(data);
-  // };
-
-  //w[600]
   console.log(error);
   const handleSubmit1 = () => {
     console.log(form);
