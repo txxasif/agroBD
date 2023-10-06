@@ -5,9 +5,7 @@ export default async function Page({ searchParams }) {
   const page = searchParams.page || 1;
   // const fetchData = async () =>
   //   await axios.get(`/api/home?page=${page}`).then((res) => res.data.data);
-  const data = await fetch(`http://localhost:3000/api/home?page=${page}`, {
-    cache: "default",
-  })
+  const data = await fetch(`http://localhost:3000/api/home?page=${page}`, {})
     .then((res) => res.json())
     .then((res) => res.data);
 

@@ -1,6 +1,6 @@
 "use client"
 import axios from "axios";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 import { Select, SelectValue, SelectTrigger, SelectContent, SelectGroup, SelectItem } from "@/components/ui/select";
 const initialState = {
     divisions: [],
@@ -32,7 +32,7 @@ function stateReducer(state, action) {
             return state;
     }
 }
-export default function Page() {
+export default function Location({ setLocation, ...props }) {
     const [state, dispatch] = useReducer(stateReducer, initialState);
     {/* Url */ }
 
@@ -49,6 +49,7 @@ export default function Page() {
             type: "districts",
             payload: data
         }))
+        setLocation();
 
     }
     const fetchUpazilla = async (dis) => {
@@ -57,7 +58,7 @@ export default function Page() {
         dispatch({
             type: "upazillas",
             payload: data
-        })
+        });
 
 
     }
@@ -82,15 +83,16 @@ export default function Page() {
             type: "upazilla",
             payload: e
         })
+        const locationDetails = { division: state.division, district: state.district, upazilla: e }
+        setLocation(locationDetails)
     }
 
     useEffect(() => {
-        fetchDivisions();
-        console.log(state.upazillas, '[a');
+        fetchDivisions()
     }, [])
 
     return (
-        <div>
+        <div  {...props}>
             <Select onValueChange={handleChangeDivisions} required  >
                 <SelectTrigger id="framework">
                     <SelectValue placeholder="Division" />
@@ -124,7 +126,7 @@ export default function Page() {
                 <SelectContent position="popper">
                     <SelectGroup>
                         {state.upazillas.map((div) => (
-                            <SelectItem key={div._id} value={div.upazillaName}>{div.upazillaNameBangla}</SelectItem>
+                            <SelectItem key={div._id} value={div._id}>{div.upazillaNameBangla}</SelectItem>
                         ))}
                     </SelectGroup>
                 </SelectContent>

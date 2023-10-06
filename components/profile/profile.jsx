@@ -3,6 +3,13 @@ import AboutSection from "../aboutSection/aboutSection";
 import CreatePost from "../createPost/createPost";
 import Posts from "../userPosts/userPosts";
 import { useSession } from "next-auth/react";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs"
+import { UserSetting } from "../userSetting/usersetting";
 export default function Profile() {
   const { data } = useSession()
   const userData = data?.user;
@@ -15,11 +22,26 @@ export default function Profile() {
               <AboutSection className="w-fit col-start-2 col-end-4  mx-auto" />
               <CreatePost className="col-span-3" />
             </div>
+            <Tabs defaultValue="posts" className="w-full my-3">
+              <TabsList className="w-fit flex mx-auto">
+                <TabsTrigger className="p-2" value="posts">Posts</TabsTrigger>
+                <TabsTrigger className="p-2" value="setting">Setting</TabsTrigger>
+              </TabsList>
+              <TabsContent value="posts">
+                <Posts className="w-full mx-auto" />
+              </TabsContent>
+              <TabsContent className="w-full border h-[70vh]" value="setting">
+                <UserSetting />
+              </TabsContent>
+            </Tabs>
 
-            <Posts className="w-full mx-auto" />
           </>
         ) : 'Please Login'
       }
     </>
   );
 }
+
+
+
+

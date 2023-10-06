@@ -1,5 +1,6 @@
 "use client"
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 export default function TranslateComponent() {
@@ -36,13 +37,19 @@ export default function TranslateComponent() {
     }, [text]);
 
     return (
-        <div>
-            <Input type='email' value={text} onChange={(e) => setText(e.target.value)} placeholder='type' />
-            <p>Translated Text: {translation}</p>
-            <button className='btn'>click</button>
-            {
-                status
-            }
+        <div className='w-full h-screen mx-auto grid grid-cols-2 '>
+            <Textarea
+                className="max-w-lg h-52"
+                type="text"
+                placeholder="Enter Your Product Description"
+                name="description"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                required
+            />
+            <div className='max-w-lg h-52 border flex items-center justify-center'>
+                <h1 className='text-center'>{translation}</h1>
+            </div>
         </div>
     );
 }
