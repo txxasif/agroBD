@@ -1,13 +1,17 @@
 import Pagination from "@/components/pagiNation/pagiNation";
 import PostCard from "@/components/postCard/postCard";
 import axios from "axios";
+
 export default async function Page({ searchParams }) {
   const page = searchParams.page || 1;
   // const fetchData = async () =>
   //   await axios.get(`/api/home?page=${page}`).then((res) => res.data.data);
-  const data = await fetch(`http://localhost:3000/api/home?page=${page}`, {
-    next: { revalidate: 100 },
-  })
+  const data = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/home?page=${page}`,
+    {
+      next: { revalidate: 100 },
+    }
+  )
     .then((res) => res.json())
     .then((res) => res.data);
 
