@@ -44,6 +44,9 @@ export async function getProductDataModel1(id) {
     {
       $unset: "productDetails.sellerDetails",
     },
+    {
+      $sort: { "productDetails.createdAt": 1 },
+    },
   ]);
   console.log(result1);
   return result1;
@@ -67,11 +70,37 @@ export async function getProductDataModel(id) {
 export async function getUserPostsModel(id) {
   try {
     const userData = await User.findById(id).select("name photo email _id");
-    const userProducts = await Product.find({ seller: id });
+    const userProducts = await Product.find({ seller: id }).sort({
+      createdAt: -1,
+    });
     const data = {
       user: userData,
       posts: userProducts,
     };
+    // const uId = new mongoose.Types.ObjectId(id);
+    // const fakeAggreation = await User.aggregate([
+    //   { $match: { _id: uId } },
+    //   {
+    //     $lookup: {
+    //       from: "products",
+    //       foreignField: "seller",
+    //       localField: "_id",
+    //       as: "posts",
+    //     },
+    //   },
+    //   {
+    //     $project: {
+    //       name: 1,
+    //       photo: 1,
+    //       email: 1,
+    //       _id,
+    //       posts: {
+    //         $sort: { createdAt: -1 },
+    //       },
+    //     },
+    //   },
+    // ]);
+
     // console.log(userPosts,'xxx');
     return { status: true, data };
   } catch (err) {

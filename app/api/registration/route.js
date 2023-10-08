@@ -5,6 +5,7 @@ export async function POST(req) {
   try {
     await connectDB();
     const body = await req.json();
+    console.log(body);
     const status = await createUser(body);
 
     if (status.status) {

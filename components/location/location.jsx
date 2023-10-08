@@ -32,7 +32,7 @@ function stateReducer(state, action) {
             return state;
     }
 }
-export default function Location({ setLocation, ...props }) {
+export default function Location({ setLocation, check, ...props }) {
     const [state, dispatch] = useReducer(stateReducer, initialState);
     {/* Url */ }
 
@@ -49,7 +49,7 @@ export default function Location({ setLocation, ...props }) {
             type: "districts",
             payload: data
         }))
-        setLocation();
+        setLocation({ division: state.division, district: state.district, upazilla: state.upazilla });
 
     }
     const fetchUpazilla = async (dis) => {

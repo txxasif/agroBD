@@ -24,13 +24,13 @@ export default function Profile() {
             </div>
             <Tabs defaultValue="posts" className="w-full my-3">
               <TabsList className="w-fit flex mx-auto">
-                <TabsTrigger className="p-2" value="posts">Posts</TabsTrigger>
-                <TabsTrigger className="p-2" value="setting">Setting</TabsTrigger>
+                <TabsTrigger className="px-4 py-2 rounded-sm" value="posts">Posts</TabsTrigger>
+                <TabsTrigger className="px-4 py-2 rounded-sm" value="setting">Setting</TabsTrigger>
               </TabsList>
               <TabsContent value="posts">
                 <Posts className="w-full mx-auto" />
               </TabsContent>
-              <TabsContent className="w-full border h-[70vh]" value="setting">
+              <TabsContent className="w-full " value="setting">
                 <UserSetting />
               </TabsContent>
             </Tabs>

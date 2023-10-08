@@ -12,7 +12,11 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { ReloadIcon } from "@radix-ui/react-icons";
-ReloadIcon
+import { useSession } from "next-auth/react";
+import { uploadPhoto, createUserHelper } from "@/helper/registration/registration.helper";
+import { useMutation } from "react-query";
+
+
 
 const defaultValue = {
     name: "",
@@ -23,38 +27,37 @@ const defaultValue = {
 
 export default function SignUp() {
     const router = useRouter();
-    const dispatch = useDispatch();
     const [form, setForm] = useState(defaultValue);
-    const [photo, setPhoto] = useState(null);
-    const currentUser = useSelector(currentUserSelector);
-    const isError = useSelector(currentUserErrorSelector);
-    const errorMessage = useSelector(currentUserErrorTextSelector);
-    const [isLoading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value, files, type } = e.target;
         setForm({ ...form, [name]: type === "file" ? files[0] : value });
     };
-
-    const handleImageChange = (e) => {
-        const photo = e.target.files[0];
-        setPhoto(photo);
-    };
-
-    const handleSubmit = async (e) => {
+    const handleSubmitAsync = async (e) => {
         e.preventDefault();
-        dispatch(createUserAsync(form));
-        setLoading(true);
-
-    };
-
+        let user = { ...form };
+        const result = await uploadPhoto(user.photo);
+        console.log(result.data.secure_url, "reult");
+        user["photo"] = result.data.secure_url;
+        try {
+            const response = await createUserHelper(user);
+            if (response.status === 201) {
+                const data = response.data;
+                console.log(data, "formmm");
+                router.push("/login")
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    const { mutate: handleSubmit, isError, isLoading, isSuccess } = useMutation({
+        mutationFn: handleSubmitAsync,
+    })
     useEffect(() => {
-        setLoading(false);
-
-        if (currentUser) {
+        if (isSuccess) {
             router.push("/");
         }
-    }, [currentUser]);
+    }, [isSuccess]);
 
     return (
         <div className="w-full max-w-sm p-4rounded-lg shadow sm:p-6 md:p-8 border min-w-max">
@@ -68,7 +71,7 @@ export default function SignUp() {
                 <Label>Your email</Label>
                 <Input type="email" name="email" value={form.email} onChange={handleChange} placeholder="name@company.com" required />
 
-                <Label for="password" >Your password</Label>
+                <Label >Your password</Label>
                 <Input type="password" name="password" id="password" value={form.password} onChange={handleChange} required />
 
                 <Label >Photo</Label>
@@ -92,7 +95,7 @@ export default function SignUp() {
 
                 }
             </form>
-            <h3 className="mt-4">{isError ? errorMessage : null}</h3>
+            <h3 className="mt-4">{isError ? "Something Went Wrong" : null}</h3>
         </div>
     );
 }

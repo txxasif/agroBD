@@ -31,7 +31,7 @@ export default function Posts(props) {
   //   getData();
   // }, [])
 
-
+  console.log(data);
   return (
 
     <div className="flex flex-wrap gap-2 py-3 px-5">
