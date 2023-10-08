@@ -10,9 +10,27 @@ import { Label } from "../ui/label"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import Location from "../location/location"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSession } from "next-auth/react"
+import { useQuery } from "react-query"
+import axios from "axios"
 export function UserSetting() {
     const [location, setLocation] = useState({ division: '', district: '', upazilla: '' });
+    const [localAddress, setLocalAddress] = useState('');
+    const { data: session } = useSession();
+    const uId = session.user._id;
+
+    function handleChange(e) {
+        const { value } = e.target;
+        setLocalAddress(value);
+    }
+    const getUserSettings = async () => await axios.get(`/api/profile/settings?id=${uId}`).then(res => res.data.data);
+
+    const { data: user } = useQuery({
+        queryKey: ["settings"],
+        queryFn: getUserSettings
+    },
+    )
     return (
         <Card className="mx-auto w-fit">
             <CardHeader>
@@ -23,19 +41,23 @@ export function UserSetting() {
             </CardHeader>
             <CardContent className="space-y-2">
                 <div className="space-y-1">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" defaultValue="Pedro Duarte" />
+                    <Label htmlFor="name" >Name</Label>
+                    <Input defaultValue={user?.name || ""} />
                 </div>
                 <div className="space-y-1">
                     <Label htmlFor="name">Email</Label>
-                    <Input id="name" defaultValue="Pedro Duarte" />
+                    <Input defaultValue={user?.email || ""} />
+                </div>
+                <div className="space-y-1">
+                    <Label htmlFor="name">Phone Number</Label>
+                    <Input id="name" value={localAddress} name="localAddress" onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
                     <Label htmlFor="name">Location</Label>
-                    <Input id="name" defaultValue="Pedro Duarte" />
+                    <Input id="name" value={localAddress} name="localAddress" onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
-                    <Location setLocation={setLocation} className="mx-fit grid grid-cols-3 gap-1" />
+                    <Location setLocation={setLocation} location={location} className="mx-fit grid grid-cols-3 gap-1" />
                 </div>
             </CardContent>
             <CardFooter>

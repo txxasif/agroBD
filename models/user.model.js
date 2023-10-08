@@ -86,3 +86,7 @@ export async function addToCart(order) {
   }
   return status;
 }
+export async function getUserSettings(id) {
+  const data = await User.findOne({ _id: id }).select("name email location");
+  return data;
+}

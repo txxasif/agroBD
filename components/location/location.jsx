@@ -32,11 +32,12 @@ function stateReducer(state, action) {
             return state;
     }
 }
-export default function Location({ setLocation, check, ...props }) {
+export default function Location({ setLocation, location, ...props }) {
     const [state, dispatch] = useReducer(stateReducer, initialState);
     {/* Url */ }
 
     {/* Fetching Div,Dis and Up */ }
+    const { setting, dipatch } = useReducer(stateReducer, initialState);
     const fetchDivisions = async () => {
         const data = await axios.get('/api/location/division').then(res => res.data.data);
         dispatch({
@@ -79,12 +80,14 @@ export default function Location({ setLocation, check, ...props }) {
         await fetchUpazilla(e)
     }
     const handleChangeUpazilla = (e) => {
+
+        console.log(location, 'hiii');
         dispatch({
             type: "upazilla",
             payload: e
         })
         const locationDetails = { division: state.division, district: state.district, upazilla: e }
-        setLocation(locationDetails)
+        setLocation((prev) => ({ ...location, ...locationDetails }))
     }
 
     useEffect(() => {
