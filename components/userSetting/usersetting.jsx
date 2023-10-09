@@ -35,7 +35,11 @@ function userSettingsReducer(state, action) {
         case "phone":
             return { ...state, phone: action.payload }
         case "location":
-            return { ...state, location: action.payload }
+            return {
+                ...state, location: {
+                    ...state.location, ...action.payload
+                }
+            }
         case "localAddress":
             return {
                 ...state, location: {
@@ -50,17 +54,15 @@ function userSettingsReducer(state, action) {
 }
 
 export function UserSetting() {
-    const { state, dispatch } = useReducer(userSettingsReducer, initialData);
-
-    const [location, setLocation] = useState({ division: '', district: '', upazilla: '' });
-    const [localAddress, setLocalAddress] = useState('');
+    const [state, dispatch] = useReducer(userSettingsReducer, initialData);
     const { data: session } = useSession();
     const uId = session.user._id;
 
     function handleChange(e) {
         const { name, value } = e.target;
+        console.log(name, value);
         dispatch({
-            type: name,
+            type: `${name}`,
             payload: value
         })
     }
@@ -71,12 +73,16 @@ export function UserSetting() {
         queryFn: getUserSettings,
         onSuccess: (data) => {
             delete data._id;
-            console.log(data, "from s");
-
+            console.log(data, "query");
+            dispatch({
+                type: "user",
+                payload: data
+            })
         }
-
     },
     )
+
+    console.log(state, "state");
     return (
         <Card className="mx-auto w-fit">
             <CardHeader>
@@ -88,22 +94,22 @@ export function UserSetting() {
             <CardContent className="space-y-2">
                 <div className="space-y-1">
                     <Label >Name</Label>
-                    <Input name="name" defaultValue={user?.name || ""} />
+                    <Input name="name" value={state?.name} onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
                     <Label>Email</Label>
-                    <Input name="email" defaultValue={user?.email || ""} />
+                    <Input name="email" value={state?.email} onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
                     <Label >Phone Number</Label>
-                    <Input name="phone" value={localAddress} onChange={handleChange} />
+                    <Input name="phone" value={state?.phone} onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
                     <Label >Local Address</Label>
-                    <Input id="name" value={localAddress} name="localAddress" onChange={handleChange} />
+                    <Input value={state?.location.localAddress} name="localAddress" onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
-                    <Location setLocation={setLocation} location={location} className="mx-fit grid grid-cols-3 gap-1" />
+                    <Location setLocation={dispatch} className="mx-fit grid grid-cols-3 gap-1" />
                 </div>
             </CardContent>
             <CardFooter>

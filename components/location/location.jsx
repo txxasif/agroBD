@@ -32,7 +32,7 @@ function stateReducer(state, action) {
             return state;
     }
 }
-export default function Location({ setLocation, location, ...props }) {
+export default function Location({ setLocation, ...props }) {
     const [state, dispatch] = useReducer(stateReducer, initialState);
     {/* Url */ }
 
@@ -87,7 +87,10 @@ export default function Location({ setLocation, location, ...props }) {
             payload: e
         })
         const locationDetails = { division: state.division, district: state.district, upazilla: e }
-        setLocation((prev) => ({ ...location, ...locationDetails }))
+        setLocation({
+            type: "location",
+            payload: locationDetails
+        })
     }
 
     useEffect(() => {
