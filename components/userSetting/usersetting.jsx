@@ -10,25 +10,71 @@ import { Label } from "../ui/label"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import Location from "../location/location"
-import { useEffect, useState } from "react"
+import { useEffect, useReducer, useState } from "react"
 import { useSession } from "next-auth/react"
 import { useQuery } from "react-query"
 import axios from "axios"
+import { data } from "autoprefixer"
+const initialData = {
+    name: "",
+    email: "",
+    phone: "",
+    location: {
+        division: "",
+        district: "",
+        upazilla: "",
+        localAddress: ""
+    },
+}
+function userSettingsReducer(state, action) {
+    switch (action.type) {
+        case "name":
+            return { ...state, name: action.payload }
+        case "email":
+            return { ...state, email: action.payload }
+        case "phone":
+            return { ...state, phone: action.payload }
+        case "location":
+            return { ...state, location: action.payload }
+        case "localAddress":
+            return {
+                ...state, location: {
+                    ...state.location, localAddress: action.payload
+                }
+            }
+        case "user":
+            return { ...state, ...action.payload }
+        default:
+            return state;
+    }
+}
+
 export function UserSetting() {
+    const { state, dispatch } = useReducer(userSettingsReducer, initialData);
+
     const [location, setLocation] = useState({ division: '', district: '', upazilla: '' });
     const [localAddress, setLocalAddress] = useState('');
     const { data: session } = useSession();
     const uId = session.user._id;
 
     function handleChange(e) {
-        const { value } = e.target;
-        setLocalAddress(value);
+        const { name, value } = e.target;
+        dispatch({
+            type: name,
+            payload: value
+        })
     }
     const getUserSettings = async () => await axios.get(`/api/profile/settings?id=${uId}`).then(res => res.data.data);
 
     const { data: user } = useQuery({
         queryKey: ["settings"],
-        queryFn: getUserSettings
+        queryFn: getUserSettings,
+        onSuccess: (data) => {
+            delete data._id;
+            console.log(data, "from s");
+
+        }
+
     },
     )
     return (
@@ -41,19 +87,19 @@ export function UserSetting() {
             </CardHeader>
             <CardContent className="space-y-2">
                 <div className="space-y-1">
-                    <Label htmlFor="name" >Name</Label>
-                    <Input defaultValue={user?.name || ""} />
+                    <Label >Name</Label>
+                    <Input name="name" defaultValue={user?.name || ""} />
                 </div>
                 <div className="space-y-1">
-                    <Label htmlFor="name">Email</Label>
-                    <Input defaultValue={user?.email || ""} />
+                    <Label>Email</Label>
+                    <Input name="email" defaultValue={user?.email || ""} />
                 </div>
                 <div className="space-y-1">
-                    <Label htmlFor="name">Phone Number</Label>
-                    <Input id="name" value={localAddress} name="localAddress" onChange={handleChange} />
+                    <Label >Phone Number</Label>
+                    <Input name="phone" value={localAddress} onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
-                    <Label htmlFor="name">Location</Label>
+                    <Label >Local Address</Label>
                     <Input id="name" value={localAddress} name="localAddress" onChange={handleChange} />
                 </div>
                 <div className="space-y-1">

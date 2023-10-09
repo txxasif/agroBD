@@ -10,3 +10,6 @@ export async function GET(req) {
   console.log(data);
   return NextResponse.json({ msg: "ok", data: data });
 }
+export async function POST(req) {
+  const data = await req.json();
+}
