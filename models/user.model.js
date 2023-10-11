@@ -1,6 +1,7 @@
 import User from "./user.schema";
 import Post from "./post.schema";
 import mongoose from "mongoose";
+import translateToBangla from "@/helper/translation";
 export async function createUser(user) {
   let status = null;
   let data = null;
@@ -88,20 +89,34 @@ export async function addToCart(order) {
   return status;
 }
 export async function getUserSettings(id) {
-  const data = await User.findOne({ _id: id }).select("name email location");
+  const data = await User.findOne({ _id: id }).select(
+    "name email location phone locationBn"
+  );
   return data;
 }
 export async function setUserSettings(id, data) {
   const uId = new mongoose.Types.ObjectId(id);
-  const response = await User.aggregate([
-    {
-      $match: { _id: id },
-    },
-    {
-      $addFields: {
-        location: data,
-      },
-    },
-  ]);
-  return data;
+  // const response = await User.aggregate([
+  //   {
+  //     $match: { _id: uId },
+  //   },
+  //   {
+  //     $addFields: {
+  //       ...data,
+  //     },
+  //   },
+  // ]);
+  console.log(data, "noww");
+  const division = await translateToBangla(data.location.division);
+  const district = await translateToBangla(data.location.district);
+  const upazilla = await translateToBangla(data.location.upazilla);
+  const localAddress = await translateToBangla(data.location.localAddress);
+  const locationBn = { division, district, upazilla, localAddress };
+  const newData = { ...data, locationBn };
+  const response = await User.findByIdAndUpdate(
+    { _id: uId },
+    { $set: { ...newData } }
+  );
+  console.log(response, "updated");
+  return response;
 }

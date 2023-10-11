@@ -32,7 +32,7 @@ function stateReducer(state, action) {
             return state;
     }
 }
-export default function Location({ setLocation, ...props }) {
+export default function Location({ setLocation, locationBn, ...props }) {
     const [state, dispatch] = useReducer(stateReducer, initialState);
     {/* Url */ }
 
@@ -101,7 +101,7 @@ export default function Location({ setLocation, ...props }) {
         <div  {...props}>
             <Select onValueChange={handleChangeDivisions} required  >
                 <SelectTrigger id="framework">
-                    <SelectValue placeholder="Division" />
+                    <SelectValue placeholder={locationBn ? locationBn.division : "Division"} />
                 </SelectTrigger>
                 <SelectContent position="popper">
                     <SelectGroup>
@@ -115,7 +115,7 @@ export default function Location({ setLocation, ...props }) {
 
             <Select onValueChange={handleChangeDistricts} required  >
                 <SelectTrigger id="framework">
-                    <SelectValue placeholder="District" />
+                    <SelectValue placeholder={locationBn ? locationBn.district : "District"} />
                 </SelectTrigger>
                 <SelectContent position="popper">
                     <SelectGroup>
@@ -127,7 +127,7 @@ export default function Location({ setLocation, ...props }) {
             </Select>
             <Select onValueChange={handleChangeUpazilla} required  >
                 <SelectTrigger id="framework">
-                    <SelectValue placeholder="Upazilla" />
+                    <SelectValue placeholder={locationBn ? locationBn.upazilla : "Upazilla"} />
                 </SelectTrigger>
                 <SelectContent position="popper">
                     <SelectGroup>

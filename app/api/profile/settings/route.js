@@ -1,5 +1,5 @@
 import connectDB from "@/models/mongoose";
-import { getUserSettings } from "@/models/user.model";
+import { getUserSettings, setUserSettings } from "@/models/user.model";
 import { NextResponse } from "next/server";
 export async function GET(req) {
   const searchParams = req.nextUrl.searchParams;
@@ -12,4 +12,9 @@ export async function GET(req) {
 }
 export async function POST(req) {
   const data = await req.json();
+  const response = await setUserSettings(data.id, data.userData);
+  console.log(response);
+
+  if (response) return NextResponse.json({ msg: "ok" });
+  else return NextResponse.json({ err: "error" }, { status: 400 });
 }

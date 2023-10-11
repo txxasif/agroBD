@@ -9,7 +9,7 @@ export default async function Page({ searchParams }) {
   const data = await fetch(
     `${process.env.NEXTAUTH_URL}/api/home?page=${page}`,
     {
-      next: { revalidate: 100 },
+      next: { revalidate: 10000 },
     }
   )
     .then((res) => res.json())

@@ -19,7 +19,7 @@ export default function PostCard({ seller, post }) {
     router.push(`/product/${post._id}`);
   }
   return (
-    <Card className="w-[350px] border-0 shadow-lg">
+    <Card className="w-[350px] border shadow-lg">
       <CardHeader>
         <Image src={photo} width='300' height='300' alt="" className="h-56 w-fit object-cover" />
       </CardHeader>

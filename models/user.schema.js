@@ -18,7 +18,21 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: Number,
   },
-  address: {
+  location: {
+    division: {
+      type: String,
+    },
+    district: {
+      type: String,
+    },
+    upazilla: {
+      type: String,
+    },
+    localAddress: {
+      type: String,
+    },
+  },
+  locationBn: {
     division: {
       type: String,
     },

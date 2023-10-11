@@ -14,7 +14,9 @@ import { useEffect, useReducer, useState } from "react"
 import { useSession } from "next-auth/react"
 import { useQuery } from "react-query"
 import axios from "axios"
-import { data } from "autoprefixer"
+import { useMutation } from "react-query"
+import { useQueryClient } from "react-query"
+import { SpinnerButton } from "../ui/spinnerButton"
 const initialData = {
     name: "",
     email: "",
@@ -56,6 +58,7 @@ function userSettingsReducer(state, action) {
 export function UserSetting() {
     const [state, dispatch] = useReducer(userSettingsReducer, initialData);
     const { data: session } = useSession();
+    const queryClient = useQueryClient();
     const uId = session.user._id;
 
     function handleChange(e) {
@@ -67,7 +70,7 @@ export function UserSetting() {
         })
     }
     const getUserSettings = async () => await axios.get(`/api/profile/settings?id=${uId}`).then(res => res.data.data);
-
+    const setUserSettings = async () => await axios.post('/api/profile/settings', { id: uId, userData: state });
     const { data: user } = useQuery({
         queryKey: ["settings"],
         queryFn: getUserSettings,
@@ -81,6 +84,14 @@ export function UserSetting() {
         }
     },
     )
+    const { mutate: handleClick, isLoading, isError } = useMutation({
+        mutationFn: setUserSettings,
+        onSuccess: () => {
+            queryClient.invalidateQueries(["settings"])
+            console.log("done");
+        }
+
+    })
 
     console.log(state, "state");
     return (
@@ -106,14 +117,15 @@ export function UserSetting() {
                 </div>
                 <div className="space-y-1">
                     <Label >Local Address</Label>
-                    <Input value={state?.location.localAddress} name="localAddress" onChange={handleChange} />
+                    <Input value={state?.locationBn?.localAddress} name="localAddress" onChange={handleChange} />
                 </div>
                 <div className="space-y-1">
-                    <Location setLocation={dispatch} className="mx-fit grid grid-cols-3 gap-1" />
+                    <Location locationBn={state?.locationBn} setLocation={dispatch} className="mx-fit grid grid-cols-3 gap-1" />
                 </div>
             </CardContent>
-            <CardFooter>
-                <Button>Save changes</Button>
+            <CardFooter className="w-full flex items-center justify-center">
+                <SpinnerButton onClick={handleClick} name={"Update"} isLoading={isLoading} />
+                {isError ? <h1>Error</h1> : null}
             </CardFooter>
         </Card>
     )
