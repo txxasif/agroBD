@@ -11,10 +11,12 @@ export default function Posts(props) {
     name: user?.name,
     photo: user?.photo
   }
-  const { data } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["products"],
     queryFn: async () => await axios.get(`/api/profile/${user._id}`).then(res => res.data.data.posts),
   })
+
+
   //console.log(data?.data.posts);
   // useEffect(() => {
   //   let getData = async () => {

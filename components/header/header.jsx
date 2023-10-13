@@ -29,7 +29,7 @@ export default function Header() {
         router.push("/");
     }
     return (
-        <header className="flex justify-between items-center px-1 py-1 md:py-3 md:px-2">
+        <header className="flex justify-between items-center px-1 py-1 md:py-3 md:px-2 sticky top-0 mb-10 bg-black z-20">
             <div className="">
                 <Link href={'/'} className="text-xl">Home</Link>
             </div>
