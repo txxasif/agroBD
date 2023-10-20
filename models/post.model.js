@@ -1,7 +1,47 @@
 import mongoose from "mongoose";
 import Product from "./post.schema";
 import User from "./user.schema";
+import connectDB from "./mongoose";
 const itemsPerPage = 6;
+export async function setProductLocation() {
+  await connectDB();
+  const data = await Product.aggregate()
+    .lookup({
+      from: "users",
+      localField: "seller",
+      foreignField: "_id",
+      as: "sellerDetails",
+    })
+    .unwind({
+      path: "$sellerDetails",
+      preserveNullAndEmptyArrays: true,
+    })
+    .project({
+      sellerLocationBn: "$sellerDetails.locationBn",
+      sellerLocation: "$sellerDetails.location",
+    });
+  const bulkUpdateOperations = data.map(async (doc) => {
+    const nId = new mongoose.Types.ObjectId(doc._id);
+    console.log(nId);
+    const res = Product.updateOne(
+      { _id: nId },
+      {
+        $set: {
+          sellerLocation: doc.sellerLocation,
+          sellerLocationBn: doc.sellerLocationBn,
+        },
+      }
+    );
+    console.log(res);
+  });
+  console.log(bulkUpdateOperations);
+  await Promise.all(bulkUpdateOperations);
+
+  //const r = await Product.bulkWrite(bulkUpdateOperations);
+  //console.log(r);
+
+  return data;
+}
 export async function createPostModel(postData) {
   const newPost = new Product({ ...postData });
   const result = await newPost.save();

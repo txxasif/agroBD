@@ -10,7 +10,12 @@ export async function createUser(user) {
   console.log(check, "hii");
   if (!check) {
     try {
-      const newUser = new User({ ...user });
+      const division = await translateToBangla(user.location.division);
+      const district = await translateToBangla(user.location.district);
+      const upazilla = await translateToBangla(user.location.upazilla);
+      const localAddress = await translateToBangla(user.location.localAddress);
+      const locationBn = { division, district, upazilla, localAddress };
+      const newUser = new User({ ...user, locationBn });
       data = await newUser.save();
       status = true;
     } catch (err) {

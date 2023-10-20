@@ -7,7 +7,6 @@ export async function POST(req) {
     const body = await req.json();
     console.log(body);
     const status = await createUser(body);
-
     if (status.status) {
       return NextResponse.json(
         { msg: true, user: status.data },

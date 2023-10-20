@@ -1,11 +1,13 @@
 'use client'
+
 import Profile from "@/components/profile/profile";
+
+
 export default function Page({ params }) {
 
   return (
     <div>
       <Profile />
-
     </div>
   );
 }

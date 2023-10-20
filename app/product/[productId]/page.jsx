@@ -27,6 +27,9 @@ export default function Page({ params }) {
         return { userData, productData };
 
     }
+    const { data: session } = useSession();
+    const { locationBn } = session?.user;
+
     const { data, isLoading } = useQuery({
         queryFn: getUserDetails
     });
@@ -87,8 +90,8 @@ export default function Page({ params }) {
                     <div className="w-full border my-1"></div>
                     <div className=" max-w-xs flex gap-y-2 flex-col  mx-auto">
                         <Input placeholder="Enter Quantity" />
-                        <Input placeholder="Enter Local Address" />
-                        <Location className="grid grid-cols-3 gap-x-3" setLocation={setLocation} location={location} />
+                        <Input placeholder={locationBn.localAddress || "Enter Local Address"} />
+                        <Location locationBn={locationBn || ""} className="grid grid-cols-3 gap-x-3" setLocation={setLocation} location={location} />
                         <Button className="w-fit mx-auto" onClick={() => console.log("done")}>Place Order</Button>
                     </div>
                 </div>

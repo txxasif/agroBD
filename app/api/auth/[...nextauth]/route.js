@@ -32,7 +32,7 @@ export const authOptions = {
       console.log("session", session);
       await connectDB();
       const user = await User.findOne({ email: session.user.email }).select(
-        "-password -posts -cart"
+        "-password"
       );
 
       return {
@@ -41,6 +41,8 @@ export const authOptions = {
           email: user.email,
           name: user.name,
           photo: user.photo,
+          location: user.location,
+          locationBn: user.locationBn,
         },
       };
     },

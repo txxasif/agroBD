@@ -43,6 +43,34 @@ const productSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    sellerLocation: {
+      division: {
+        type: String,
+      },
+      district: {
+        type: String,
+      },
+      upazilla: {
+        type: String,
+      },
+      localAddress: {
+        type: String,
+      },
+    },
+    sellerLocationBn: {
+      division: {
+        type: String,
+      },
+      district: {
+        type: String,
+      },
+      upazilla: {
+        type: String,
+      },
+      localAddress: {
+        type: String,
+      },
+    },
   },
   { timestamps: true }
 );

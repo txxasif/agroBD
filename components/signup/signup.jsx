@@ -1,20 +1,13 @@
 "use client"
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createUserAsync } from "@/store/reducers/user.reducer";
-import {
-    currentUserSelector,
-    currentUserErrorSelector,
-    currentUserErrorTextSelector,
-} from "@/store/reducers/user.selector";
+import { useEffect, useState, useReducer } from "react";
 import { useRouter } from "next/navigation";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { useSession } from "next-auth/react";
-import { uploadPhoto, createUserHelper } from "@/helper/registration/registration.helper";
 import { useMutation } from "react-query";
+import Location from "../location/location";
+import { uploadPhoto, createUserHelper } from "@/helper/registration/registration.helper";
 
 
 
@@ -25,7 +18,23 @@ const defaultValue = {
     photo: null,
 };
 
+const initialLocationData = {
+    division: "",
+    district: "",
+    upazilla: "",
+    localAddress: ""
+}
+function userSettingsReducer(state, action) {
+    switch (action.type) {
+        case "location":
+            return { ...state, ...action.payload }
+        default:
+            return state;
+    }
+
+}
 export default function SignUp() {
+    const [location, dispatch] = useReducer(userSettingsReducer, initialLocationData);
     const router = useRouter();
     const [form, setForm] = useState(defaultValue);
 
@@ -39,12 +48,15 @@ export default function SignUp() {
         const result = await uploadPhoto(user.photo);
         console.log(result.data.secure_url, "reult");
         user["photo"] = result.data.secure_url;
+        let u = {
+            ...user, location
+        }
         try {
-            const response = await createUserHelper(user);
+            const response = await createUserHelper(u);
             if (response.status === 201) {
                 const data = response.data;
                 console.log(data, "formmm");
-                router.push("/login")
+                // router.push("/login")
             }
         } catch (e) {
             console.log(e);
@@ -73,6 +85,10 @@ export default function SignUp() {
 
                 <Label >Your password</Label>
                 <Input type="password" name="password" id="password" value={form.password} onChange={handleChange} required />
+
+                <Label >Your LocalAddress</Label>
+                <Input type="text" name="password" id="password" value={location.localAddress} onChange={(e) => dispatch({ type: "location", payload: { localAddress: e.target.value } })} required />
+                <Location setLocation={dispatch} className="mx-fit grid grid-cols-3 gap-1" />
 
                 <Label >Photo</Label>
                 <Input

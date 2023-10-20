@@ -10,7 +10,7 @@ import { Label } from "../ui/label"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import Location from "../location/location"
-import { useEffect, useReducer, useState } from "react"
+import { useReducer } from "react"
 import { useSession } from "next-auth/react"
 import { useQuery } from "react-query"
 import axios from "axios"
@@ -60,7 +60,6 @@ export function UserSetting() {
     const { data: session } = useSession();
     const queryClient = useQueryClient();
     const uId = session.user._id;
-
     function handleChange(e) {
         const { name, value } = e.target;
         console.log(name, value);

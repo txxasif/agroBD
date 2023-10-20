@@ -101,7 +101,7 @@ export default function CreatePost(props) {
       </CardHeader>
       <CardContent>
         <form>
-          <div className="grid w-full items-center grid-cols-2 gap-4">
+          <div className="grid  w-full items-center grid-cols-2 gap-4">
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Description</Label>
@@ -180,7 +180,7 @@ export default function CreatePost(props) {
                     required
                   />
                 </div>
-                <div className="flex flex-col space-y-1.5">
+                <div className=" flex flex-col space-y-1.5">
                   <Label htmlFor="name">Quantity</Label>
                   <Input
                     type="number"
