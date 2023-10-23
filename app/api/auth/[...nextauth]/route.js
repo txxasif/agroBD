@@ -1,11 +1,7 @@
-import { loginUserHelper } from "@/helper/registration/registration.helper";
 import connectDB from "@/models/mongoose";
 import User from "@/models/user.schema";
-import axios from "axios";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { use } from "react";
-
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -16,7 +12,7 @@ export const authOptions = {
         await connectDB();
         const { email, password } = credentials;
         const user = await User.findOne({ email, password }).select(
-          "-password -posts -cart"
+          "-password"
         );
         console.log(user, "auth");
         if (user) {

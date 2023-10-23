@@ -29,6 +29,14 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    priceBn: {
+      type: String,
+      required: true,
+    },
+    quantityBn: {
+      type: String,
+      required: true,
+    },
     unit: {
       type: String,
       enum: ["কেজি", "লিটার", "পিস", "বস্তা", "বটি"],

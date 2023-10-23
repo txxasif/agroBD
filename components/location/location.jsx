@@ -41,14 +41,6 @@ function stateReducer(state, action) {
 }
 export default function Location({ setLocation, locationBn, ...props }) {
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  {
-    /* Url */
-  }
-
-  {
-    /* Fetching Div,Dis and Up */
-  }
-  const { setting, dipatch } = useReducer(stateReducer, initialState);
   const fetchDivisions = async () => {
     const data = await axios
       .get("/api/location/division")
