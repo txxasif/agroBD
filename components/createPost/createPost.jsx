@@ -1,9 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -19,8 +17,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import axios from "axios";
-import { useSession } from "next-auth/react";
 const initialValue = {
   description: "",
   category: "ধান",
@@ -37,6 +33,7 @@ import {
   createPostHelper,
   uploadPhoto,
 } from "@/helper/registration/registration.helper";
+import { useSession } from "next-auth/react";
 export default function CreatePost(props) {
   const category = [
     "ধান",
@@ -64,11 +61,14 @@ export default function CreatePost(props) {
     }));
   };
   const queryClient = useQueryClient();
+  const { data: session } = useSession();
+  const { location: sellerLocation, locationBn: sellerLocationBn } =
+    session?.user;
   const {
     mutate: handleSubmit,
     isLoading,
     isError,
-    error
+    error,
   } = useMutation({
     mutationFn: async () => {
       console.log("clicked");
@@ -79,21 +79,25 @@ export default function CreatePost(props) {
       console.log("mutation called");
       const result = await uploadPhoto(data.photo);
       data["photo"] = result.data.secure_url;
+      data["sellerLocation"] = sellerLocation;
+      data["sellerLocationBn"] = sellerLocationBn;
+
       const response = await createPostHelper(data);
       return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["products"]);
-      setForm(initialValue)
+      setForm(initialValue);
     },
     onError: () => {
       alert("went wrong");
     },
   });
+
   console.log(error);
   const handleSubmit1 = () => {
     console.log(form);
-  }
+  };
   return (
     <Card className="w-fit" {...props}>
       <CardHeader>
@@ -131,9 +135,10 @@ export default function CreatePost(props) {
                 <div className="flex flex-col space-y-2">
                   <Label htmlFor="framework">Category</Label>
                   <Select
-
                     required
-                    onValueChange={(e) => setForm(prev => ({ ...prev, ['category']: e }))}
+                    onValueChange={(e) =>
+                      setForm((prev) => ({ ...prev, ["category"]: e }))
+                    }
                     defaultValue={category[0]}
                   >
                     <SelectTrigger id="framework">
@@ -152,7 +157,9 @@ export default function CreatePost(props) {
                   <Label htmlFor="framework">Unit</Label>
                   <Select
                     defaultValue={unit[0]}
-                    onValueChange={(e) => setForm(prev => ({ ...prev, ['unit']: e }))}
+                    onValueChange={(e) =>
+                      setForm((prev) => ({ ...prev, ["unit"]: e }))
+                    }
                     required
                   >
                     <SelectTrigger id="framework">
@@ -165,7 +172,6 @@ export default function CreatePost(props) {
                           <SelectItem value={cat}>{cat}</SelectItem>
                         ))}
                       </SelectGroup>
-
                     </SelectContent>
                   </Select>
                 </div>

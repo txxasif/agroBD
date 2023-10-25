@@ -2,48 +2,14 @@ import mongoose from "mongoose";
 import Product from "./post.schema";
 import User from "./user.schema";
 import connectDB from "./mongoose";
+import translateToBangla from "@/helper/translation";
 const itemsPerPage = 6;
-export async function setProductLocation() {
-  await connectDB();
-  const data = await Product.aggregate()
-    .lookup({
-      from: "users",
-      localField: "seller",
-      foreignField: "_id",
-      as: "sellerDetails",
-    })
-    .unwind({
-      path: "$sellerDetails",
-      preserveNullAndEmptyArrays: true,
-    })
-    .project({
-      sellerLocationBn: "$sellerDetails.locationBn",
-      sellerLocation: "$sellerDetails.location",
-    });
-  const bulkUpdateOperations = data.map(async (doc) => {
-    const nId = new mongoose.Types.ObjectId(doc._id);
-    console.log(nId);
-    const res = Product.updateOne(
-      { _id: nId },
-      {
-        $set: {
-          sellerLocation: doc.sellerLocation,
-          sellerLocationBn: doc.sellerLocationBn,
-        },
-      }
-    );
-    console.log(res);
-  });
-  console.log(bulkUpdateOperations);
-  await Promise.all(bulkUpdateOperations);
 
-  //const r = await Product.bulkWrite(bulkUpdateOperations);
-  //console.log(r);
-
-  return data;
-}
 export async function createPostModel(postData) {
-  const newPost = new Product({ ...postData });
+  const priceBn = await translateToBangla(postData.price);
+  const quantityBn = await translateToBangla(postData.quantity);
+  const newPostData = { ...postData, priceBn: priceBn, quantityBn: quantityBn };
+  const newPost = new Product({ ...newPostData });
   const result = await newPost.save();
   if (result) {
     return true;
@@ -52,7 +18,6 @@ export async function createPostModel(postData) {
   }
 }
 export async function getProductDataModel1(id) {
-  console.log(id);
   const nId = new mongoose.Types.ObjectId(id);
   const result1 = await Product.aggregate([
     {
@@ -75,6 +40,7 @@ export async function getProductDataModel1(id) {
         userDetails: {
           name: "$sellerDetails.name",
           photo: "$sellerDetails.photo",
+          _id: "$sellerDetails._id",
         },
         productDetails: {
           $mergeObjects: ["$$ROOT"],
@@ -84,11 +50,7 @@ export async function getProductDataModel1(id) {
     {
       $unset: "productDetails.sellerDetails",
     },
-    {
-      $sort: { "productDetails.createdAt": 1 },
-    },
   ]);
-  console.log(result1);
   return result1;
 }
 export async function getProductDataModel(id) {
@@ -117,31 +79,7 @@ export async function getUserPostsModel(id) {
       user: userData,
       posts: userProducts,
     };
-    // const uId = new mongoose.Types.ObjectId(id);
-    // const fakeAggreation = await User.aggregate([
-    //   { $match: { _id: uId } },
-    //   {
-    //     $lookup: {
-    //       from: "products",
-    //       foreignField: "seller",
-    //       localField: "_id",
-    //       as: "posts",
-    //     },
-    //   },
-    //   {
-    //     $project: {
-    //       name: 1,
-    //       photo: 1,
-    //       email: 1,
-    //       _id,
-    //       posts: {
-    //         $sort: { createdAt: -1 },
-    //       },
-    //     },
-    //   },
-    // ]);
 
-    // console.log(userPosts,'xxx');
     return { status: true, data };
   } catch (err) {
     console.log(err);
@@ -176,12 +114,11 @@ export async function getAllPostsModel(page) {
   const sellerData = await User.find({ _id: { $in: sellerIds } }).select(
     "name photo _id"
   );
-  console.log(sellerData, "sd"); // Create a map of seller data using the seller IDs
+  // Create a map of seller data using the seller IDs
   const sellerDataMap = sellerData.reduce((map, seller) => {
     map[seller._id] = seller;
     return map;
   }, {});
-  console.log(sellerDataMap);
   // Populate the seller data for each post
   const postPopulate = result.map((post) => {
     const sellerId = post.seller.toString();
@@ -190,4 +127,40 @@ export async function getAllPostsModel(page) {
   });
 
   return { postPopulate, totalPages };
+}
+export async function setProductLocation() {
+  await connectDB();
+  const data = await Product.aggregate()
+    .lookup({
+      from: "users",
+      localField: "seller",
+      foreignField: "_id",
+      as: "sellerDetails",
+    })
+    .unwind({
+      path: "$sellerDetails",
+      preserveNullAndEmptyArrays: true,
+    })
+    .project({
+      sellerLocationBn: "$sellerDetails.locationBn",
+      sellerLocation: "$sellerDetails.location",
+    });
+  const bulkUpdateOperations = data.map(async (doc) => {
+    const nId = new mongoose.Types.ObjectId(doc._id);
+    const res = Product.updateOne(
+      { _id: nId },
+      {
+        $set: {
+          sellerLocation: doc.sellerLocation,
+          sellerLocationBn: doc.sellerLocationBn,
+        },
+      }
+    );
+  });
+  await Promise.all(bulkUpdateOperations);
+
+  //const r = await Product.bulkWrite(bulkUpdateOperations);
+  //console.log(r);
+
+  return data;
 }

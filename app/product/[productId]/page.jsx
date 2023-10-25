@@ -15,18 +15,31 @@ import {
 import { Input } from "@/components/ui/input";
 import Location from "@/components/location/location";
 import { Button } from "@/components/ui/button";
-
+import { ProductSkeleton } from "@/components/skeleton/product";
 const initialData = {
-  division: "",
-  district: "",
-  upazilla: "",
-  localAddress: "",
+  buyerLocation: {
+    division: "",
+    district: "",
+    upazilla: "",
+    localAddress: "",
+  },
+  quantity: 0,
+  totalPrice: 0,
 };
 function locationReducer(state, action) {
   switch (action.type) {
     case "location":
-      return { ...state, ...action.payload };
+      return {
+        ...state,
+        buyerLocation: { ...state.buyerLocation, ...action.payload },
+      };
     case "localAddress":
+      return { ...state, ...action.payload };
+    case "quantity":
+      return { ...state, quantity: action.payload };
+    case "totalPrice":
+      return { ...state, totalPrice: action.payload };
+    case "others":
       return { ...state, ...action.payload };
     default:
       return state;
@@ -35,7 +48,7 @@ function locationReducer(state, action) {
 export default function Page({ params }) {
   const productId = params.productId;
   const productUrl = `/api/product/${productId}`;
-  const [location, setLocation] = useReducer(locationReducer, initialData);
+  const [location, orderReducer] = useReducer(locationReducer, initialData);
 
   const getUserDetails = async () => {
     const { userDetails: userData, productDetails: productData } = await axios
@@ -51,15 +64,49 @@ export default function Page({ params }) {
   };
   const { data: session } = useSession();
   const locationBn = session?.user?.locationBn;
-
   const { data, isLoading } = useQuery({
     queryFn: getUserDetails,
+    cacheTime: 0,
   });
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
+  const handleQuantityChange = (e) => {
+    const totalPrice = data.productData.price * Number(e.target.value);
+    console.log(totalPrice);
+    orderReducer({
+      type: "quantity",
+      payload: Number(e.target.value),
+    });
+    orderReducer({
+      type: "totalPrice",
+      payload: totalPrice,
+    });
+  };
+  const handleSubmitOrder = async () => {
+    const {
+      locationBn: buyerLocationBn,
+      location: buyerLocation,
+      _id: buyerId,
+    } = session.user;
+    let otherData = {
+      ...location,
+      productId: productId,
+      seller: data.userData._id,
+      buyer: buyerId,
+      sellerLocation: data.productData.sellerLocation,
+      sellerLocationBn: data.productData.sellerLocationBn,
+    };
+    if (location.buyerLocation.division === "") {
+      otherData = {
+        ...otherData,
+        buyerLocationBn,
+        buyerLocation,
+      };
+    }
+
+    console.log(otherData);
+  };
+
   if (isLoading) {
-    return <div>Loading</div>;
+    return <ProductSkeleton />;
   }
 
   return (
@@ -72,6 +119,7 @@ export default function Page({ params }) {
             src={data.productData.photo}
             width={500}
             height={500}
+            alt={data.productData.description}
           />
         </div>
         {/* product container */}
@@ -102,14 +150,14 @@ export default function Page({ params }) {
             <div className="flex items-center opacity-70 mt-2 gap-2">
               <TakaSvg className="w-4 h-4" />
               <h1>
-                {data.productData.price} টাকা / {data.productData.unit}
+                {data.productData.priceBn} টাকা / {data.productData.unit}
               </h1>
             </div>
 
             <div className="flex items-center opacity-70 mt-2 gap-2">
               <QuantitySvg className="w-4 h-4" />
               <h1>
-                {data.productData.quantity} {data.productData.unit}
+                {data.productData.quantityBn} {data.productData.unit}
               </h1>
             </div>
             <div className="flex items-center opacity-70 mt-2 gap-2">
@@ -123,27 +171,34 @@ export default function Page({ params }) {
           </div>
           <div className="w-full border my-1"></div>
           <div className=" max-w-xs flex gap-y-2 flex-col  mx-auto">
-            <Input placeholder="Enter Quantity" />
             <Input
-              placeholder={locationBn.localAddress || "Enter Local Address"}
+              type="number"
+              placeholder="Enter Quantity"
+              onChange={handleQuantityChange}
+            />
+            <Input
+              placeholder={locationBn?.localAddress || "Enter Local Address"}
+              onChange={(e) => {
+                orderReducer({
+                  type: "location",
+                  payload: {
+                    localAddress: e.target.value,
+                  },
+                });
+              }}
             />
             <Location
               locationBn={locationBn || ""}
               className="grid grid-cols-3 gap-x-3"
-              setLocation={setLocation}
+              setLocation={orderReducer}
               location={location}
             />
-            <Button
-              className="w-fit mx-auto"
-              onClick={() => console.log("done")}
-            >
+            <Button className="w-fit mx-auto" onClick={handleSubmitOrder}>
               Place Order
             </Button>
           </div>
         </div>
       </div>
-
-      <div>{`${location?.division} ${location?.district} ${location?.upazilla}`}</div>
     </main>
   );
 }

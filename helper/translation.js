@@ -7,7 +7,8 @@ export default async function translateToBangla(str) {
     // Access the data from the response
     const data = response[1][0]; // This gets the first item from the response array
     console.log(data);
-    const translate = data[1][0];
+    let s = str.toString();
+    const translate = s[0] == "2" ? data[1][2] : data[1][0];
     return translate;
   }
 }

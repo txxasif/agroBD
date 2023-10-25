@@ -1,5 +1,4 @@
 import Order from "./order.schema";
-
 export async function placeOrderModel(order) {
   const orderToBePlaced = new Order({ ...order });
   let finalResponse = true;
