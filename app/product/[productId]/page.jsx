@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import Location from "@/components/location/location";
 import { Button } from "@/components/ui/button";
 import { ProductSkeleton } from "@/components/skeleton/product";
+import { useToast } from "@/components/ui/use-toast";
 const initialData = {
   buyerLocation: {
     division: "",
@@ -46,6 +47,7 @@ function locationReducer(state, action) {
   }
 }
 export default function Page({ params }) {
+  const { toast } = useToast();
   const productId = params.productId;
   const productUrl = `/api/product/${productId}`;
   const [location, orderReducer] = useReducer(locationReducer, initialData);
@@ -68,7 +70,7 @@ export default function Page({ params }) {
     queryFn: getUserDetails,
     cacheTime: 0,
   });
-  const handleQuantityChange = (e) => {
+  const handleQuantityChange = async (e) => {
     const totalPrice = data.productData.price * Number(e.target.value);
     console.log(totalPrice);
     orderReducer({
@@ -94,6 +96,15 @@ export default function Page({ params }) {
       sellerLocation: data.productData.sellerLocation,
       sellerLocationBn: data.productData.sellerLocationBn,
     };
+    // if (otherData.buyer == otherData.seller) {
+    //   toast({
+    //     variant: "destructive",
+    //     title: "Uh oh! Something went wrong.",
+    //     description:
+    //       "This is one of Your Product. You can't order your product.",
+    //   });
+    //   return;
+    // }
     if (location.buyerLocation.division === "") {
       otherData = {
         ...otherData,
@@ -101,6 +112,7 @@ export default function Page({ params }) {
         buyerLocation,
       };
     }
+    const res = await axios.post("/api/order/placeorder", otherData);
 
     console.log(otherData);
   };
@@ -110,7 +122,7 @@ export default function Page({ params }) {
   }
 
   return (
-    <main className="container flex items-center justify-center  max-w-full ">
+    <main className="container flex items-center justify-center  max-w-full py-10 ">
       <div className=" md:gap-5 flex flex-col md:flex-row border  ">
         {/* photo container */}
         <div className=" max-w-full flex-1 p-2">
@@ -125,7 +137,6 @@ export default function Page({ params }) {
         {/* product container */}
         <div className="flex flex-col md:gap-y-3 ">
           {/* User Information Container */}
-
           <div className="flex flex-col self-start">
             <div className="px-2 md:px-0">
               <Link href={"#"} className=" dark:text-[#176B87] ">

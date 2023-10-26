@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import ThemeProviders from "@/components/themeprovide/provider";
 import ReactQueryProvider from "@/providers/reactQuery";
 import { NextAuthProvider } from "@/providers/nextAuth";
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
             <ThemeProviders>
               <Header />
               {children}
+              <Toaster />
             </ThemeProviders>
           </ReactQueryProvider>
         </NextAuthProvider>
