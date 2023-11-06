@@ -1,12 +1,16 @@
-'use client'
-
+"use client";
 import Profile from "@/components/profile/profile";
-
-
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 export default function Page({ params }) {
+  const { data } = useSession();
+  const userData = data?.user;
+  if (!userData) {
+    redirect("/login");
+  }
 
   return (
-    <div>
+    <div className="px-32 py-9">
       <Profile />
     </div>
   );

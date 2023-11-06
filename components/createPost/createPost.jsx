@@ -27,7 +27,7 @@ const initialValue = {
   seller: null,
 };
 import { useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { SpinnerButton } from "../ui/spinnerButton";
 import {
   createPostHelper,
@@ -66,7 +66,7 @@ export default function CreatePost(props) {
     session?.user;
   const {
     mutate: handleSubmit,
-    isLoading,
+    isPending: isLoading,
     isError,
     error,
   } = useMutation({
@@ -99,7 +99,7 @@ export default function CreatePost(props) {
     console.log(form);
   };
   return (
-    <Card className="w-fit" {...props}>
+    <Card {...props}>
       <CardHeader>
         <CardTitle>Create a new Post</CardTitle>
       </CardHeader>

@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import ThemeProviders from "@/components/themeprovide/provider";
 import ReactQueryProvider from "@/providers/reactQuery";
 import { NextAuthProvider } from "@/providers/nextAuth";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <NextAuthProvider>
           <ReactQueryProvider>
             <ThemeProviders>

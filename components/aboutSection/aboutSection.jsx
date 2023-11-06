@@ -1,28 +1,28 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { EmailSvg } from "@/icons/icons";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { Phone, MapPin } from "lucide-react"
+import { Phone, MapPin } from "lucide-react";
 export default function AboutSection(props) {
   const { data } = useSession();
-  const user = data?.user;
+  const { name, email, phone, locationBn, photo } = data?.user;
+  const { division, district, upazilla } = locationBn;
+  const location = `${upazilla} , ${district} , ${division}`;
   return (
-    <Card className="w-[350px] shadow-lg " {...props}>
-      <CardContent className="py-5 flex gap-x-4 items-center justify-center">
-        <Image src={user.photo} width={320} height={177} className="w-20 h-20 object-cover rounded-lg " />
-        <div className="h-20 w-[1px] border "></div>
-
+    <Card {...props}>
+      <CardContent className="py-5  gap-x-4 items-center justify-center">
+        <Image
+          src={photo}
+          width={320}
+          height={177}
+          className="max-w-md max-h-md object-cover rounded-lg "
+        />
         <div>
-          <h1>{user.name}</h1>
+          <h1>{name}</h1>
           <div className="flex flex-row gap-x-3 items-center py-2">
             <MapPin className="h-4 w-4 opacity-60" />
-            <Label className="opacity-60">{`সোনাগাজী,ফেনী,চট্টগ্রাম`}</Label>
+            <Label className="opacity-60">{location}</Label>
           </div>
           <div className="flex flex-row gap-x-3 items-center py-2">
             <Phone className="h-4 w-4 opacity-60" />
@@ -31,5 +31,5 @@ export default function AboutSection(props) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

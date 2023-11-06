@@ -37,3 +37,26 @@ export async function placeOrderModel(order) {
 
   return finalResponse;
 }
+export async function getOrderByUserId(id) {
+  const data = await Order.find({ seller: id }).sort({ createdAt: 1 });
+  const data1 = await Order.aggregate([
+    {
+      $match: {
+        seller: id,
+      },
+    },
+    {
+      $lookup: {
+        from: "products",
+        localField: "productId",
+        foreignField: "_id",
+        as: "productDetails",
+      },
+    },
+    {
+      $unwind: "$productDetails",
+    },
+  ]);
+  console.log(data1, "doppp");
+  return data1;
+}

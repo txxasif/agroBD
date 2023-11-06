@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -10,12 +11,10 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Location from "../location/location";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useSession } from "next-auth/react";
-import { useQuery } from "react-query";
 import axios from "axios";
-import { useMutation } from "react-query";
-import { useQueryClient } from "react-query";
+import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 import { SpinnerButton } from "../ui/spinnerButton";
 const initialData = {
   name: "",
@@ -72,23 +71,21 @@ export function UserSetting() {
       payload: value,
     });
   }
-  const getUserSettings = async () =>
-    await axios
+  const getUserSettings = async () => {
+    const data = await axios
       .get(`/api/profile/settings?id=${uId}`)
       .then((res) => res.data.data);
+    dispatch({
+      type: "user",
+      payload: data,
+    });
+    return data;
+  };
   const setUserSettings = async () =>
     await axios.post("/api/profile/settings", { id: uId, userData: state });
   const { data: user } = useQuery({
     queryKey: ["settings"],
     queryFn: getUserSettings,
-    onSuccess: (data) => {
-      delete data._id;
-      console.log(data, "query");
-      dispatch({
-        type: "user",
-        payload: data,
-      });
-    },
   });
   const {
     mutate: handleClick,
@@ -102,7 +99,6 @@ export function UserSetting() {
     },
   });
 
-  console.log(state, "state");
   return (
     <Card className="mx-auto w-fit">
       <CardHeader>

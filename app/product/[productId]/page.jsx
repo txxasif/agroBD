@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useEffect, useReducer } from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,6 +17,7 @@ import Location from "@/components/location/location";
 import { Button } from "@/components/ui/button";
 import { ProductSkeleton } from "@/components/skeleton/product";
 import { useToast } from "@/components/ui/use-toast";
+import { revalidatePath } from "next/cache";
 const initialData = {
   buyerLocation: {
     division: "",
@@ -67,8 +68,8 @@ export default function Page({ params }) {
   const { data: session } = useSession();
   const locationBn = session?.user?.locationBn;
   const { data, isLoading } = useQuery({
+    queryKey: `${productId}`,
     queryFn: getUserDetails,
-    cacheTime: 0,
   });
   const handleQuantityChange = async (e) => {
     const totalPrice = data.productData.price * Number(e.target.value);
@@ -113,7 +114,6 @@ export default function Page({ params }) {
       };
     }
     const res = await axios.post("/api/order/placeorder", otherData);
-
     console.log(otherData);
   };
 

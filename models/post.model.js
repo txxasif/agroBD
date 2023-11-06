@@ -128,6 +128,14 @@ export async function getAllPostsModel(page) {
 
   return { postPopulate, totalPages };
 }
+export async function deleteUserPost(id) {
+  try {
+    await Product.deleteOne({ _id: id });
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
 export async function setProductLocation() {
   await connectDB();
   const data = await Product.aggregate()
