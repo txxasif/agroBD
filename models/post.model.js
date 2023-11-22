@@ -6,10 +6,10 @@ import translateToBangla from "@/helper/translation";
 const itemsPerPage = 6;
 
 export async function createPostModel(postData) {
-  const priceBn = await translateToBangla(postData.price);
-  const quantityBn = await translateToBangla(postData.quantity);
-  const newPostData = { ...postData, priceBn: priceBn, quantityBn: quantityBn };
-  const newPost = new Product({ ...newPostData });
+  // const priceBn = await translateToBangla(postData.price);
+  // const quantityBn = await translateToBangla(postData.quantity);
+  // const newPostData = { ...postData, priceBn: priceBn, quantityBn: quantityBn };
+  const newPost = new Product({ ...postData });
   const result = await newPost.save();
   if (result) {
     return true;

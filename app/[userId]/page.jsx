@@ -5,13 +5,23 @@ import { redirect } from "next/navigation";
 export default function Page({ params }) {
   const { data } = useSession();
   const userData = data?.user;
+  const uId = params.userId;
   if (!userData) {
     redirect("/login");
   }
+  const isMyOwnProfile = uId === userData._id;
+  console.log(isMyOwnProfile, "is my own profile");
 
   return (
-    <div className="px-32 py-9">
-      <Profile />
+    <main className="px-32 py-9">
+      {isMyOwnProfile ? <Profile /> : <AnotherProfile />}
+    </main>
+  );
+}
+function AnotherProfile() {
+  return (
+    <div>
+      <h1>Another Profile</h1>
     </div>
   );
 }

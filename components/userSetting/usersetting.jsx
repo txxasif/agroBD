@@ -9,9 +9,8 @@ import {
 } from "@/components/ui/card";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import Location from "../location/location";
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
@@ -64,6 +63,7 @@ export function UserSetting() {
   const queryClient = useQueryClient();
   const uId = session.user._id;
   function handleChange(e) {
+    console.log("hiii");
     const { name, value } = e.target;
     console.log(name, value);
     dispatch({
@@ -98,6 +98,12 @@ export function UserSetting() {
       console.log("done");
     },
   });
+  const isLoadingState = Object.values(state).some((val) => {
+    return val === null || val === undefined || val === "";
+  });
+  if (isLoadingState) {
+    return <h1>Loading</h1>;
+  }
 
   return (
     <Card className="mx-auto w-fit">
@@ -123,7 +129,7 @@ export function UserSetting() {
         <div className="space-y-1">
           <Label>Local Address</Label>
           <Input
-            value={state?.locationBn?.localAddress}
+            value={state.location.localAddress}
             name="localAddress"
             onChange={handleChange}
           />

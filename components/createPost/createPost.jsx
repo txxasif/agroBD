@@ -34,6 +34,7 @@ import {
   uploadPhoto,
 } from "@/helper/registration/registration.helper";
 import { useSession } from "next-auth/react";
+import { translateNumbers } from "@/helper/translation";
 export default function CreatePost(props) {
   const category = [
     "ধান",
@@ -81,8 +82,16 @@ export default function CreatePost(props) {
       data["photo"] = result.data.secure_url;
       data["sellerLocation"] = sellerLocation;
       data["sellerLocationBn"] = sellerLocationBn;
+      const priceBn = translateNumbers(data.price);
+      const quantityBn = translateNumbers(data.quantity);
+      console.log((priceBn, quantityBn), "hiii");
 
-      const response = await createPostHelper(data);
+      const finalData = {
+        ...data,
+        priceBn,
+        quantityBn,
+      };
+      const response = await createPostHelper(finalData);
       return response;
     },
     onSuccess: () => {
@@ -95,6 +104,7 @@ export default function CreatePost(props) {
   });
 
   console.log(error);
+  console.log(form, "foooooooooooooooo");
   const handleSubmit1 = () => {
     console.log(form);
   };

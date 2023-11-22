@@ -19,7 +19,7 @@ export default async function Page({ searchParams }) {
 
   console.log(data);
   return (
-    <div className="h-screen py-10 px-4 ">
+    <div className="h-screen  px-4 ">
       <div className="flex flex-wrap gap-5 ">
         {data?.postPopulate.map((user) => {
           return (

@@ -1,6 +1,6 @@
 import translateToBangla from "@/helper/translation";
 import Order from "./order.schema";
-
+import mongoose from "mongoose";
 export async function placeOrderModel(order) {
   let buyerLocationBn = {
     division: "",
@@ -23,9 +23,8 @@ export async function placeOrderModel(order) {
     );
     order["buyerLocationBn"] = { ...buyerLocationBn };
   }
-  const quantityBn = await translateToBangla(order.quantity);
-  const totalPriceBn = await translateToBangla(order.totalPrice);
-  const orderToBePlaced = new Order({ ...order, quantityBn, totalPriceBn });
+
+  const orderToBePlaced = new Order({ ...order });
   let finalResponse = true;
   try {
     await orderToBePlaced.save();
@@ -39,10 +38,11 @@ export async function placeOrderModel(order) {
 }
 export async function getOrderByUserId(id) {
   const data = await Order.find({ seller: id }).sort({ createdAt: 1 });
+  const uId = new mongoose.Types.ObjectId(id);
   const data1 = await Order.aggregate([
     {
       $match: {
-        seller: id,
+        seller: uId,
       },
     },
     {
@@ -57,6 +57,6 @@ export async function getOrderByUserId(id) {
       $unwind: "$productDetails",
     },
   ]);
-  console.log(data1, "doppp");
+  console.log(data, "doppp");
   return data1;
 }

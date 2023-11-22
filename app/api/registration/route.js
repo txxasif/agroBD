@@ -13,7 +13,7 @@ export async function POST(req) {
         { status: 201 }
       );
     } else if (status.status === false) {
-      return NextResponse.json({ msg: false }, { status: 409 });
+      return NextResponse.json({ msg: "Email Exists! " }, { status: 409 });
     } else {
       return NextResponse.json({ msg: null }, { status: 500 });
     }

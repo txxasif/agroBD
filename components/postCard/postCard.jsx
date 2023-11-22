@@ -11,6 +11,7 @@ import { TakaSvg, QuantitySvg, LocationSvg, CategorySvg } from "@/icons/icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import Link from "next/link";
 export default function PostCard({ seller, post }) {
   const {
     description,
@@ -30,7 +31,7 @@ export default function PostCard({ seller, post }) {
     router.push(`/product/${post._id}`);
   };
   return (
-    <div className="border max-w-xs m-2 px-3 py-2 ">
+    <div className="border max-w-xs m-2 px-3 py-2 shadow-lg">
       <div className="relative">
         <Image
           className="w-full h-[200px] p- rounded-sm"
@@ -49,21 +50,21 @@ export default function PostCard({ seller, post }) {
         </div>
         <h1 className="opacity-70 px-3  pt-1">{description}</h1>
         <div className="flex flex-row items-center justify-between gap-x-3 px-3 text-lg pt-1 opacity-80">
-          <h1>
+          <h1 className="text-[#F03436] text-2xl font-bold">
             {priceBn} ৳ / {unit}
           </h1>
-          <h1>
+          <h1 className="text-[#F03436] font-bold">
             {quantityBn} {unit}
           </h1>
         </div>
       </div>
-      <Button
-        variant="secondary"
-        className="flex items-center justify-center w-full mt-1"
+      <Link
+        href={`/product/${post._id}`}
+        className="flex items-center font-mono font-bold text-white py-2 justify-center w-full rounded-md mt-1 bg-[#282F3C] "
         onClick={buy}
       >
-        Buy
-      </Button>
+        <p>Buy</p>
+      </Link>
     </div>
   );
 }
@@ -97,9 +98,7 @@ const PostCard1 = ({ seller, post }) => {
           <p>Unit: {unit}</p>
           <p>Available: {quantity}</p>
         </div>
-        <div onClick={buy} className={styles.button}>
-          Buy Now
-        </div>
+        <div onClick={buy}>Buy Now</div>
       </div>
     </div>
   );

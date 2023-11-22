@@ -13,15 +13,22 @@ export default async function translateToBangla(str) {
   }
 }
 
-// eng to bangla
-// const response = await fetch(
-//   `https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&q=${str}&sl=en&tl=bn`
-// );
-
-// const data = await response.json();
-
-// // Extract the translated text from the response data
-// if (data && data[0] && data[0][0] && data[0][0][0]) {
-//   const translatedText = data[0][0][0];
-//   return translatedText;
-// }
+export function translateNumbers(str) {
+  const bengaliDigits = {
+    0: "০",
+    1: "১",
+    2: "২",
+    3: "৩",
+    4: "৪",
+    5: "৫",
+    6: "৬",
+    7: "৭",
+    8: "৮",
+    9: "৯",
+  };
+  let translatedNumber = "";
+  for (let val of str) {
+    translatedNumber += bengaliDigits[val];
+  }
+  return translatedNumber;
+}

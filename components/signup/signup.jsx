@@ -1,22 +1,25 @@
 "use client";
-import { useEffect, useState, useReducer } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useReducer, useEffect } from "react";
+import { redirect } from "next/navigation";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { Label } from "../ui/label";
-import { ReloadIcon } from "@radix-ui/react-icons";
 import { useMutation } from "@tanstack/react-query";
 import Location from "../location/location";
 import {
   uploadPhoto,
   createUserHelper,
 } from "@/helper/registration/registration.helper";
+import { SpinnerButton } from "../ui/spinnerButton";
+import { signIn } from "next-auth/react";
+import toast, { Toaster } from "react-hot-toast";
+import { useSession } from "next-auth/react";
 
 const defaultValue = {
   name: "",
   email: "",
   password: "",
   photo: null,
+  phone: null,
 };
 
 const initialLocationData = {
@@ -38,15 +41,14 @@ export default function SignUp() {
     userSettingsReducer,
     initialLocationData
   );
-  const router = useRouter();
   const [form, setForm] = useState(defaultValue);
-
+  const [error, setError] = useState(null);
+  const { status } = useSession();
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
     setForm({ ...form, [name]: type === "file" ? files[0] : value });
   };
-  const handleSubmitAsync = async (e) => {
-    e.preventDefault();
+  const handleSubmitAsync = async () => {
     let user = { ...form };
     const result = await uploadPhoto(user.photo);
     console.log(result.data.secure_url, "reult");
@@ -56,33 +58,46 @@ export default function SignUp() {
       location,
     };
     try {
+      console.log(u);
       const response = await createUserHelper(u);
       if (response.status === 201) {
+        toast.success("Registration successful");
+        await logInAfterSuccess();
         const data = response.data;
         console.log(data, "formmm");
-        // router.push("/login")
       }
     } catch (e) {
-      console.log(e);
+      toast.error(e.response.data.msg);
+      setError(e.response.data.msg);
     }
   };
-  const {
-    mutate: handleSubmit,
-    isError,
-    isLoading,
-    isSuccess,
-  } = useMutation({
+  const { mutate: handleSubmit, isPending } = useMutation({
     mutationFn: handleSubmitAsync,
   });
+  const handleSubmitDefault = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
+  async function logInAfterSuccess() {
+    const loginData = {
+      email: form.email,
+      password: form.password,
+    };
+    await signIn("credentials", {
+      ...loginData,
+      redirect: false,
+      callbackUrl: "/",
+    });
+  }
   useEffect(() => {
-    if (isSuccess) {
-      router.push("/");
+    if (status == "authenticated") {
+      redirect("/");
     }
-  }, [isSuccess]);
+  }, [status]);
 
   return (
     <div className="w-full max-w-sm p-4rounded-lg shadow sm:p-6 md:p-8 border min-w-max">
-      <form className="space-y-5 px-2" onSubmit={handleSubmit}>
+      <form className="space-y-5 px-2" onSubmit={handleSubmitDefault}>
         <h5 className="text-2xl font-extralight ">Sign Up to our platform</h5>
 
         <Label>Your Name</Label>
@@ -95,7 +110,7 @@ export default function SignUp() {
           required
         />
 
-        <Label>Your email</Label>
+        <Label>Email</Label>
         <Input
           type="email"
           name="email"
@@ -105,7 +120,17 @@ export default function SignUp() {
           required
         />
 
-        <Label>Your password</Label>
+        <Label>Phone</Label>
+        <Input
+          type="number"
+          name="phone"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="016798-XXXXX"
+          required
+        />
+
+        <Label>Password</Label>
         <Input
           type="password"
           name="password"
@@ -115,7 +140,7 @@ export default function SignUp() {
           required
         />
 
-        <Label>Your LocalAddress</Label>
+        <Label>Local Address</Label>
         <Input
           type="text"
           name="password"
@@ -142,18 +167,9 @@ export default function SignUp() {
           className="w-full border-gray-300 rounded-md"
           required
         />
-        {isLoading ? (
-          <Button disabled className="w-full">
-            <ReloadIcon className=" mr-2 h-4 w-4 animate-spin" />
-            Please wait
-          </Button>
-        ) : (
-          <Button className=" w-full" type="submit">
-            Sign Up
-          </Button>
-        )}
+        <SpinnerButton isLoading={isPending} name="Sign Up" type="submit" />
       </form>
-      <h3 className="mt-4">{isError ? "Something Went Wrong" : null}</h3>
+      <Toaster />
     </div>
   );
 }

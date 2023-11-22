@@ -28,7 +28,7 @@ export default function OrderCard({ data }) {
       </CardHeader>
       <CardContent className="flex flex-col">
         <p>
-          Quantity: {quantityBn} / {unit} {}
+          Quantity: {quantityBn} / {unit}
         </p>
         <Label>Total Price: {totalPriceBn}</Label>
       </CardContent>
