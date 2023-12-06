@@ -1,15 +1,17 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { ReloadIcon } from "@radix-ui/react-icons";
-export const SpinnerButton = ({ onClick, isLoading, name, ...props }) => {
+import { useFormStatus } from "react-dom";
+export const SpinnerButtonServer = ({ name, ...props }) => {
+  const { pending } = useFormStatus();
   return (
     <>
-      {isLoading ? (
+      {pending ? (
         <Button disabled {...props}>
           <ReloadIcon className=" mr-2 h-4 w-4 animate-spin" />
-          Please wait
         </Button>
       ) : (
-        <Button {...props} onClick={onClick} type="submit">
+        <Button {...props} type="submit">
           {name}
         </Button>
       )}

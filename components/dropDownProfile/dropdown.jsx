@@ -35,6 +35,7 @@ export function DropdownMenuDemo({
   logOut,
   currentUserId,
   currentUser,
+  name,
 }) {
   const { setTheme, theme } = useTheme();
   const handleSwitchChange = (event) => {
@@ -55,20 +56,21 @@ export function DropdownMenuDemo({
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {currentUser ? (
           <>
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Link href={`/${currentUserId}`}>Profile</Link>
+                <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 Billing
                 <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                Settings
+                <Link href={"/settings"}>Settings</Link>
                 <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
               </DropdownMenuItem>
             </DropdownMenuGroup>

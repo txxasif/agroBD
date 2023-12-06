@@ -11,10 +11,10 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import Location from "../location/location";
 import { useReducer } from "react";
-import { useSession } from "next-auth/react";
 import axios from "axios";
 import { useQueryClient, useQuery, useMutation } from "@tanstack/react-query";
 import { SpinnerButton } from "../ui/spinnerButton";
+import { LoadingSkeleton } from "./loading";
 const initialData = {
   name: "",
   email: "",
@@ -57,15 +57,12 @@ function userSettingsReducer(state, action) {
   }
 }
 
-export function UserSetting() {
+export function UserSetting({ userSession }) {
   const [state, dispatch] = useReducer(userSettingsReducer, initialData);
-  const { data: session } = useSession();
   const queryClient = useQueryClient();
-  const uId = session.user._id;
+  const uId = userSession._id.toString();
   function handleChange(e) {
-    console.log("hiii");
     const { name, value } = e.target;
-    console.log(name, value);
     dispatch({
       type: `${name}`,
       payload: value,
@@ -95,14 +92,13 @@ export function UserSetting() {
     mutationFn: setUserSettings,
     onSuccess: () => {
       queryClient.invalidateQueries(["settings"]);
-      console.log("done");
     },
   });
   const isLoadingState = Object.values(state).some((val) => {
     return val === null || val === undefined || val === "";
   });
   if (isLoadingState) {
-    return <h1>Loading</h1>;
+    return <LoadingSkeleton />;
   }
 
   return (

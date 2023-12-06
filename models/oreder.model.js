@@ -36,13 +36,12 @@ export async function placeOrderModel(order) {
 
   return finalResponse;
 }
-export async function getOrderByUserId(id) {
-  const data = await Order.find({ seller: id }).sort({ createdAt: 1 });
+export async function getPlacedOrderByUserId(id) {
   const uId = new mongoose.Types.ObjectId(id);
-  const data1 = await Order.aggregate([
+  const data = await Order.aggregate([
     {
       $match: {
-        seller: uId,
+        buyer: uId,
       },
     },
     {
@@ -57,6 +56,32 @@ export async function getOrderByUserId(id) {
       $unwind: "$productDetails",
     },
   ]);
-  console.log(data, "doppp");
-  return data1;
+  return data;
+}
+export async function getReceivedOrderByUserId(id) {
+  const uId = new mongoose.Types.ObjectId(id);
+  const data = await Order.aggregate([
+    {
+      $match: {
+        seller: uId,
+        status: "pending",
+      },
+    },
+    {
+      $lookup: {
+        from: "products",
+        localField: "productId",
+        foreignField: "_id",
+        as: "productDetails",
+      },
+    },
+    {
+      $unwind: "$productDetails",
+    },
+  ]);
+  return data;
+}
+export async function acceptOrderById(id) {
+  const res = await Order.updateOne({ _id: id }, { status: "accepted" });
+  return res;
 }

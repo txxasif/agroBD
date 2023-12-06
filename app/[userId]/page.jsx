@@ -1,15 +1,18 @@
-"use client";
+import { getServerSession } from "next-auth";
 import Profile from "@/components/profile/profile";
-import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
-export default function Page({ params }) {
-  const { data } = useSession();
-  const userData = data?.user;
-  const uId = params.userId;
-  if (!userData) {
+import { authOptions } from "../api/auth/[...nextauth]/route";
+export default async function Page({ params }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
     redirect("/login");
   }
-  const isMyOwnProfile = uId === userData._id;
+  const userData = session.user;
+  console.log(userData, "udata");
+  const uId = params.userId;
+  const sessionId = userData._id.toString();
+  console.log(uId, userData._id);
+  const isMyOwnProfile = uId === sessionId;
   console.log(isMyOwnProfile, "is my own profile");
 
   return (
