@@ -6,7 +6,7 @@ export default async function Page({ searchParams }) {
   const data = await fetch(
     `${process.env.NEXTAUTH_URL}/api/home?page=${page}`,
     {
-      next: { revalidate: 10 },
+      cache: "no-cache",
     }
   )
     .then((res) => res.json())

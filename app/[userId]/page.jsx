@@ -5,19 +5,16 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 export default async function Page({ params }) {
   const session = await getServerSession(authOptions);
   if (!session) {
-    redirect("/login");
+    return <h1>Loading</h1>;
   }
   const userData = session.user;
-  console.log(userData, "udata");
   const uId = params.userId;
   const sessionId = userData._id.toString();
-  console.log(uId, userData._id);
   const isMyOwnProfile = uId === sessionId;
-  console.log(isMyOwnProfile, "is my own profile");
 
   return (
     <main className="px-32 py-9">
-      {isMyOwnProfile ? <Profile /> : <AnotherProfile />}
+      {isMyOwnProfile ? <Profile user={userData} /> : <AnotherProfile />}
     </main>
   );
 }

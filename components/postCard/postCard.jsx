@@ -23,6 +23,10 @@ export default function PostCard({ seller, post }) {
     createdAt,
     sellerLocationBn,
   } = post;
+  let shortDescription = description;
+  if (shortDescription.length > 86) {
+    shortDescription = description.substring(83) + "...";
+  }
   const { division, district, upazilla } = sellerLocationBn;
   const location = `${upazilla} , ${district} , ${division}`;
   console.log(post, "loc");
@@ -48,7 +52,7 @@ export default function PostCard({ seller, post }) {
         <div className="flex justify-center pt-1">
           <h1 className="text-2xl">{category}</h1>
         </div>
-        <h1 className="opacity-70 px-3  pt-1">{description}</h1>
+        <h1 className="opacity-70 px-3  pt-1">{shortDescription}</h1>
         <div className="flex flex-row items-center justify-between gap-x-3 px-3 text-lg pt-1 opacity-80">
           <h1 className="text-[#F03436] text-2xl font-bold">
             {priceBn} ৳ / {unit}

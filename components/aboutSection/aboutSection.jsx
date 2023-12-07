@@ -4,9 +4,8 @@ import { EmailSvg } from "@/icons/icons";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
-export default function AboutSection(props) {
-  const { data } = useSession();
-  const { name, email, phone, locationBn, photo } = data?.user;
+export default function AboutSection({ user, ...props }) {
+  const { name, email, phone, locationBn, photo } = user;
   const { division, district, upazilla } = locationBn;
   const location = `${upazilla} , ${district} , ${division}`;
   return (

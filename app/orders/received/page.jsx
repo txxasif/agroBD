@@ -3,13 +3,13 @@ import { ReceivedOrdersCard } from "@/components/orderCard/receivedCard";
 import { receivedOrder } from "@/helper/order.helper";
 import { getServerSession } from "next-auth";
 import { unstable_cache, unstable_noStore as noStore } from "next/cache";
-
+export const dynamic = "force-dynamic";
 const getCachedReceivedData = unstable_cache(
   async (id) => receivedOrder(id),
   undefined,
   {
     tags: ["received-orders"],
-    revalidate: 1,
+    revalidate: 0.1,
   }
 );
 

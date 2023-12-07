@@ -3,7 +3,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { placedOrders } from "@/helper/order.helper";
 import OrderCard from "@/components/orderCard/orderCard";
 import { redirect } from "next/navigation";
-
+export const dynamic = "force-dynamic";
 export default async function PlacedOrders() {
   const data = await getServerSession(authOptions);
   if (!data) {

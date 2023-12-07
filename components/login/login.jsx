@@ -1,18 +1,10 @@
 "use client";
-import { loginUserAsync } from "@/store/reducers/user.reducer";
-import {
-  currentUserSelector,
-  currentUserErrorSelector,
-  currentUserErrorTextSelector,
-} from "@/store/reducers/user.selector";
 import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { Button } from "../ui/button";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { SpinnerButton } from "../ui/spinnerButton";
 
 const defaultValue = {
@@ -85,7 +77,7 @@ export default function LogIn() {
             name={"Login"}
             isLoading={loading}
           />
-          {/* <Button loading={true} className="w-full">Login</Button> */}
+
           <p className="my-2">
             Not a member?{" "}
             <Link href={"/signup"} className="opacity-70">

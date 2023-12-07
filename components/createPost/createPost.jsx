@@ -35,7 +35,7 @@ import {
 } from "@/helper/registration/registration.helper";
 import { useSession } from "next-auth/react";
 import { translateNumbers } from "@/helper/translation";
-export default function CreatePost(props) {
+export default function CreatePost({ user, ...props }) {
   const category = [
     "ধান",
     "গম",
@@ -50,9 +50,8 @@ export default function CreatePost(props) {
   ];
 
   const unit = ["কেজি", "লিটার", "পিস", "বস্তা"];
-  const { data } = useSession();
   const [form, setForm] = useState(initialValue);
-  const id = data?.user._id;
+  const id = user._id;
   const handleChange = (event) => {
     const { name, value, type, files } = event.target;
     console.log({ name, value, type, files });
@@ -62,9 +61,7 @@ export default function CreatePost(props) {
     }));
   };
   const queryClient = useQueryClient();
-  const { data: session } = useSession();
-  const { location: sellerLocation, locationBn: sellerLocationBn } =
-    session?.user;
+  const { location: sellerLocation, locationBn: sellerLocationBn } = user;
   const {
     mutate: handleSubmit,
     isPending: isLoading,

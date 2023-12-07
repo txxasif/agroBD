@@ -5,12 +5,10 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import OwnerCard from "../productCardOwner/ownerCard";
-export default function Posts(props) {
-  const { data: session } = useSession();
-  const user = session.user;
+export default function Posts({ user }) {
   const seller = {
-    name: user?.name,
-    photo: user?.photo,
+    name: user.name,
+    photo: user.photo,
   };
   const { data, isLoading, isError } = useQuery({
     queryKey: ["products"],
@@ -20,22 +18,6 @@ export default function Posts(props) {
         .then((res) => res.data.data.posts),
   });
 
-  //console.log(data?.data.posts);
-  // useEffect(() => {
-  //   let getData = async () => {
-
-  //     let response = await fetch(`/api/profile/${user._id}`);
-  //     let dataPost = await response.json();
-  //     console.log(response, 'hiiP');
-  //     console.log(dataPost.data.posts);
-  //     setData(dataPost.data);
-
-  //   }
-
-  //   getData();
-  // }, [])
-
-  console.log(data);
   return (
     <div className="flex flex-wrap gap-2 py-3 px-5">
       {data &&
