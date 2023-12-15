@@ -30,6 +30,10 @@ import { Label } from "../ui/label";
 import toast from "react-hot-toast";
 import translateToBangla, { translateNumbers } from "@/helper/translation";
 import { getMonthHelper } from "@/helper/month.helper";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"], });
+
+
 const initialData = {
   buyerLocation: {
     division: "",
@@ -163,111 +167,121 @@ export function ProductDetails({ productId }) {
   const locationString = `${sellerLocationBn.localAddress}, ${sellerLocationBn.upazilla},${sellerLocationBn.district}, ${sellerLocationBn.division}`;
 
   return (
-    <div className="flex space-x-3 font-mono">
-      <div>
-        <Image
-          className="w-[600px] h-[500px]"
-          src={data.productData.photo}
-          width={500}
-          height={700}
-          alt="Hi"
-        />
-      </div>
-      {/* Product Details */}
-      <div className="">
-        {/*User Details */}
-        <div>
-          <Link
-            className="text-2xl text-[#176B87] "
-            href={`/${data.userData._id}`}
-          >
-            {data.userData.name}
-          </Link>
-          <div className="flex items-center gap-x-2">
-            <ClockSvg className="w-4 h-4" />
-            <p>{data.productData.createdAt}</p>
-          </div>
+    <div>
+      <div className="flex flex-col lg:flex-row gap-4 border shadow-md p-2 lg:p-3 rounded-xl">
+        <div className="flex-1 flex">
+          <Image
+            className="w-[600px] h-[330px] flex-grow rounded-lg"
+            src={data.productData.photo}
+            width={500}
+            height={700}
+            alt="Hi"
+          />
         </div>
-        {/* Product Details */}
-        <div>
-          <h1 className="py-4">{data.productData.description}</h1>
-          <h1 className="text-2xl text-[#F03436] opacity-80">
-            Category : {data.productData.category}
-          </h1>
-          <div className="flex justify-between py-4">
-            <h1 className="text-[#F03436] ">
-              <p>Price : </p> {data.productData.priceBn} ৳ /{" "}
-              {data.productData.unit}
-            </h1>
-            <h1 className="text-[#F03436]  ">
-              <p>Available : </p>
-              {data.productData.quantityBn} {data.productData.unit}
-            </h1>
-          </div>
-          <div className="flex items-center gap-x-2">
-            <LocationSvg className="w-4 h-4" />
-            <h2>{locationString}</h2>
-          </div>
-        </div>
-        {/* Order */}
-        <div className="py-4 flex items-center justify-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button>Place Order</Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Review Product</DialogTitle>
-                <DialogDescription>
-                  Please make sure you give the correct location before placing
-                  your order.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <Input
-                  type="number"
-                  placeholder="Enter Quantity"
-                  onChange={handleQuantityChange}
-                />
-                <div className="flex justify-between">
-                  <h1>
-                    <p>Quantity:</p> {`${quantityBn} ${data.productData.unit}`}
-                  </h1>
-                  <h1>
-                    <p>Total Price :</p> {`${totalPriceBn} টাকা`}
-                  </h1>
-                </div>
-                <Label className="opacity-80">Your Location</Label>
-                <Input
-                  placeholder={
-                    locationBn?.localAddress || "Enter Local Address"
-                  }
-                  onChange={(e) => {
-                    orderReducer({
-                      type: "location",
-                      payload: {
-                        localAddress: e.target.value,
-                      },
-                    });
-                  }}
-                />
-                <Location
-                  locationBn={locationBn || ""}
-                  className="grid grid-cols-3 gap-x-3"
-                  setLocation={orderReducer}
-                  location={location}
-                />
+        <div className="flex-1 flex">
+          {/* Product Details */}
+          <div className="flex flex-col">
+            {/*User Details */}
+            <div className="flex items-centre mb-2 justify-centre gap-2">
+                <p className="bg-indigo-700 w-fit px-2 py-1 text-white rounded-md text-sm">Category</p>
+                <h1 className="font-medium text-lg">{data.productData.category}</h1>
               </div>
-              <DialogFooter>
-                <SpinnerButton
-                  className="mx-auto my-2 w-full"
-                  onClick={mutate}
-                  name="Place Order"
-                  isLoading={isPending}
-                />
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+            <div>
+              <Link
+                className="text-xl font-medium text-gray-500"
+                href={`/${data.userData._id}`}
+              >
+                {data.userData.name}
+              </Link>
+              <div className="flex items-center gap-x-2">
+                <ClockSvg className="w-4 h-4" />
+                <p>{data.productData.createdAt}</p>
+              </div>
+              <div className="flex items-center gap-x-2">
+                <LocationSvg className="w-4 h-4" />
+                <h2 className="text-sm">{locationString}</h2>
+              </div>
+            </div>
+            {/* Product Details */}
+            <div className="flex-grow">
+              <h1 className="py-4">{data.productData.description}</h1>
+              
+              <div className="flex flex-col gap-4 md:flex-row md:justify-between py-4">
+                <div className="flex items-center gap-2">
+                  <p className="bg-green-700 text-white px-2 text-sm py-1 rounded-md w-fit">Price</p>
+                  <p className="font-medium text-lg">
+                    {data.productData.priceBn} ৳ /{" "}
+                    {data.productData.unit}
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  <p className="bg-orange-600 text-white px-2 text-sm py-1 rounded-md w-fit">Available</p>
+                  <p className="font-medium text-lg">{data.productData.quantityBn} {data.productData.unit}</p>
+                </div>
+              </div>
+              
+            </div>
+            {/* Order */}
+            <div className="py-4 flex items-center justify-center">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>Place Order</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <DialogHeader>
+                    <DialogTitle>Review Product</DialogTitle>
+                    <DialogDescription>
+                      Please make sure you give the correct location before placing
+                      your order.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <Input
+                      type="number"
+                      placeholder="Enter Quantity"
+                      onChange={handleQuantityChange}
+                    />
+                    <div className="flex justify-between">
+                      <h1>
+                        <p>Quantity:</p> {`${quantityBn} ${data.productData.unit}`}
+                      </h1>
+                      <h1>
+                        <p>Total Price :</p> {`${totalPriceBn} টাকা`}
+                      </h1>
+                    </div>
+                    <Label className="opacity-80">Your Location</Label>
+                    <Input
+                      placeholder={
+                        locationBn?.localAddress || "Enter Local Address"
+                      }
+                      onChange={(e) => {
+                        orderReducer({
+                          type: "location",
+                          payload: {
+                            localAddress: e.target.value,
+                          },
+                        });
+                      }}
+                    />
+                    <Location
+                      locationBn={locationBn || ""}
+                      className="grid grid-cols-3 gap-x-3"
+                      setLocation={orderReducer}
+                      location={location}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <SpinnerButton
+                      className="mx-auto my-2 w-full"
+                      onClick={mutate}
+                      name="Place Order"
+                      isLoading={isPending}
+                    />
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </div>
         </div>
       </div>
     </div>

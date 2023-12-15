@@ -19,7 +19,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex font-mono justify-between items-center px-1 py-1 md:py-3 md:px-2 sticky top-0 mb-10 bg-inherit z-20 shadow-lg">
+    <header className="flex justify-between items-center px-1 py-1 md:py-3 md:px-2 sticky top-0 mb-10 bg-inherit z-20 shadow-lg">
       <div className="">
         <Link href={"/"} className="text-xl">
           Home
