@@ -25,6 +25,7 @@ export function translateNumbers(str) {
     7: "৭",
     8: "৮",
     9: "৯",
+    ".": ".",
   };
   let translatedNumber = "";
   for (let val of str) {
