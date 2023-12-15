@@ -3,7 +3,7 @@ import Product from "./post.schema";
 import User from "./user.schema";
 import connectDB from "./mongoose";
 import translateToBangla from "@/helper/translation";
-const itemsPerPage = 6;
+const itemsPerPage = 2;
 
 export async function createPostModel(postData) {
   // const priceBn = await translateToBangla(postData.price);
@@ -87,24 +87,26 @@ export async function getUserPostsModel(id) {
   }
 }
 export async function fakeSearch(query) {
-  const res = await Product.find(...query);
+  const res = await Product.find({ ...query }).countDocuments();
   console.log(res, "query");
 }
-export async function getAllPostsModel(page) {
+export async function getAllPostsModel(query, page) {
   // Set the desired number of items per page
 
   // Calculate the total number of posts
-  const totalItems = await Product.countDocuments();
+  const totalItems = await Product.find({ ...query }).countDocuments();
+  console.log(totalItems);
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   // Calculate the pagination values for the given page
   const limit = itemsPerPage;
-  const skip = (page - 1) * itemsPerPage;
+  const skip = Math.max(0, (page - 1) * itemsPerPage);
+  console.log(skip);
 
   // Fetch the posts for the given page
-  const result = await Product.find()
+  const result = await Product.find({ ...query })
     .select("-updatedAt")
     .sort({ createdAt: -1 })
     .limit(limit)

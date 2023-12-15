@@ -1,29 +1,37 @@
-"use client"
-import { useRouter } from 'next/navigation';
-import styles from './page.module.css';
-
+"use client";
+import { useRouter, useSearchParams } from "next/navigation";
+import styles from "./page.module.css";
+import Link from "next/link";
+import { useCallback } from "react";
 
 const Pagination = ({ totalPages, currentPage }) => {
   const router = useRouter();
-  const handleClick = (pageNo) => {
+  const searchParams = useSearchParams();
 
+  const createQueryString = useCallback(
+    (name, value) => {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
 
-    router.push(`/?page=${pageNo}`);
-  }
-
+      return params.toString();
+    },
+    [searchParams]
+  );
   return (
     <div className="my-5">
-      <ul className={styles['pagination-list']}>
-        {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-          <li key={page}>
-            <a
-              className={page === currentPage ? styles.active : ''}
-              onClick={() => handleClick(page)}
-            >
-              {page}
-            </a>
-          </li>
-        ))}
+      <ul className={styles["pagination-list"]}>
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+          (page) => (
+            <li key={page}>
+              <Link
+                className={page === currentPage ? styles.active : ""}
+                href={`?${createQueryString("page", page)}`}
+              >
+                {page}
+              </Link>
+            </li>
+          )
+        )}
       </ul>
     </div>
   );

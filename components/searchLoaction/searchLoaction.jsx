@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import {
   Select,
   SelectValue,
@@ -9,6 +9,7 @@ import {
   SelectGroup,
   SelectItem,
 } from "@/components/ui/select";
+import { Button } from "../ui/button";
 const initialState = {
   divisions: [],
   division: "",
@@ -40,6 +41,18 @@ function stateReducer(state, action) {
   }
 }
 export default function SearchLocation({ setLocation, ...props }) {
+  const category = [
+    "ধান",
+    "গম",
+    "শাকসবজি",
+    "ফল",
+    "মাছ",
+    "হাঁস-মুরগি",
+    "গরু-ছাগল",
+    "মসলা",
+    "পাট",
+    "অন্যান্য",
+  ];
   const [state, dispatch] = useReducer(stateReducer, initialState);
   const fetchDivisions = async () => {
     const data = await axios
@@ -152,6 +165,27 @@ export default function SearchLocation({ setLocation, ...props }) {
               <SelectItem key={div._id} value={div._id}>
                 {div.upazillaNameBangla}
               </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+      <Select
+        required
+        onValueChange={(e) =>
+          setLocation({
+            type: "category",
+            payload: e,
+          })
+        }
+        defaultValue={category[0]}
+      >
+        <SelectTrigger id="framework">
+          <SelectValue placeholder={"Category"} />
+        </SelectTrigger>
+        <SelectContent position="popper">
+          <SelectGroup>
+            {category.map((cat) => (
+              <SelectItem value={cat}>{cat}</SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>
