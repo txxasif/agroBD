@@ -84,7 +84,9 @@ export function ProductDetails({ productId }) {
     queryFn: getUserDetails,
   });
   const handleQuantityChange = async (e) => {
-    const totalPrice = data.productData.price * Number(e.target.value);
+    const totalPrice = Math.round(
+      data.productData.price * Number(e.target.value)
+    );
     const totalPriceBn = translateNumbers(String(totalPrice));
     setTotalPrice(totalPriceBn);
     setQuantity(translateNumbers(String(e.target.value)));

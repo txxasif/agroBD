@@ -86,7 +86,10 @@ export async function getUserPostsModel(id) {
     return { status: false };
   }
 }
-
+export async function fakeSearch(query) {
+  const res = await Product.find(...query);
+  console.log(res, "query");
+}
 export async function getAllPostsModel(page) {
   // Set the desired number of items per page
 
