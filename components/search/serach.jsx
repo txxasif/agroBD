@@ -12,7 +12,7 @@ const initialSearchData = {
   division: "",
   district: "",
   upazilla: "",
-  category: "ধান",
+  category: "",
 };
 function searchReducer(state, action) {
   switch (action.type) {
@@ -40,9 +40,12 @@ export default function Search() {
     return url;
   };
   return (
-    <div className="flex  items-center justify-center">
+    <div className="flex  items-center justify-center  space-x-1">
       <SearchLocation className="flex space-x-1" setLocation={dispatch} />
-      <Link className="px-2 py-3" href={`/${query()}`}>
+      <Link
+        className=" px-2 py-2 rounded-sm bg-inherit border border-[#30499a]"
+        href={`/${query()}`}
+      >
         Search
       </Link>
     </div>

@@ -37,6 +37,7 @@ export const authOptions = {
           photo: user.photo,
           location: user.location,
           locationBn: user.locationBn,
+          role: user.role,
         },
       };
     },

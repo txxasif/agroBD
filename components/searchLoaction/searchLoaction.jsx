@@ -177,7 +177,6 @@ export default function SearchLocation({ setLocation, ...props }) {
             payload: e,
           })
         }
-        defaultValue={category[0]}
       >
         <SelectTrigger id="framework">
           <SelectValue placeholder={"Category"} />

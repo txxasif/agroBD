@@ -13,6 +13,7 @@ import { SpinnerButton } from "../ui/spinnerButton";
 import { signIn } from "next-auth/react";
 import toast, { Toaster } from "react-hot-toast";
 import { useSession } from "next-auth/react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const defaultValue = {
   name: "",
@@ -20,6 +21,7 @@ const defaultValue = {
   password: "",
   photo: null,
   phone: null,
+  role: "",
 };
 
 const initialLocationData = {
@@ -83,6 +85,14 @@ export default function SignUp() {
       email: form.email,
       password: form.password,
     };
+    if (form.role === "driver") {
+      await signIn("credentials", {
+        ...loginData,
+        redirect: true,
+        callbackUrl: "/driver/verification",
+      });
+      return;
+    }
     await signIn("credentials", {
       ...loginData,
       redirect: false,
@@ -167,6 +177,20 @@ export default function SignUp() {
           className="w-full border-gray-300 rounded-md"
           required
         />
+        <RadioGroup
+          onValueChange={(e) => setForm((prev) => ({ ...prev, role: e }))}
+          defaultValue="user"
+          className="flex"
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="user" id="r1" />
+            <Label htmlFor="option-one">User</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="driver" id="r2" />
+            <Label htmlFor="option-two">Driver</Label>
+          </div>
+        </RadioGroup>
         <SpinnerButton isLoading={isPending} name="Sign Up" type="submit" />
       </form>
       <Toaster />

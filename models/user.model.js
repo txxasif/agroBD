@@ -101,17 +101,7 @@ export async function getUserSettings(id) {
 }
 export async function setUserSettings(id, data) {
   const uId = new mongoose.Types.ObjectId(id);
-  // const response = await User.aggregate([
-  //   {
-  //     $match: { _id: uId },
-  //   },
-  //   {
-  //     $addFields: {
-  //       ...data,
-  //     },
-  //   },
-  // ]);
-  console.log(data, "noww");
+
   const division = await translateToBangla(data.location.division);
   const district = await translateToBangla(data.location.district);
   const upazilla = await translateToBangla(data.location.upazilla);
@@ -122,6 +112,5 @@ export async function setUserSettings(id, data) {
     { _id: uId },
     { $set: { ...newData } }
   );
-  console.log(response, "updated");
   return response;
 }
