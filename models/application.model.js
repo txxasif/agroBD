@@ -1,4 +1,5 @@
 import DriverApplication from "./application.schema";
+import connectDB from "./mongoose";
 
 export async function createNewDriverApplicationModel(data) {
   try {
@@ -11,6 +12,7 @@ export async function createNewDriverApplicationModel(data) {
   }
 }
 export async function showAllDriverApplications() {
+  await connectDB();
   console.log("hii");
   try {
     const data = await DriverApplication.find({ status: "pending" }).select(
@@ -18,10 +20,10 @@ export async function showAllDriverApplications() {
     );
     return data;
   } catch (errors) {
-    console.log(errors);
+    return [];
   }
 }
 export async function getApplicationById(id) {
   const res = await DriverApplication.find({ _id: id });
-  return res.json();
+  return res;
 }

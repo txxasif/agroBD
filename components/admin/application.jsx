@@ -31,7 +31,7 @@ async function Fake({ info }) {
     </div>
   );
 }
-export default function ApplicationList({ data }) {
+export async function ApplicationList({ data }) {
   console.log(data);
   return (
     <div className="flex space-x-2 flex-wrap">
