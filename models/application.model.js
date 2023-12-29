@@ -23,5 +23,5 @@ export async function showAllDriverApplications() {
 }
 export async function getApplicationById(id) {
   const res = await DriverApplication.find({ _id: id });
-  return res;
+  return res.json();
 }
