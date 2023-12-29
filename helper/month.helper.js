@@ -15,3 +15,11 @@ const months = {
 export function getMonthHelper(m) {
   return months[`${m}`];
 }
+export function dateToString(d) {
+  const date = new Date(d);
+  const day = date.getDate();
+  const month = getMonthHelper(date.getMonth());
+  const year = date.getFullYear();
+  const finalDate = `${day} ${month} ${year}`;
+  return finalDate;
+}

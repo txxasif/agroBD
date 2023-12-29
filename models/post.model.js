@@ -3,7 +3,7 @@ import Product from "./post.schema";
 import User from "./user.schema";
 import connectDB from "./mongoose";
 import translateToBangla from "@/helper/translation";
-const itemsPerPage = 2;
+const itemsPerPage = 10;
 
 export async function createPostModel(postData) {
   // const priceBn = await translateToBangla(postData.price);

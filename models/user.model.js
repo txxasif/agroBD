@@ -95,7 +95,7 @@ export async function addToCart(order) {
 }
 export async function getUserSettings(id) {
   const data = await User.findOne({ _id: id }).select(
-    "name email location phone locationBn"
+    "name email location phone photo locationBn"
   );
   return data;
 }

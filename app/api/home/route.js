@@ -23,6 +23,6 @@ export async function GET(req) {
   }
   await connectDB();
   const data = await getAllPostsModel(finalObj, page);
+  console.log(data);
   return NextResponse.json({ data }, { status: 200 });
 }
-// export const runtime = "edge";

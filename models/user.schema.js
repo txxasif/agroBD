@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     default: "user",
     required: true,
   },
+  verificationStatus: {
+    type: Boolean,
+    default: false,
+  },
   password: {
     type: String,
     required: true,

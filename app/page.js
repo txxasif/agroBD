@@ -4,6 +4,7 @@ import PostCard from "../components/postCard/postCard";
 
 export default async function Page({ searchParams }) {
   const page = searchParams.page || 1;
+
   const division = searchParams.division || "";
   const district = searchParams.district || "";
   const upazilla = searchParams.upazilla || "";
@@ -16,8 +17,6 @@ export default async function Page({ searchParams }) {
   )
     .then((res) => res.json())
     .then((res) => res.data);
-
-  console.log(data);
   return (
     <div className="h-screen  px-4 ">
       <Search />

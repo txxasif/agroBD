@@ -15,7 +15,7 @@ export default function AboutSection({ user, ...props }) {
           src={photo}
           width={320}
           height={177}
-          className="max-w-md max-h-md object-cover rounded-lg "
+          className="h-52  rounded-lg "
         />
         <div>
           <h1>{name}</h1>
