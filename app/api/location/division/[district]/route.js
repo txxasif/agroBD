@@ -3,7 +3,6 @@ import connectDB from "@/models/mongoose";
 import { NextResponse } from "next/server";
 export async function GET(req, { params }) {
   await connectDB();
-  console.log(params.district);
   const response = await getSpecificDivision(params.district);
   return NextResponse.json(
     {

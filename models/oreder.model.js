@@ -1,6 +1,7 @@
 import translateToBangla from "@/helper/translation";
 import Order from "./order.schema";
 import mongoose from "mongoose";
+const itemsPerPage = 20;
 export async function placeOrderModel(order) {
   let buyerLocationBn = {
     division: "",
@@ -84,4 +85,15 @@ export async function getReceivedOrderByUserId(id) {
 export async function acceptOrderById(id) {
   const res = await Order.updateOne({ _id: id }, { status: "accepted" });
   return res;
+}
+
+export async function allOrdersModel(query, page) {
+  const totalItems = await Order.find({ ...query }).countDocuments();
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const limit = itemsPerPage;
+  const skip = Math.max(0, (page - 1) * itemsPerPage);
+  const result = await Order.find({ ...query })
+    .limit(limit)
+    .skip(skip);
+  return { result, totalPages };
 }

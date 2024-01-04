@@ -35,7 +35,7 @@ export default function PostCard({ seller, post }) {
     router.push(`/product/${post._id}`);
   };
   return (
-    <div className="border max-w-xs m-2 px-3 py-2 shadow-lg">
+    <div className="border max-w-xs m-2 px-3 py-2 shadow-md hover:shadow-xl transition-shadow duration-300">
       <div className="relative">
         <Image
           className="w-full h-[200px] p- rounded-sm"

@@ -1,12 +1,9 @@
 "use client";
 import { useReducer, useState } from "react";
 import SearchLocation from "../searchLoaction/searchLoaction";
-import axios from "axios";
 import Link from "next/link";
-
-import queryFixer from "@/helper/serachHelper";
+import { queryFixer } from "@/helper/serachHelper";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { Button } from "../ui/button";
 
 const initialSearchData = {
   division: "",
@@ -30,9 +27,9 @@ function searchReducer(state, action) {
 }
 export default function Search() {
   const [state, dispatch] = useReducer(searchReducer, initialSearchData);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  // const router = useRouter();
+  // const pathname = usePathname();
+  // const searchParams = useSearchParams();
   const query = () => {
     const query = queryFixer(state);
     const url = `${query}&page=1`;

@@ -177,3 +177,11 @@ export async function setProductLocation() {
 
   return data;
 }
+
+export async function productDetailsModel(productId) {
+  await connectDB();
+  const data = await Product.findOne({ _id: productId }).select(
+    "category photo unit"
+  );
+  return data;
+}

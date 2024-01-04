@@ -1,10 +1,8 @@
 import {
   acceptApplicationAction,
   cancelApplicationAction,
-} from "@/action/server-action";
-import { Button } from "@/components/ui/button";
+} from "../../../action/server-action";
 import { SpinnerButtonServer } from "@/components/ui/server-button";
-import { SpinnerButton } from "@/components/ui/spinnerButton";
 import { dateToString } from "@/helper/month.helper";
 import axios from "axios";
 import Image from "next/image";

@@ -114,3 +114,12 @@ export async function setUserSettings(id, data) {
   );
   return response;
 }
+export async function getUsersPhoneNumber(buyer, seller) {
+  const { phone: buyerPhone } = await User.findOne({ _id: buyer }).select(
+    "phone"
+  );
+  const { phone: sellerPhone } = await User.findOne({ _id: seller }).select(
+    "phone"
+  );
+  return { buyerPhone, sellerPhone };
+}
