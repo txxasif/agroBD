@@ -26,7 +26,7 @@ const Pagination = ({ totalPages, currentPage }) => {
     [searchParams]
   );
   return (
-    <div className="my-5">
+    <div className="fixed bottom-2 left-[50%]">
       <ul className={styles["pagination-list"]}>
         {Array.from({ length: totalPages }, (_, index) => index + 1).map(
           (page) => (

@@ -3,7 +3,7 @@ import Product from "./post.schema";
 import User from "./user.schema";
 import connectDB from "./mongoose";
 import translateToBangla from "@/helper/translation";
-const itemsPerPage = 10;
+const itemsPerPage = 1;
 
 export async function createPostModel(postData) {
   // const priceBn = await translateToBangla(postData.price);
@@ -183,5 +183,6 @@ export async function productDetailsModel(productId) {
   const data = await Product.findOne({ _id: productId }).select(
     "category photo unit"
   );
+  console.log(data);
   return data;
 }

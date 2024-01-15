@@ -17,9 +17,12 @@ export function getMonthHelper(m) {
 }
 export function dateToString(d) {
   const date = new Date(d);
+  const m = date.getMonth() + 1;
+  console.log(date.getMonth() + 1);
   const day = date.getDate();
-  const month = getMonthHelper(date.getMonth());
+  const month = getMonthHelper(date.getMonth() + 1);
   const year = date.getFullYear();
   const finalDate = `${day} ${month} ${year}`;
+  console.log(finalDate);
   return finalDate;
 }

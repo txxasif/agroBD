@@ -20,7 +20,6 @@ export default async function DriverHomePage({ searchParams }) {
   )
     .then((res) => res.json())
     .then((res) => res.data);
-  console.log(data.result);
   return (
     <main className="container">
       <div className="flex justify-center">

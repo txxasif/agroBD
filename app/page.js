@@ -22,9 +22,7 @@ export default async function Page({ searchParams }) {
       <Search />
       <div className="flex flex-wrap gap-5 ">
         {data?.postPopulate.map((user) => {
-          return (
-            <PostCard key={user._id} seller={user.sellerData} post={user} />
-          );
+          return <PostCard key={user._id} post={user} />;
         })}
       </div>
       <Pagination totalPages={data?.totalPages} currentPage={page} />

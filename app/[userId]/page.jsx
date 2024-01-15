@@ -2,10 +2,11 @@ import { getServerSession } from "next-auth";
 import Profile from "@/components/profile/profile";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import AnotherProfile from "@/components/profile/anotherProile";
 export default async function Page({ params }) {
   const session = await getServerSession(authOptions);
   if (!session) {
-    return <h1>Loading</h1>;
+    redirect("/login");
   }
   const userData = session.user;
   const uId = params.userId;
@@ -14,14 +15,11 @@ export default async function Page({ params }) {
 
   return (
     <main className="px-32 py-9">
-      {isMyOwnProfile ? <Profile user={userData} /> : <AnotherProfile />}
+      {isMyOwnProfile ? (
+        <Profile user={userData} />
+      ) : (
+        <AnotherProfile uId={uId} />
+      )}
     </main>
-  );
-}
-function AnotherProfile() {
-  return (
-    <div>
-      <h1>Another Profile</h1>
-    </div>
   );
 }

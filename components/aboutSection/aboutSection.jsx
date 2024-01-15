@@ -1,7 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { EmailSvg } from "@/icons/icons";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
 export default function AboutSection({ user, ...props }) {

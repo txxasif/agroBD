@@ -29,10 +29,12 @@ import { ProductSkeleton } from "@/components/skeleton/product";
 import { Label } from "../ui/label";
 import toast from "react-hot-toast";
 import translateToBangla, { translateNumbers } from "@/helper/translation";
-import { getMonthHelper } from "@/helper/month.helper";
+import { dateToString, getMonthHelper } from "@/helper/month.helper";
 import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"], });
-
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
 
 const initialData = {
   buyerLocation: {
@@ -73,11 +75,7 @@ export function ProductDetails({ productId }) {
     const { userDetails: userData, productDetails: productData } = await axios
       .get(productUrl)
       .then((res) => res.data.data[0]);
-    const date = new Date(productData.createdAt);
-    const day = date.getDate();
-    const month = getMonthHelper(date.getMonth());
-    const year = date.getFullYear();
-    const finalDate = `${day} ${month} ${year}`;
+    const finalDate = dateToString(productData.createdAt);
     productData["createdAt"] = finalDate;
     return { userData, productData };
   };
@@ -95,7 +93,6 @@ export function ProductDetails({ productId }) {
     setTotalPrice(totalPriceBn);
     setQuantity(translateNumbers(String(e.target.value)));
 
-    console.log(totalPrice);
     orderReducer({
       type: "quantity",
       payload: Number(e.target.value),
@@ -183,9 +180,13 @@ export function ProductDetails({ productId }) {
           <div className="flex flex-col">
             {/*User Details */}
             <div className="flex items-centre mb-2 justify-centre gap-2">
-                <p className="bg-indigo-700 w-fit px-2 py-1 text-white rounded-md text-sm">Category</p>
-                <h1 className="font-medium text-lg">{data.productData.category}</h1>
-              </div>
+              <p className="bg-indigo-700 w-fit px-2 py-1 text-white rounded-md text-sm">
+                Category
+              </p>
+              <h1 className="font-medium text-lg">
+                {data.productData.category}
+              </h1>
+            </div>
             <div>
               <Link
                 className="text-xl font-medium text-gray-500"
@@ -205,21 +206,25 @@ export function ProductDetails({ productId }) {
             {/* Product Details */}
             <div className="flex-grow">
               <h1 className="py-4">{data.productData.description}</h1>
-              
+
               <div className="flex flex-col gap-4 md:flex-row md:justify-between py-4">
                 <div className="flex items-center gap-2">
-                  <p className="bg-green-700 text-white px-2 text-sm py-1 rounded-md w-fit">Price</p>
+                  <p className="bg-green-700 text-white px-2 text-sm py-1 rounded-md w-fit">
+                    Price
+                  </p>
                   <p className="font-medium text-lg">
-                    {data.productData.priceBn} ৳ /{" "}
-                    {data.productData.unit}
+                    {data.productData.priceBn} ৳ / {data.productData.unit}
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <p className="bg-orange-600 text-white px-2 text-sm py-1 rounded-md w-fit">Available</p>
-                  <p className="font-medium text-lg">{data.productData.quantityBn} {data.productData.unit}</p>
+                  <p className="bg-orange-600 text-white px-2 text-sm py-1 rounded-md w-fit">
+                    Available
+                  </p>
+                  <p className="font-medium text-lg">
+                    {data.productData.quantityBn} {data.productData.unit}
+                  </p>
                 </div>
               </div>
-              
             </div>
             {/* Order */}
             <div className="py-4 flex items-center justify-center">
@@ -231,8 +236,8 @@ export function ProductDetails({ productId }) {
                   <DialogHeader>
                     <DialogTitle>Review Product</DialogTitle>
                     <DialogDescription>
-                      Please make sure you give the correct location before placing
-                      your order.
+                      Please make sure you give the correct location before
+                      placing your order.
                     </DialogDescription>
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
@@ -243,7 +248,8 @@ export function ProductDetails({ productId }) {
                     />
                     <div className="flex justify-between">
                       <h1>
-                        <p>Quantity:</p> {`${quantityBn} ${data.productData.unit}`}
+                        <p>Quantity:</p>{" "}
+                        {`${quantityBn} ${data.productData.unit}`}
                       </h1>
                       <h1>
                         <p>Total Price :</p> {`${totalPriceBn} টাকা`}

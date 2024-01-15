@@ -95,5 +95,6 @@ export async function allOrdersModel(query, page) {
   const result = await Order.find({ ...query })
     .limit(limit)
     .skip(skip);
+  console.log(result);
   return { result, totalPages };
 }
